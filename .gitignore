@@ -1,7 +1,7 @@
-# The whole .idea folder
+# The whole .idea folder to be not be on github
 .idea/
 # Default ignored files
 /shelf/
-/workspace.xml
+/.idea/workspace.xml
 # Editor-based HTTP Client requests
 /httpRequests/

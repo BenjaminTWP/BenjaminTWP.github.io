@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Homepage</title>
+    <title>BenjaminTWP</title>
     <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/global.js"></script>
 </head>
 <body class="visual-framework">
 
+
 <header>
-    <h1>Benjamin's Implementation of Algorithms</h1>
+    <h1>My Implementation of Algorithms</h1>
     <nav>
         <ul>
-            <li><a aria-disabled="true" href="">Home</a></li>
+            <li><a aria-disabled="true" href="javascript:void(0)" onmouseover="this.style.cursor='default';"><u>Home</u></a></li>
             <li><a href="/pages/about_page.html">About</a></li>
-            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 </header>
+
+
 <main>
     <section id="home">
         <h2>Home</h2>
@@ -32,9 +35,16 @@
         <p>This is the contact section.</p>
     </section>
 </main>
+
+
 <footer>
-    <p>&copy; 2024 </p>
+    <p id="footer_last_updated"></p>
 </footer>
+
+
+<script>
+    document.getElementById('footer_last_updated').innerText = "Last updated: " + last_update;
+</script>
 <script src="scripts/main.js"></script>
 </body>
 </html>

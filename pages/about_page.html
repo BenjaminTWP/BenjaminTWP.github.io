@@ -5,25 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me</title>
     <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/global.js"></script>
 </head>
 <body class="visual-framework">
+
+
 <header>
-    <h1> Who is Benjamin?</h1>
     <nav>
         <ul>
             <li><a href="/index.html">Home</a></li>
-            <li><a aria-disabled="true" href="" class="nav-link">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a onmouseover="this.style.cursor='default';" href="javascript:void(0)" class="nav-link"><u>About Me</u></a></li>
         </ul>
     </nav>
 </header>
+
+
 <main>
-
-
+    <h2>Benjamin Pettersson</h2>
+    <p>Civil Engineering Student</p>
+    <p>B.Sc. In Computer Science & Engineering</p>
+    <p>M.Sc. Data Science & AI (ongoing)</p>
 </main>
 
+
 <footer>
-    <p>&copy; 2024 </p>
+    <p id="footer_last_updated"></p>
 </footer>
+
+
+<script>
+    document.getElementById('footer_last_updated').innerText = "Last updated: " + last_update;
+</script>
 </body>
 </html>

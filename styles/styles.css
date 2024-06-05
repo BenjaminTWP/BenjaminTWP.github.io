@@ -1,12 +1,9 @@
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #4CAF50;
-    color: white;
     padding: 1em;
     text-align: center;
 }
@@ -23,7 +20,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: #000000;
     text-decoration: none;
 }
 
@@ -31,9 +28,14 @@ main {
     padding: 1em;
 }
 
+.visual-framework{
+    background-image: url("images/background_theme.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: "Georgia", serif;
+}
+
 footer {
-    background-color: #8dc68f;
-    color: white;
     text-align: center;
     padding: 1em;
     position: fixed;

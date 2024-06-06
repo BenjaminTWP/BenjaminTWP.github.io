@@ -30,7 +30,7 @@ main {
 
 .visual-framework{
     background-color: aqua;
-    background-image: url("/styles/images/background_theme.jpg");
+    background-image: url("/styles/images/background_theme_small.jpg");
     background-size: cover;
     background-attachment: fixed;
     font-family: "Georgia", serif;
@@ -49,4 +49,9 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
+}
+
+.side-by-side{
+    display: inline-block;
+    margin-right: 10px;
 }

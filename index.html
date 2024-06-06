@@ -15,8 +15,8 @@
     <h1>My Implementation of Algorithms</h1>
     <nav>
         <ul>
-            <li><a aria-disabled="true" href="javascript:void(0)" onmouseover="this.style.cursor='default';"><u>Home</u></a></li>
-            <li><a href="/pages/about_page.html">About</a></li>
+            <li><a aria-disabled="true" href="javascript:void(0)" onmouseover="this.style.cursor='default';">Home</a></li>
+            <li><a href="/pages/about_page.html"><u>About</u></a></li>
         </ul>
     </nav>
 </header>
@@ -39,12 +39,13 @@
 
 
 <footer>
-    <p id="footer_last_updated"></p>
+    <p class="side-by-side" id="footer_last_updated"></p><p class="side-by-side"><a href="https://github.com/BenjaminTWP/BenjaminTWP.github.io/activity" rel="noopener"  target="_blank">Github Activity</a>
+</p>
 </footer>
 
 
 <script>
-    document.getElementById('footer_last_updated').innerText = "Last updated: " + last_update;
+    document.getElementById('footer_last_updated').innerText = "Last updated " + last_update + ".";
 </script>
 <script src="scripts/main.js"></script>
 </body>

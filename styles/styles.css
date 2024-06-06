@@ -49,3 +49,8 @@ footer {
     width: 100%;
     bottom: 0;
 }
+
+.side-by-side{
+    display: inline-block;
+    margin-right: 10px;
+}

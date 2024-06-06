@@ -29,7 +29,7 @@ main {
 }
 
 .visual-framework{
-    background-image: url("/styles/images/background_theme.jpg");
+    background-image: url("/styles/images/background_theme_small.jpg");
     background-size: cover;
     background-attachment: fixed;
     font-family: "Georgia", serif;

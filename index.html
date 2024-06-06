@@ -6,6 +6,7 @@
     <title>BenjaminTWP</title>
     <link rel="stylesheet" href="/styles/styles.css">
     <link rel="stylesheet" href="/styles/modal_panel.css">
+    <link rel="stylesheet" href="/styles/list_visualization.css">
     <script src="/global.js"></script>
 </head>
 <body class="visual-framework">
@@ -33,7 +34,9 @@
                      <p> Graph Window</p>
                   </div>
                   <div id="list_window" class="content-section hidden">
-                     <p> List window</p>
+
+                      <section class="list-visualizer"></section>
+                      <button onclick="create_list_view(20)"> Randomize</button>
                   </div>
                   <div id="matrix_window" class="content-section hidden">
                       <p> Matrix window</p>

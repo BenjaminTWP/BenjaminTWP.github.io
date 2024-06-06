@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    justify-content: center;
 }
 
 header {
@@ -29,7 +30,7 @@ main {
 }
 
 .visual-framework{
-    background-color: aqua;
+    background-color: #ffc9b1;
     background-image: url("/styles/images/background_theme_small.jpg");
     background-size: cover;
     background-attachment: fixed;
@@ -54,4 +55,5 @@ footer {
 .side-by-side{
     display: inline-block;
     margin-right: 10px;
+
 }

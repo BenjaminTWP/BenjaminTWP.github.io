@@ -10,7 +10,6 @@
 </head>
 <body class="visual-framework">
 
-
 <header>
     <h1>My Implementation of Algorithms</h1>
     <nav>
@@ -21,22 +20,29 @@
     </nav>
 </header>
 
-
 <main>
 
-    <div class="modal">
         <div class="modal-content">
-
-        <span> </span>
-        <p> Just any text</p>
-
+            <div class="tabs-container">
+                <button onclick="showContent('graph_window')" id="left-module-tab" class="module-tab">Graph</button>
+                <button onclick="showContent('list_window')" class="module-tab">List</button>
+                <button onclick="showContent('matrix_window')" id="right-module-tab" class="module-tab" >Matrix</button>
+            </div>
+            <div class="content">
+                  <div id="graph_window" class="content-section">
+                     <p> Graph Window</p>
+                  </div>
+                  <div id="list_window" class="content-section hidden">
+                     <p> List window</p>
+                  </div>
+                  <div id="matrix_window" class="content-section hidden">
+                      <p> Matrix window</p>
+                  </div>
+            </div>
         </div>
-    </div>
-
 
 
 </main>
-
 
 <footer>
     <p class="side-by-side" id="footer_last_updated"></p><p class="side-by-side"><a href="https://github.com/BenjaminTWP/BenjaminTWP.github.io/activity" rel="noopener"  target="_blank">Github Activity</a>
@@ -46,6 +52,13 @@
 
 <script>
     document.getElementById('footer_last_updated').innerText = "Last updated " + last_update + ".";
+
+    function showContent(section) {
+        document.querySelectorAll('.content-section').forEach(function(content) {
+            content.classList.add('hidden');
+        });
+        document.getElementById(section).classList.remove('hidden');
+    }
 </script>
 <script src="scripts/main.js"></script>
 </body>

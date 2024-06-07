@@ -39,15 +39,22 @@
                       <section class="list-visualizer"></section>
                       <button onclick="new_random_bars()"> Randomize</button>
                       <button onclick="sort_bars()">Sort</button>
-                      <select>
-                          <option>Selection Sort</option>
+                      <select id="sorting_algorithms">
+                          <option value="">Selection Sort</option>
                           <option>QuickSort</option>
                       </select>
                       <select id="visualization_speed" name="Visualization speed">
                           <option value = "0">No delay</option>
-                          <option value = "0.96">Slow</option>
-                          <option value = "0.48">Medium Sort</option>
-                          <option value = "0.24">Fast</option>
+                          <option value = "1">Slow</option>
+                          <option value = "0.5">Medium</option>
+                          <option value = "0.25">Fast</option>
+                      </select>
+                      <select>
+                          <option value="">Linear Search</option>
+                          <option>Binary Search</option>
+                      </select>
+                      <select id="search_value">
+
                       </select>
                   </div>
                   <div id="matrix_window" class="content-section hidden">

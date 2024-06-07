@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('JavaScript is running!');
     // Add your JavaScript code here
-    generate_random_bars(15)
+    generate_random_bars(15);
+    populate_searchable_values();
 });
 
 function generate_random_bars(n_bars){
@@ -25,6 +26,15 @@ function generate_random_bars(n_bars){
     }
 }
 
+function populate_searchable_values() {
+    let html_selector = document.getElementById("search_value");
+    for (let index = 1; index <= 30; index++) {
+        let option = document.createElement("option");
+        option.value = index.toString();
+        option.textContent = index.toString();
+        html_selector.appendChild(option);
+    }
+}
 
 
 

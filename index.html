@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/styles/modal_panel.css">
     <link rel="stylesheet" href="/styles/list_visualization.css">
     <script src="/global.js"></script>
+    <script src="/scripts/sorting/selection.js"></script>
 </head>
 <body class="visual-framework">
 
@@ -36,7 +37,8 @@
                   <div id="list_window" class="content-section hidden">
 
                       <section class="list-visualizer"></section>
-                      <button onclick="create_list_view(20)"> Randomize</button>
+                      <button onclick="new_random_bars()"> Randomize</button>
+                      <button onclick="sort_bars()">Sort</button>
                   </div>
                   <div id="matrix_window" class="content-section hidden">
                       <p> Matrix window</p>
@@ -52,15 +54,29 @@
 </p>
 </footer>
 
-
+<script>document.getElementById('footer_last_updated').innerText = "Last updated " + last_update + ".";</script>
 <script>
-    document.getElementById('footer_last_updated').innerText = "Last updated " + last_update + ".";
 
+    let ongoing_list_action = false;
     function showContent(section) {
         document.querySelectorAll('.content-section').forEach(function(content) {
             content.classList.add('hidden');
         });
         document.getElementById(section).classList.remove('hidden');
+    }
+
+    function new_random_bars(){
+        if(!ongoing_list_action){
+            generate_random_bars(20)
+        }
+    }
+
+    async function sort_bars() {
+        if (!ongoing_list_action) {
+            ongoing_list_action = true;
+            await selection_sort(0.5);
+            ongoing_list_action = false;
+        }
     }
 </script>
 <script src="scripts/main.js"></script>

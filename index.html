@@ -39,6 +39,16 @@
                       <section class="list-visualizer"></section>
                       <button onclick="new_random_bars()"> Randomize</button>
                       <button onclick="sort_bars()">Sort</button>
+                      <select>
+                          <option>Selection Sort</option>
+                          <option>QuickSort</option>
+                      </select>
+                      <select id="visualization_speed" name="Visualization speed">
+                          <option value = "0">No delay</option>
+                          <option value = "0.96">Slow</option>
+                          <option value = "0.48">Medium Sort</option>
+                          <option value = "0.24">Fast</option>
+                      </select>
                   </div>
                   <div id="matrix_window" class="content-section hidden">
                       <p> Matrix window</p>
@@ -67,14 +77,15 @@
 
     function new_random_bars(){
         if(!ongoing_list_action){
-            generate_random_bars(20)
+            generate_random_bars(15)
         }
     }
 
     async function sort_bars() {
         if (!ongoing_list_action) {
             ongoing_list_action = true;
-            await selection_sort(0.5);
+            let delay_factor = document.getElementById("visualization_speed").value
+            await selection_sort(delay_factor);
             ongoing_list_action = false;
         }
     }

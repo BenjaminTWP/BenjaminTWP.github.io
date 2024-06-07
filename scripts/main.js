@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('JavaScript is running!');
     // Add your JavaScript code here
-    generate_random_bars(20)
+    generate_random_bars(15)
 });
 
 function generate_random_bars(n_bars){
@@ -10,7 +10,7 @@ function generate_random_bars(n_bars){
 
     for (let i = 0; i< n_bars; i++){
 
-        const value = Math.floor(Math.random() * 50) + 1;
+        const value = Math.floor(Math.random() * 30) + 1;
 
         const bar_holder_div = document.createElement("div");
         bar_holder_div.classList.add("bar");

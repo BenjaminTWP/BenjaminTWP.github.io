@@ -26,6 +26,15 @@ function generate_random_bars(){
     }
 }
 
+function make_all_bars_white(){
+    const container = document.querySelector(".list-visualizer");
+    const bars = Array.from(container.children);
+
+    for (let i = 0; i < bars.length; i++){
+        bars[i].style.backgroundColor = "white";
+    }
+}
+
 function populate_searchable_values() {
     let html_selector = document.getElementById("search_value");
     for (let index = 1; index <= 30; index++) {

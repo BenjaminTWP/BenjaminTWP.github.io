@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/styles/list_visualization.css" />
     <script src="/global.js"></script>
     <script src="/scripts/sorting/selection.js"></script>
+    <script src="/scripts/search/linear.js"></script>
 </head>
 <body class="visual-framework">
 <header>
@@ -43,23 +44,23 @@
                             <label for="sorting_algorithms">Sorting Algorithm</label>
                             <select id="sorting_algorithms" class="select-customization">
                                 <option style="text-align: center" value="">Selection Sort</option>
-                                <option style="text-align: center" >QuickSort</option>
+                                <option style="text-align: center" >QuickSort not implemented</option>
                             </select>
                         </div>
                         <div class="input-group">
                             <label for="visualization_speed">Visualization Speed</label>
                             <select id="visualization_speed" name="Visualization speed" class="select-customization">
                                 <option style="text-align: center" value="0">No delay</option>
-                                <option style="text-align: center"value="1">Slow</option>
+                                <option style="text-align: center" value="1">Slow</option>
                                 <option style="text-align: center" value="0.5">Medium</option>
                                 <option style="text-align: center" value="0.25">Fast</option>
                             </select>
                         </div>
                         <div class="input-group">
-                            <label>Search Algorithm</label>
-                            <select class="select-customization">
+                            <label for="search_algorithm">Search Algorithm</label>
+                            <select id="search_algorithm" class="select-customization">
                                 <option value="" style="text-align: center">Linear Search</option>
-                                <option style="text-align: center" >Binary Search</option>
+                                <option style="text-align: center" >Binary Search not implemented </option>
                             </select>
                         </div>
                         <div class="input-group">
@@ -71,7 +72,7 @@
                         <label class="titled-sections">Actions</label>
                         <button class="action-button" onclick="new_random_bars()">Randomize</button>
                         <button class="action-button" onclick="sort_bars()">Sort</button>
-                        <button class="action-button">Search</button>
+                        <button class="action-button" onclick="search_bars()">Search</button>
                     </div>
                 </div>
             </div>
@@ -84,7 +85,7 @@
 
 <footer>
     <p class="side-by-side" id="footer_last_updated"></p>
-    <p class="side-by-side"><a href="https://github.com/BenjaminTWP/BenjaminTWP.github.io/activity" rel="noopener" target="_blank">Github Activity</a></p>
+    <p class="side-by-side"><a href="https://github.com/BenjaminTWP/BenjaminTWP.github.io/activity" rel="noopener" target="_blank">GitHub Activity</a></p>
 </footer>
 
 <script>
@@ -106,10 +107,20 @@
     }
 
     async function sort_bars() {
+
         if (!ongoing_list_action) {
+            make_all_bars_white()
             ongoing_list_action = true;
             let delay_factor = document.getElementById("visualization_speed").value;
             await selection_sort(delay_factor);
+            ongoing_list_action = false;
+        }
+    }
+    async function search_bars(){
+        if (!ongoing_list_action) {
+            ongoing_list_action = true;
+            let delay_factor = document.getElementById("visualization_speed").value;
+            await linear_search(delay_factor,document.getElementById("search_value").value);
             ongoing_list_action = false;
         }
     }

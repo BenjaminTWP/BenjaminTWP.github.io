@@ -26,9 +26,8 @@
     padding: 10px 0;
     border: 1px solid #b4b4b4;
     background-color: #ffffff;
-
-    box-sizing: border-box;
     cursor: pointer;
+    box-sizing: border-box;
     font-family: "Georgia", serif;
     font-weight: bold;
     font-size: 16px;

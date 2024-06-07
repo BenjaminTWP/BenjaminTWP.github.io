@@ -1,97 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BenjaminTWP</title>
-    <link rel="stylesheet" href="/styles/styles.css">
-    <link rel="stylesheet" href="/styles/modal_panel.css">
-    <link rel="stylesheet" href="/styles/list_visualization.css">
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <link rel="stylesheet" href="/styles/modal_panel.css" />
+    <link rel="stylesheet" href="/styles/list_visualization.css" />
     <script src="/global.js"></script>
     <script src="/scripts/sorting/selection.js"></script>
 </head>
 <body class="visual-framework">
-
 <header>
     <h1>My Implementation of Algorithms</h1>
     <nav>
         <ul>
             <li><a aria-disabled="true" href="javascript:void(0)" onmouseover="this.style.cursor='default';">Home</a></li>
-            <li><a href="/pages/about_page.html"><u>About</u></a></li>
+            <li>
+                <a href="/pages/about_page.html"><u>About</u></a>
+            </li>
         </ul>
     </nav>
 </header>
 
 <main>
-
-        <div class="modal-content">
-            <div class="tabs-container">
-                <button onclick="showContent('graph_window')" id="left-module-tab" class="module-tab">Graph</button>
-                <button onclick="showContent('list_window')" class="module-tab">List</button>
-                <button onclick="showContent('matrix_window')" id="right-module-tab" class="module-tab" >Matrix</button>
+    <div class="modal-content">
+        <div class="tabs-container">
+            <button onclick="showContent('graph_window')" id="left-module-tab" class="module-tab">Graph</button>
+            <button onclick="showContent('list_window')" class="module-tab">List</button>
+            <button onclick="showContent('matrix_window')" id="right-module-tab" class="module-tab">Matrix</button>
+        </div>
+        <div class="content">
+            <div id="graph_window" class="content-section">
+                <p>Graph Window</p>
             </div>
-            <div class="content">
-                  <div id="graph_window" class="content-section">
-                     <p> Graph Window</p>
-                  </div>
-                  <div id="list_window" class="content-section hidden">
-
-                      <section class="list-visualizer"></section>
-                      <button onclick="new_random_bars()"> Randomize</button>
-                      <button onclick="sort_bars()">Sort</button>
-                      <select id="sorting_algorithms">
-                          <option value="">Selection Sort</option>
-                          <option>QuickSort</option>
-                      </select>
-                      <select id="visualization_speed" name="Visualization speed">
-                          <option value = "0">No delay</option>
-                          <option value = "1">Slow</option>
-                          <option value = "0.5">Medium</option>
-                          <option value = "0.25">Fast</option>
-                      </select>
-                      <select>
-                          <option value="">Linear Search</option>
-                          <option>Binary Search</option>
-                      </select>
-                      <select id="search_value">
-
-                      </select>
-                  </div>
-                  <div id="matrix_window" class="content-section hidden">
-                      <p> Matrix window</p>
-                  </div>
+            <div id="list_window" class="content-section hidden">
+                <section class="list-visualizer"></section>
+                <div class="row">
+                    <div class="column">
+                        <label class="titled-sections">Settings</label><br />
+                        <div class="input-group">
+                            <label for="sorting_algorithms">Sorting Algorithm</label>
+                            <select id="sorting_algorithms" class="select-customization">
+                                <option style="text-align: center" value="">Selection Sort</option>
+                                <option style="text-align: center" >QuickSort</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="visualization_speed">Visualization Speed</label>
+                            <select id="visualization_speed" name="Visualization speed" class="select-customization">
+                                <option style="text-align: center" value="0">No delay</option>
+                                <option style="text-align: center"value="1">Slow</option>
+                                <option style="text-align: center" value="0.5">Medium</option>
+                                <option style="text-align: center" value="0.25">Fast</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Search Algorithm</label>
+                            <select class="select-customization">
+                                <option value="" style="text-align: center">Linear Search</option>
+                                <option style="text-align: center" >Binary Search</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="search_value">Search for</label>
+                            <select id="search_value" class="select-customization"></select>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <label class="titled-sections">Actions</label>
+                        <button class="action-button" onclick="new_random_bars()">Randomize</button>
+                        <button class="action-button" onclick="sort_bars()">Sort</button>
+                        <button class="action-button">Search</button>
+                    </div>
+                </div>
+            </div>
+            <div id="matrix_window" class="content-section hidden">
+                <p>Matrix window</p>
             </div>
         </div>
-
-
+    </div>
 </main>
 
 <footer>
-    <p class="side-by-side" id="footer_last_updated"></p><p class="side-by-side"><a href="https://github.com/BenjaminTWP/BenjaminTWP.github.io/activity" rel="noopener"  target="_blank">Github Activity</a>
-</p>
+    <p class="side-by-side" id="footer_last_updated"></p>
+    <p class="side-by-side"><a href="https://github.com/BenjaminTWP/BenjaminTWP.github.io/activity" rel="noopener" target="_blank">Github Activity</a></p>
 </footer>
 
-<script>document.getElementById('footer_last_updated').innerText = "Last updated " + last_update + ".";</script>
 <script>
-
+    document.getElementById("footer_last_updated").innerText = "Last updated " + last_update + ".";
+</script>
+<script>
     let ongoing_list_action = false;
     function showContent(section) {
-        document.querySelectorAll('.content-section').forEach(function(content) {
-            content.classList.add('hidden');
+        document.querySelectorAll(".content-section").forEach(function (content) {
+            content.classList.add("hidden");
         });
-        document.getElementById(section).classList.remove('hidden');
+        document.getElementById(section).classList.remove("hidden");
     }
 
-    function new_random_bars(){
-        if(!ongoing_list_action){
-            generate_random_bars(15)
+    function new_random_bars() {
+        if (!ongoing_list_action) {
+            generate_random_bars();
         }
     }
 
     async function sort_bars() {
         if (!ongoing_list_action) {
             ongoing_list_action = true;
-            let delay_factor = document.getElementById("visualization_speed").value
+            let delay_factor = document.getElementById("visualization_speed").value;
             await selection_sort(delay_factor);
             ongoing_list_action = false;
         }

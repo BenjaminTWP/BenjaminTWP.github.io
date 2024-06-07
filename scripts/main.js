@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('JavaScript is running!');
     // Add your JavaScript code here
-    generate_random_bars(15);
+    generate_random_bars();
     populate_searchable_values();
 });
 
-function generate_random_bars(n_bars){
+function generate_random_bars(){
     let container = document.querySelector(".list-visualizer");
     container.innerHTML = '';
 
-    for (let i = 0; i< n_bars; i++){
+    for (let i = 0; i< 15; i++){
 
         const value = Math.floor(Math.random() * 30) + 1;
 
@@ -32,6 +32,7 @@ function populate_searchable_values() {
         let option = document.createElement("option");
         option.value = index.toString();
         option.textContent = index.toString();
+        option.style.textAlign = "center";
         html_selector.appendChild(option);
     }
 }

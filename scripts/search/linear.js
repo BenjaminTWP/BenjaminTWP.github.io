@@ -1,12 +1,17 @@
 /* Well of course it is not going to be anything special */
 
-async function linear_search(wait_factor, search_value){
+async function linear_search(search_value){
+    const select = document.getElementById("visualization_speed");
+    const wait_factor = select.options[select.selectedIndex].value;
     const container = document.querySelector(".list-visualizer");
     const bars = Array.from(container.children);
+
     let found_value = false;
 
     for (let i = 0; i < bars.length; i++){
-        let bar_value = parseInt(bars[i].style.height) / 3
+        let bar_value = parseInt(bars[i].getAttribute("data_value"))
+        console.log("bar_value")
+        console.log(search_value)
 
         bars[i].style.backgroundColor = "FireBrick";
 
@@ -25,7 +30,7 @@ async function linear_search(wait_factor, search_value){
 
     }
     if (found_value === true){
-        return true;
+        return found_value;
     }
 }
 

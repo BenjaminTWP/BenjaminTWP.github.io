@@ -111,16 +111,14 @@
         if (!ongoing_list_action) {
             make_all_bars_white()
             ongoing_list_action = true;
-            let delay_factor = document.getElementById("visualization_speed").value;
-            await selection_sort(delay_factor);
+            await selection_sort();
             ongoing_list_action = false;
         }
     }
     async function search_bars(){
         if (!ongoing_list_action) {
             ongoing_list_action = true;
-            let delay_factor = document.getElementById("visualization_speed").value;
-            await linear_search(delay_factor,document.getElementById("search_value").value);
+            await linear_search(document.getElementById("search_value").value);
             ongoing_list_action = false;
         }
     }

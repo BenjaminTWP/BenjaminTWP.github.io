@@ -16,6 +16,8 @@ function generate_random_bars(){
         const bar_holder_div = document.createElement("div");
         bar_holder_div.classList.add("bar");
         bar_holder_div.style.height = `${value * 3}px`;
+        bar_holder_div.setAttribute("data_value", parseInt(value))
+        console.log(bar_holder_div.getAttribute("data_value"));
 
         const barLabel = document.createElement("label");
         barLabel.classList.add("bar_id");

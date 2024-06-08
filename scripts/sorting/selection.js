@@ -1,15 +1,17 @@
 /* Needs to be async in order to wait*/
-async  function selection_sort(wait_factor) {
+async  function selection_sort() {
+    const select = document.getElementById("visualization_speed");
+    const wait_factor = select.options[select.selectedIndex].value;
     let container = document.querySelector(".list-visualizer");
     let bars = Array.from(container.children);
 
     for (let i = 0; i < bars.length; i++) {
         let min_index = i;
-        let min_value = parseInt(bars[i].style.height);
+        let min_value = parseInt(bars[i].getAttribute("data_value"));
         bars[i].style.backgroundColor = "FireBrick";
 
         for (let j = i + 1; j < bars.length; j++) {
-            let current_value = parseInt(bars[j].style.height);
+            let current_value = parseInt(bars[j].getAttribute("data_value"));
             if (current_value < min_value) {
                 min_value = current_value;
                 min_index = j;

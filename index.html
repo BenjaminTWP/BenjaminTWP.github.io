@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/styles/styles.css" />
     <link rel="stylesheet" href="/styles/modal_panel.css" />
     <link rel="stylesheet" href="/styles/list_visualization.css" />
+    <link rel="stylesheet" href="/styles/graph_visualization.css"/>
     <script src="/global.js"></script>
     <script src="/scripts/sorting/selection.js"></script>
     <script src="/scripts/search/linear.js"></script>
@@ -14,16 +15,12 @@
 <body class="visual-framework">
 <header>
     <h1>My Implementation of Algorithms</h1>
-    <nav>
-        <ul>
+    <nav><ul>
             <li><a aria-disabled="true" href="javascript:void(0)" onmouseover="this.style.cursor='default';">Home</a></li>
-            <li>
-                <a href="/pages/about_page.html"><u>About</u></a>
-            </li>
-        </ul>
-    </nav>
+            <li><a href="/pages/about_page.html"><u>About</u></a></li>
+        </ul></nav>
 </header>
-
+<div style="background-color: black; height: 20px;"></div>
 <main>
     <div class="modal-content">
         <div class="tabs-container">
@@ -33,7 +30,9 @@
         </div>
         <div class="content">
             <div id="graph_window" class="content-section">
-                <p>Graph Window</p>
+                <section id="graph-visualizer" class="graph-visualization"></section>
+
+
             </div>
             <div id="list_window" class="content-section hidden">
                 <section class="list-visualizer"></section>
@@ -82,16 +81,17 @@
         </div>
     </div>
 </main>
-
+<div style="background-color: black; height: 20px;"></div>
 <footer>
     <p class="side-by-side" id="footer_last_updated"></p>
     <p class="side-by-side"><a href="https://github.com/BenjaminTWP/BenjaminTWP.github.io/activity" rel="noopener" target="_blank">GitHub Activity</a></p>
 </footer>
 
 <script>
-    document.getElementById("footer_last_updated").innerText = "Last updated " + last_update + ".";
+
 </script>
 <script>
+    document.getElementById("footer_last_updated").innerText = "Last updated " + last_update + ".";
     let ongoing_list_action = false;
     function showContent(section) {
         document.querySelectorAll(".content-section").forEach(function (content) {

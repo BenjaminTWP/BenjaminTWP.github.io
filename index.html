@@ -23,7 +23,6 @@
             <li><a href="/pages/about_page.html"><u>About</u></a></li>
         </ul></nav>
 </header>
-<div style="background-color: black; height: 20px;"></div>
 <main>
     <div class="modal-content">
         <div class="tabs-container">
@@ -33,7 +32,13 @@
         </div>
         <div class="content">
             <div id="graph_window" class="content-section">
-                <section id="graph-visualizer" class="graph-visualization"></section>
+                <section id="graph-visualizer" class="graph-visualization">
+                    <svg id="graph" ></svg>
+                </section>
+                <button onclick="generate_network_graph()">Generate random graph</button>
+                <script src="https://d3js.org/d3.v7.min.js"></script>
+                <script src="/scripts/graph/graph_visualization.js"></script>
+
 
 
             </div>
@@ -84,7 +89,6 @@
         </div>
     </div>
 </main>
-<div style="background-color: black; height: 20px;"></div>
 <footer>
     <p class="side-by-side" id="footer_last_updated"></p>
     <p class="side-by-side"><a href="https://github.com/BenjaminTWP/BenjaminTWP.github.io/activity" rel="noopener" target="_blank">GitHub Activity</a></p>

@@ -4,7 +4,7 @@ function generate_network_graph(){
     const width = section.clientWidth;
     const height = section.clientHeight;
 
-    const [nodes, edges] = generate_network(7, 11);
+    const [nodes, edges] = generate_network(10, 20);
 
     d3.select("#graph").selectAll("*").remove(); //Removes any previous graph
 

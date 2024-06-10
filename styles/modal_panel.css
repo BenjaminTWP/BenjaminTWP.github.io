@@ -7,7 +7,7 @@
     height: 100%;
     border-radius: 10px;
     border-color: black;
-    width: 80%;
+    width: 50%;
     position: relative;
     overflow: hidden; /* Makes the button not stick out over the window*/
 }
@@ -38,7 +38,7 @@
 
 .tabs-container {
     display: flex;
-    border: 0px solid #f5f5f5;
+    border: 0 solid #f5f5f5;
     border-bottom: 1px solid #ddd; /* Bottom border to mimic tabs */
     width: 100%;
 }

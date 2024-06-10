@@ -10,7 +10,7 @@ function create_simulation(nodes, edges){
     return d3.forceSimulation(nodes)
         .force("link", d3.forceLink(edges)
             .id(d => d.id)
-            .distance(d => d.length * 18))
+            .distance(d => d.length * 22))
         .force("charge", d3.forceManyBody().strength(-400))
         .force("center", d3.forceCenter(width / 2, height / 2));
 }
@@ -35,7 +35,7 @@ function coordinate_network_to_svg(svg, nodes, edges) {
         .selectAll("circle")
         .data(nodes)
         .enter().append("circle")
-        .attr("r", 8)
+        .attr("r", 10)
         .attr("fill", "white")
         .attr("stroke", "black")
         .attr("stroke-width", 1);
@@ -63,11 +63,11 @@ function add_text_to_edges(svg, edges) {
         .attr("y", d => (d.source.y + d.target.y) / 2)
         .attr("text-anchor", "middle")
         .attr("dominant-baseline", "middle")
-        .text(d => d.length || "wrong?");
+        .text(d => d.length || "error: length missing");
 }
 
 function generate_network_graph(){
-    const [nodes, edges] = generate_network(8, 14);
+    const [nodes, edges] = generate_network(7, 12);
 
     d3.select("#graph").selectAll("*").remove(); //Removes any previous graph
 
@@ -111,7 +111,7 @@ function generate_network(n_nodes, n_edges){
 
         const source = Math.floor(Math.random() * nodes.length);
         const target = Math.floor(Math.random() * nodes.length);
-        const length = Math.floor(Math.random() * 10);
+        const length = Math.floor(Math.random() * 9) + 1;
 
         if (!duplicate_edge(edges, source, target)){
             edges.push({

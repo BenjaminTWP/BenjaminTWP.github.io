@@ -1,5 +1,3 @@
-/* Well of course it is not going to be anything special */
-
 async function linear_search(search_value){
     const select = document.getElementById("visualization_speed");
     const wait_factor = select.options[select.selectedIndex].value;
@@ -10,15 +8,11 @@ async function linear_search(search_value){
 
     for (let i = 0; i < bars.length; i++){
         let bar_value = parseInt(bars[i].getAttribute("data_value"))
-        console.log("bar_value")
-        console.log(search_value)
 
         bars[i].style.backgroundColor = "FireBrick";
-
         await wait_for(500 * wait_factor)
 
         if(parseInt(bar_value) === parseInt(search_value)){
-            console.log("great success")
             bars[i].style.backgroundColor = "DodgerBlue";
             found_value = true;
         }
@@ -33,7 +27,6 @@ async function linear_search(search_value){
         return found_value;
     }
 }
-
 
 async function wait_for(ms){
     await new Promise((resolve) =>

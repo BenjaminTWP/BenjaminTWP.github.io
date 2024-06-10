@@ -8,9 +8,12 @@
     <link rel="stylesheet" href="/styles/modal_panel.css" />
     <link rel="stylesheet" href="/styles/list_visualization.css" />
     <link rel="stylesheet" href="/styles/graph_visualization.css"/>
+
     <script src="/global.js"></script>
-    <script src="/scripts/sorting/selection.js"></script>
-    <script src="/scripts/search/linear.js"></script>
+    <script src="/scripts/list/sorting/selection.js"></script>
+    <script src="/scripts/list/search/linear.js"></script>
+    <script src="/scripts/list/list_visualization.js"></script>
+
 </head>
 <body class="visual-framework">
 <header>
@@ -88,39 +91,13 @@
 </footer>
 
 <script>
-
-</script>
-<script>
     document.getElementById("footer_last_updated").innerText = "Last updated " + last_update + ".";
-    let ongoing_list_action = false;
+
     function showContent(section) {
         document.querySelectorAll(".content-section").forEach(function (content) {
             content.classList.add("hidden");
         });
         document.getElementById(section).classList.remove("hidden");
-    }
-
-    function new_random_bars() {
-        if (!ongoing_list_action) {
-            generate_random_bars();
-        }
-    }
-
-    async function sort_bars() {
-
-        if (!ongoing_list_action) {
-            make_all_bars_white()
-            ongoing_list_action = true;
-            await selection_sort();
-            ongoing_list_action = false;
-        }
-    }
-    async function search_bars(){
-        if (!ongoing_list_action) {
-            ongoing_list_action = true;
-            await linear_search(document.getElementById("search_value").value);
-            ongoing_list_action = false;
-        }
     }
 </script>
 <script src="scripts/main.js"></script>

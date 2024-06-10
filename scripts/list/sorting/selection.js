@@ -1,4 +1,3 @@
-/* Needs to be async in order to wait*/
 async  function selection_sort() {
     const select = document.getElementById("visualization_speed");
     const wait_factor = select.options[select.selectedIndex].value;
@@ -22,10 +21,7 @@ async  function selection_sort() {
 
         await wait_for(500* wait_factor)
 
-
-
         bars[min_index].style.backgroundColor = "GreenYellow";
-
 
         if (min_index !== i) {
 

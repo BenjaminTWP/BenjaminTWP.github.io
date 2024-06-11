@@ -1,5 +1,5 @@
 async  function selection_sort() {
-    const select = document.getElementById("visualization_speed");
+    const select = document.getElementById("list_visualization_speed");
     const wait_factor = select.options[select.selectedIndex].value;
     let container = document.querySelector(".list-visualizer");
     let bars = Array.from(container.children);
@@ -19,7 +19,7 @@ async  function selection_sort() {
 
         bars[min_index].style.backgroundColor = "DodgerBlue";
 
-        await wait_for(500* wait_factor)
+        await wait_for(wait_factor)
 
         bars[min_index].style.backgroundColor = "GreenYellow";
 
@@ -34,14 +34,7 @@ async  function selection_sort() {
             }
             bars = Array.from(container.children);
         }
-        await wait_for(500*wait_factor)
+        await wait_for(wait_factor)
     }
 }
 
-async function wait_for(ms){
-    await new Promise((resolve) =>
-        setTimeout(() => {
-            resolve();
-        }, ms)
-    );
-}

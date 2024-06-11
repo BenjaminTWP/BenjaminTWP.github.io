@@ -1,5 +1,9 @@
 async function dijkstras(){
 
+    const select = document.getElementById("graph_visualization_speed");
+    const wait_factor = select.options[select.selectedIndex].value;
+
+    console.log(wait_factor);
     let distances = {};
     let previous_node = {};
 
@@ -20,12 +24,20 @@ async function dijkstras(){
     while (!priority_queue.is_empty()) {
         let [current_distance, current_node] = priority_queue.pop();
 
-        edges.forEach(edge => {
+
+
+        for (const edge of edges) {
+
+
+
             //This 'if' is to because we consider the graph non-directed,
             //so the node has to come or go from the current node
             if (edge.source.id === current_node || edge.target.id === current_node) {
                 let distance = edge.length;
                 let neighbor;
+
+                await wait_for(wait_factor);
+                choose_node_color(current_node, "green");
 
                 if (edge.source.id === current_node ) {
                     neighbor = edge.target.id;
@@ -37,7 +49,7 @@ async function dijkstras(){
                 if (new_distance < distances[neighbor]){
 
                     distances[neighbor] = new_distance;
-                    choose_node_color(neighbor);
+                    choose_node_color(neighbor, "green");
                     console.log("from " + current_node + " to " + neighbor);
                     choose_edge_color(current_node, neighbor);
                     choose_edge_color(neighbor, current_node);
@@ -47,7 +59,7 @@ async function dijkstras(){
 
 
             }
-        });
+        }
     }
 
 

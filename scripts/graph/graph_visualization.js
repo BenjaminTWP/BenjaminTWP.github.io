@@ -170,9 +170,9 @@ function choose_edge_color(source_Id, target_Id) {
         .attr("stroke", "red");
 }
 
-function choose_node_color(node_Id) {
+function choose_node_color(node_Id, color) {
     d3.selectAll("circle")
         .filter(d => d.id === node_Id)
-        .attr("fill", "yellow");
+        .attr("fill", color);
 }
 

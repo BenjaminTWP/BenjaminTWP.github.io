@@ -15,6 +15,7 @@
     <script src="/scripts/list/list_visualization.js"></script>
     <script src="/scripts/graph/path/dijkstras.js"></script>
     <script src="/scripts/utils/PriorityQueue.js"></script>
+    <script src="/scripts/utils/delay.js"></script>
 
 </head>
 <body class="visual-framework">
@@ -39,6 +40,13 @@
                 </div>
                 <button onclick="new_graph_network()">Generate random graph</button>
                 <button onclick="shortest_path()">Dijkstra's</button>
+                <label for="graph_visualization_speed">Visualization Speed</label>
+                <select id="graph_visualization_speed" name="Visualization speed">
+                    <option style="text-align: center" value="0">No delay</option>
+                    <option style="text-align: center" value="2">Slow</option>
+                    <option style="text-align: center" value="1">Medium</option>
+                    <option style="text-align: center" value="0.5">Fast</option>
+                </select>
                 <script src="https://d3js.org/d3.v7.min.js"></script>
                 <script src="/scripts/graph/graph_visualization.js"></script>
 
@@ -56,8 +64,8 @@
                             </select>
                         </div>
                         <div class="input-group">
-                            <label for="visualization_speed">Visualization Speed</label>
-                            <select id="visualization_speed" name="Visualization speed" class="select-customization">
+                            <label for="list_visualization_speed">Visualization Speed</label>
+                            <select id="list_visualization_speed" name="Visualization speed" class="select-customization">
                                 <option style="text-align: center" value="0">No delay</option>
                                 <option style="text-align: center" value="1">Slow</option>
                                 <option style="text-align: center" value="0.5">Medium</option>

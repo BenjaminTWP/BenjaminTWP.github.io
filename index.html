@@ -13,6 +13,8 @@
     <script src="/scripts/list/sorting/selection.js"></script>
     <script src="/scripts/list/search/linear.js"></script>
     <script src="/scripts/list/list_visualization.js"></script>
+    <script src="/scripts/graph/path/dijkstras.js"></script>
+    <script src="/scripts/utils/PriorityQueue.js"></script>
 
 </head>
 <body class="visual-framework">
@@ -35,11 +37,10 @@
                 <div id="graph-visualizer" class="graph-visualization">
                     <svg id="graph" ></svg>
                 </div>
-                <button onclick="generate_network_graph()">Generate random graph</button>
+                <button onclick="new_graph_network()">Generate random graph</button>
+                <button onclick="shortest_path()">Dijkstra's</button>
                 <script src="https://d3js.org/d3.v7.min.js"></script>
                 <script src="/scripts/graph/graph_visualization.js"></script>
-
-
 
             </div>
             <div id="list_window" class="content-section hidden">

@@ -33,7 +33,7 @@ function generate_network_graph(){
 
     const [link, node] = coordinate_network_to_svg(svg, nodes, edges);
 
-    choose_node_color(starting_node, blue_visualization);
+    choose_node_color(starting_node, BLUE);
 
     disperse_nodes(simulation);
 
@@ -159,7 +159,6 @@ function duplicate_edge(edges, source, target){
     return false;
 }
 
-
 function reset_colours_graph_network(){
     d3.selectAll("circle")
         .attr("fill", "white");
@@ -170,7 +169,7 @@ function reset_colours_graph_network(){
 function choose_edge_color(source_Id, target_Id) {
     d3.selectAll("line")
         .filter(d => d.source.id === source_Id && d.target.id === target_Id)
-        .attr("stroke", red_visualization);
+        .attr("stroke", RED);
 }
 
 function choose_node_color(node_Id, color) {
@@ -181,7 +180,7 @@ function choose_node_color(node_Id, color) {
 
 function change_starting_node(clicked_circle, current_node){
     reset_colours_graph_network()
-    clicked_circle.setAttribute("fill", blue_visualization);
+    clicked_circle.setAttribute("fill", BLUE);
     console.log(current_node.id);
     starting_node = current_node.id;
 

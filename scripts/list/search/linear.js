@@ -9,11 +9,11 @@ async function linear_search(search_value){
     for (let i = 0; i < bars.length; i++){
         let bar_value = parseInt(bars[i].getAttribute("data_value"))
 
-        bars[i].style.backgroundColor = "FireBrick";
+        bars[i].style.backgroundColor = RED;
         await wait_for( wait_factor)
 
         if(parseInt(bar_value) === parseInt(search_value)){
-            bars[i].style.backgroundColor = "DodgerBlue";
+            bars[i].style.backgroundColor = BLUE;
             found_value = true;
         }
         else{

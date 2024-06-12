@@ -1,67 +1,54 @@
 async function dijkstras(nodes, edges, startingNode){
 
     const select = document.getElementById("graph_visualization_speed");
-    const wait_factor = select.options[select.selectedIndex].value;
+    const waitFactor = select.options[select.selectedIndex].value;
     let distances = {};
-    let previous_node = {};
+    let previousNode = {};
 
     nodes.forEach(node=>{
         distances[node.id] = Infinity;
-        previous_node[node.id] = null;
+        previousNode[node.id] = null;
     });
-
-    console.log(distances);
-    console.log(previous_node);
-
 
     distances[startingNode] = 0;
     highlightNode(startingNode, GREEN);
 
-    console.log(startingNode);
+    let priorityQueue = new PriorityQueue();
+    priorityQueue.push([0,startingNode]); //Distance 0 to start node
 
-    let priority_queue = new PriorityQueue();
-    priority_queue.push([0,startingNode]); //Distance 0 to start node
-
-
-    while (!priority_queue.is_empty()) {
-        let [current_distance, current_node] = priority_queue.pop();
+    while (!priorityQueue.is_empty()) {
+        let [currentDistance, currentNode] = priorityQueue.pop();
 
         for (const edge of edges) {
 
-
-
             //This 'if' is to because we consider the graph non-directed,
             //so the node has to come or go from the current node
-            if (edge.source.id === current_node || edge.target.id === current_node) {
+            if (edge.source.id === currentNode || edge.target.id === currentNode) {
                 let distance = edge.length;
                 let neighbor;
 
-                await wait_for(wait_factor);
-                highlightNode(current_node, GREEN);
+                await wait_for(waitFactor);
+                highlightNode(currentNode, GREEN);
 
-                if (edge.source.id === current_node ) {
+                if (edge.source.id === currentNode ) {
                     neighbor = edge.target.id;
                 }
                 else { neighbor = edge.source.id}
 
-                let new_distance = current_distance + distance;
+                let new_distance = currentDistance + distance;
 
                 if (new_distance < distances[neighbor]){
 
                     distances[neighbor] = new_distance;
                     highlightNode(neighbor, GREEN);
-                    console.log("from " + current_node + " to " + neighbor);
+                    console.log("from " + currentNode + " to " + neighbor);
                     console.log(new_distance);
-                    highlightEdge(current_node, neighbor, RED);
-                    highlightEdge(neighbor, current_node, RED);
-                    previous_node[neighbor] = current_node;
-                    priority_queue.push([new_distance, neighbor]);
+                    highlightEdge(currentNode, neighbor, RED);
+                    highlightEdge(neighbor, currentNode, RED);
+                    previousNode[neighbor] = currentNode;
+                    priorityQueue.push([new_distance, neighbor]);
                 }
             }
         }
     }
-
-
-
-
 }

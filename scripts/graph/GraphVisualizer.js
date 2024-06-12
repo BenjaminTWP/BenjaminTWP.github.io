@@ -22,6 +22,13 @@ class GraphVisualizer {
         return GraphVisualizer.instance;
     }
 
+    getContainerDimensions() {
+        const section = document.getElementById("graph-visualizer");
+        const width = section.clientWidth;
+        const height = section.clientHeight;
+        return [width, height];
+    }
+
     setStartingNode(startingNode){
         this.startingNode = startingNode;
     }
@@ -29,8 +36,8 @@ class GraphVisualizer {
     async shortestPath(){
         if(!this.onGoingGraphAction){
             this.onGoingGraphAction = true;
-            this.reset_colours_graph_network()
-            await dijkstras(this.nodes, this.edges, this.startingNode);
+            this.resetNetworkColor()
+            await dijkstras(this.nodes, this.edges, this.startingNode); //will be dynamic in future
             this.onGoingGraphAction = false;
         }
     }
@@ -43,59 +50,46 @@ class GraphVisualizer {
         }
     }
 
-      createNetworkVisualization() {
+    createNetworkVisualization() {
         this.nodes = this.createNodes(5);
         this.edges = this.createEdges(8,5);
 
         d3.select("#graph").selectAll("*").remove(); //Removes any previous graph
 
-         const simulation = this.create_simulation(this.nodes, this.edges)
+         const simulation = this.setUpSimulation(this.nodes, this.edges);
 
-         this.svg = this.get_svg();
+         this.svg = this.svgContainer();
 
-         const [link, node] = this.coordinate_network_to_svg(this.svg, this.nodes, this.edges);
+         const edgeGraphicsElements = this.setUpEdgesToSVG(this.edges, this.svg);
+         const nodeGraphicElements = this.setUpNodesToSVG(this.nodes, this.svg);
 
-         this.choose_node_color(this.startingNode, BLUE);
+         highlightNode(this.startingNode, BLUE);
 
-         this.disperse_nodes(simulation);
+         this.disperseElements(simulation);
 
-         link
+         edgeGraphicsElements
              .attr("x1", d => d.source.x)
              .attr("y1", d => d.source.y)
              .attr("x2", d => d.target.x)
              .attr("y2", d => d.target.y);
 
-         node
+          nodeGraphicElements
              .attr("cx", d => d.x)
              .attr("cy", d => d.y);
 
-         this.add_text_to_edges(this.svg, this.edges);
+         this.textToEdges(this.svg, this.edges);
 
     }
 
-     choose_node_color(node_Id, color) {
-        d3.selectAll("circle")
-            .filter(d => d.id === node_Id)
-            .attr("fill", color);
-    }
-
-
-     get_dimensions() {
-        const section = document.getElementById("graph-visualizer");
-        const width = section.clientWidth;
-        const height = section.clientHeight;
-        return [width, height];
-    }
-
-     get_svg() {
-        const [width, height] = this.get_dimensions();
+     svgContainer() {
+        const [width, height] = this.getContainerDimensions();
         return d3.select("#graph")
             .attr("width", width)
             .attr("height", height);
     }
 
-     create_simulation(nodes, edges){
-        const [width, height] = this.get_dimensions();
+     setUpSimulation(nodes, edges){
+        const [width, height] = this.getContainerDimensions();
         return d3.forceSimulation(nodes)
             .force("link", d3.forceLink(edges)
                 .id(d => d.id)
@@ -104,14 +98,17 @@ class GraphVisualizer {
             .force("center", d3.forceCenter(width / 2, height / 2));
     }
 
-     coordinate_network_to_svg(svg, nodes, edges) {
+    setUpEdgesToSVG(edges, svg){
         const links_graphics = svg.append("g")
-            .selectAll("line")
-            .data(edges)
-            .enter().append("line")
-            .attr("stroke", "#b2b2b2")
-            .attr("stroke-width", 5);
+        .selectAll("line")
+        .data(edges)
+        .enter().append("line")
+        .attr("stroke", "#b2b2b2")
+        .attr("stroke-width", 5);
 
+        return links_graphics;
+    }
+     setUpNodesToSVG(nodes, svg) {
         const nodes_graphics = svg.append("g")
             .selectAll("circle")
             .data(nodes)
@@ -124,22 +121,18 @@ class GraphVisualizer {
             .on("click", function (event,d){
                 updateStartNode(this, d);
             });
-
-        return [links_graphics, nodes_graphics];
+        return nodes_graphics;
     }
 
-
-
-     reset_colours_graph_network(){
+     resetNetworkColor(){
         d3.selectAll("circle")
             .attr("fill", "white");
         d3.selectAll("line")
             .attr("stroke", "#b2b2b2");
     }
 
-     disperse_nodes(simulation){
+     disperseElements(simulation){
         simulation.on("tick", null);
-
         simulation.stop();
 
         for (let i = 0; i < 300; i++) {
@@ -148,7 +141,7 @@ class GraphVisualizer {
 
     }
 
-     add_text_to_edges(svg, edges) {
+     textToEdges(svg, edges) {
         svg.selectAll(".link-label")
             .data(edges)
             .enter().append("text")
@@ -175,7 +168,7 @@ class GraphVisualizer {
             const target = Math.floor(Math.random() * nNodes);
             const length = Math.floor(Math.random() * 9) + 1;
 
-            if (!this.duplicate_edge(edges, source, target)){
+            if (!this.duplicateEdges(edges, source, target)){
                 edges.push({
                     source: source,
                     target: target,
@@ -186,7 +179,7 @@ class GraphVisualizer {
         return edges;
     }
 
-     duplicate_edge(edges, source, target){
+     duplicateEdges(edges, source, target){
         for (let i = 0; i < edges.length; i++) {
             if ((edges[i].source === source && edges[i].target === target ) || target === source || (edges[i].source === target && edges[i].target === source)) {
                 return true;
@@ -194,7 +187,4 @@ class GraphVisualizer {
         }
         return false;
     }
-
-
-
 }

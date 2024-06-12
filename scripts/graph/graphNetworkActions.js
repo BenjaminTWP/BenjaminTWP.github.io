@@ -19,7 +19,7 @@ function highlightNode(node, color) {
 }
 
 function updateStartNode(clicked_circle, current_node){
-    GraphVisualizer.getInstance().reset_colours_graph_network();
+    GraphVisualizer.getInstance().resetNetworkColor();
     clicked_circle.setAttribute("fill", BLUE);
     GraphVisualizer.getInstance().setStartingNode(current_node.id);
 }

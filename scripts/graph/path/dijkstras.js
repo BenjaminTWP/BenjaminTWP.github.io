@@ -14,11 +14,11 @@ async function dijkstras(){
 
 
 
-    distances[0] = 0; //Index of start-node is not 0, will change to start_node
-    choose_node_color(0);
+    distances[starting_node] = 0; //Index of start-node is not 0, will change to start_node
+    choose_node_color(starting_node, green_visualization);
 
     let priority_queue = new PriorityQueue();
-    priority_queue.push([0,0]); //Distance 0 to start node (in this case 0)
+    priority_queue.push([0,starting_node]); //Distance 0 to start node (in this case 0)
 
 
     while (!priority_queue.is_empty()) {
@@ -37,7 +37,7 @@ async function dijkstras(){
                 let neighbor;
 
                 await wait_for(wait_factor);
-                choose_node_color(current_node, "green");
+                choose_node_color(current_node, green_visualization);
 
                 if (edge.source.id === current_node ) {
                     neighbor = edge.target.id;
@@ -49,8 +49,9 @@ async function dijkstras(){
                 if (new_distance < distances[neighbor]){
 
                     distances[neighbor] = new_distance;
-                    choose_node_color(neighbor, "green");
+                    choose_node_color(neighbor, green_visualization);
                     console.log("from " + current_node + " to " + neighbor);
+                    console.log(new_distance);
                     choose_edge_color(current_node, neighbor);
                     choose_edge_color(neighbor, current_node);
                     previous_node[neighbor] = current_node;

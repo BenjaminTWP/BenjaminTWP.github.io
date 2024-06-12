@@ -1,5 +1,7 @@
 let [nodes, edges] = [];
 
+let starting_node = 0;
+
 let ongoing_graph_action = false;
 
 async function shortest_path(){
@@ -31,6 +33,8 @@ function generate_network_graph(){
 
     const [link, node] = coordinate_network_to_svg(svg, nodes, edges);
 
+    choose_node_color(starting_node, blue_visualization);
+
     disperse_nodes(simulation);
 
     link
@@ -44,6 +48,7 @@ function generate_network_graph(){
         .attr("cy", d => d.y);
 
     add_text_to_edges(svg,edges);
+
 
     //**********************************************************//
     // Functions used in this method, not useful anywhere else //
@@ -72,23 +77,27 @@ function generate_network_graph(){
     }
 
     function coordinate_network_to_svg(svg, nodes, edges) {
-        const link = svg.append("g")
+        const links_graphics = svg.append("g")
             .selectAll("line")
             .data(edges)
             .enter().append("line")
-            .attr("stroke", "#fea682")
-            .attr("stroke-width", 2);
+            .attr("stroke", "#b2b2b2")
+            .attr("stroke-width", 5);
 
-        const node = svg.append("g")
+        const nodes_graphics = svg.append("g")
             .selectAll("circle")
             .data(nodes)
             .enter().append("circle")
-            .attr("r", 12)
+            .attr("r", 18)
             .attr("fill", "white")
             .attr("stroke", "black")
-            .attr("stroke-width", 1);
+            .attr("stroke-width", 1)
+            .attr("cursor", "pointer")
+            .on("click", function (event,d){
+                change_starting_node(this, d);
+            });
 
-        return [link, node];
+        return [links_graphics, nodes_graphics];
     }
 
     function disperse_nodes(simulation){
@@ -155,19 +164,13 @@ function reset_colours_graph_network(){
     d3.selectAll("circle")
         .attr("fill", "white");
     d3.selectAll("line")
-        .attr("stroke", "#fea682");
+        .attr("stroke", "#b2b2b2");
 }
 
-
-function reset_all_edge_colors(){
-    d3.selectAll("line")
-        .attr("stroke", "black")
-
-}
 function choose_edge_color(source_Id, target_Id) {
     d3.selectAll("line")
         .filter(d => d.source.id === source_Id && d.target.id === target_Id)
-        .attr("stroke", "red");
+        .attr("stroke", red_visualization);
 }
 
 function choose_node_color(node_Id, color) {
@@ -176,3 +179,11 @@ function choose_node_color(node_Id, color) {
         .attr("fill", color);
 }
 
+function change_starting_node(clicked_circle, current_node){
+    reset_colours_graph_network()
+    clicked_circle.setAttribute("fill", blue_visualization);
+    console.log(current_node.id);
+    starting_node = current_node.id;
+
+
+}

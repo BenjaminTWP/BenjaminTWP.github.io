@@ -16,6 +16,7 @@
     <script src="/scripts/graph/path/dijkstras.js"></script>
     <script src="/scripts/utils/PriorityQueue.js"></script>
     <script src="/scripts/utils/delay.js"></script>
+    <script src="/scripts/graph/GraphVisualizer.js"></script>
 
 </head>
 <body class="visual-framework">
@@ -38,8 +39,8 @@
                 <div id="graph-visualizer" class="graph-visualization">
                     <svg id="graph" ></svg>
                 </div>
-                <button onclick="new_graph_network()">Generate random graph</button>
-                <button onclick="shortest_path()">Dijkstra's</button>
+                <button onclick="newGraph()">Generate random graph</button>
+                <button onclick="shortestPath()">Dijkstra's</button>
                 <label for="graph_visualization_speed">Visualization Speed</label>
                 <select id="graph_visualization_speed" name="Visualization speed">
                     <option style="text-align: center" value="0">No delay</option>
@@ -48,7 +49,7 @@
                     <option style="text-align: center" value="1">Fast</option>
                 </select>
                 <script src="https://d3js.org/d3.v7.min.js"></script>
-                <script src="/scripts/graph/graph_visualization.js"></script>
+                <script src="/scripts/graph/graphNetworkActions.js"></script>
 
             </div>
             <div id="list_window" class="content-section hidden">

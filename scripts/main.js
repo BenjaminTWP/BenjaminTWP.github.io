@@ -3,5 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     generate_random_bars();
     populate_searchable_values();
-    generate_network_graph()
+
+    let graphVisualizer = new GraphVisualizer();
+    graphVisualizer.createNetworkVisualization();
+    //generate_network_graph()
 });

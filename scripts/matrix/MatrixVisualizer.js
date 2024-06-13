@@ -7,7 +7,7 @@ class MatrixVisualizer{
             throw new Error("GraphVisualizer follows singleton - you can only create one");
         }
         this.ongoingMatrixAction = false;
-        this.startPoint = [{row:0, col:0}];
+        this.startPoint = {row:0, col:0};
         this.matrix = this.randomizeNewMatrix(5,6);
         MatrixVisualizer.instance = this;
     }
@@ -17,13 +17,20 @@ class MatrixVisualizer{
             MatrixVisualizer.instance = new MatrixVisualizer();
         }
         return MatrixVisualizer.instance;
+    }
 
+    matrixAction(){
+        if(!this.ongoingMatrixAction){
+            this.ongoingMatrixAction = true;
+            floodFill(this.startPoint, this.matrix);
+            this.ongoingMatrixAction = false;
+        }
     }
 
     createNewMatrix(){
         if(!this.ongoingMatrixAction){
             this.ongoingMatrixAction = true;
-            this.matrix = this.randomizeNewMatrix(5,6);
+            this.matrix = this.randomizeNewMatrix(8,8);
             this.visualizeMatrixElements();
             this.ongoingMatrixAction = false;
         }
@@ -35,7 +42,7 @@ class MatrixVisualizer{
             let row = [];
 
             for(let j = 0; j < cols; j++){
-                let newRandom = Math.floor(Math.random()*5);
+                let newRandom = Math.floor(Math.random()*2);
                 row.push(newRandom)
             }
             matrix.push(row);
@@ -53,7 +60,7 @@ class MatrixVisualizer{
             for(let j = 0; j < this.matrix[i].length; j++){
                 let cell = this.newMatrixCell(i,j);
                 rowDiv.appendChild(cell);
-                if (i === this.startPoint[0].row && j === this.startPoint[0].col){
+                if (i === this.startPoint.row && j === this.startPoint.col){
                     this.selectStartCell(cell);
                 }
             }
@@ -75,7 +82,7 @@ class MatrixVisualizer{
 
     selectStartCell(cell){
         this.resetAllCellColors()
-        this.startPoint = [{row:parseInt(cell.getAttribute("row")),col:parseInt(cell.getAttribute("col"))}];
+        this.startPoint = {row:parseInt(cell.getAttribute("row")),col:parseInt(cell.getAttribute("col"))};
         cell.style.backgroundColor = BLUE;
 
     }

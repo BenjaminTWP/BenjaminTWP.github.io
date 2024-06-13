@@ -1,5 +1,7 @@
 function newMatrix(){
     MatrixVisualizer.getInstance().createNewMatrix();
+
+
 }
 
 //Really slow and efficient search
@@ -13,4 +15,7 @@ function highLightCell(row, col, color){
             cell.style.backgroundColor = color;
         }
     });
+}
+function flood(){
+    MatrixVisualizer.getInstance().matrixAction();
 }

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/styles/modal_panel.css" />
     <link rel="stylesheet" href="/styles/list_visualization.css" />
     <link rel="stylesheet" href="/styles/graph_visualization.css"/>
+    <link rel="stylesheet" href="/styles/Matrix.css">
 
     <script src="/global.js"></script>
     <script src="/scripts/list/sorting/selection.js"></script>
@@ -17,6 +18,9 @@
     <script src="/scripts/utils/PriorityQueue.js"></script>
     <script src="/scripts/utils/delay.js"></script>
     <script src="/scripts/graph/GraphVisualizer.js"></script>
+    <script src="/scripts/matrix/matrixActions.js"></script>
+    <script src="/scripts/matrix/MatrixVisualizer.js"></script>
+    <script src="/scripts/matrix/algorithm/floodFill.js"></script>
 
 </head>
 <body class="visual-framework">
@@ -94,7 +98,12 @@
                 </div>
             </div>
             <div id="matrix_window" class="content-section hidden">
-                <p>Matrix window</p>
+                <div id="matrix-holder">
+                    <section id="matrix-visualizer">
+                    </section>
+                </div>
+
+                <button onclick="newMatrix()">Matrix window</button>
             </div>
         </div>
     </div>

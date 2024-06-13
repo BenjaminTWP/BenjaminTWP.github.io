@@ -6,5 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let graphVisualizer = new GraphVisualizer();
     graphVisualizer.createNetworkVisualization();
-    //generate_network_graph()
+    let matrixVisualizer = new MatrixVisualizer();
+    matrixVisualizer.createNewMatrix();
+
 });

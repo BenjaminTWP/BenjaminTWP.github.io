@@ -9,7 +9,6 @@ class MatrixVisualizer{
         this.ongoingMatrixAction = false;
         this.startPoint = [{row:0, col:0}];
         this.matrix = this.randomizeNewMatrix(5,6);
-        console.log(this.matrix);
         MatrixVisualizer.instance = this;
     }
 
@@ -25,7 +24,7 @@ class MatrixVisualizer{
         if(!this.ongoingMatrixAction){
             this.ongoingMatrixAction = true;
             this.matrix = this.randomizeNewMatrix(5,6);
-            this.visualizeAllMatrixElements();
+            this.visualizeMatrixElements();
             this.ongoingMatrixAction = false;
         }
     }
@@ -43,7 +42,8 @@ class MatrixVisualizer{
         }
         return matrix;
     }
-    visualizeAllMatrixElements(){
+
+    visualizeMatrixElements(){
         const matrixContainer = document.getElementById("matrix-visualizer");
         matrixContainer.innerHTML = "";
 
@@ -51,16 +51,41 @@ class MatrixVisualizer{
             let rowDiv = document.createElement("div");
             rowDiv.classList.add("matrix-row");
             for(let j = 0; j < this.matrix[i].length; j++){
-                let matrixCell = document.createElement("div");
-                matrixCell.classList.add("matrix-cell");
-                matrixCell.textContent = this.matrix[i][j];
-                rowDiv.appendChild(matrixCell);
+                let cell = this.newMatrixCell(i,j);
+                rowDiv.appendChild(cell);
+                if (i === this.startPoint[0].row && j === this.startPoint[0].col){
+                    this.selectStartCell(cell);
+                }
             }
             matrixContainer.appendChild(rowDiv);
-
         }
 
+    }
 
+    newMatrixCell(i,j){
+        let matrixCell = document.createElement("div");
+        matrixCell.classList.add("matrix-cell");
+        matrixCell.setAttribute("row", i);
+        matrixCell.setAttribute("col", j);
+        matrixCell.onclick = () => this.selectStartCell(matrixCell);
+        matrixCell.textContent = this.matrix[i][j];
+        matrixCell.style.cursor = "pointer";
+        return matrixCell;
+    }
+
+    selectStartCell(cell){
+        this.resetAllCellColors()
+        this.startPoint = [{row:parseInt(cell.getAttribute("row")),col:parseInt(cell.getAttribute("col"))}];
+        console.log(this.startPoint)
+        cell.style.backgroundColor = BLUE;
 
     }
+
+    resetAllCellColors(){
+        const cellContainer = document.querySelectorAll(".matrix-cell");
+        cellContainer.forEach(cell => {
+            cell.style.backgroundColor = "white";
+        })
+    }
+
 }

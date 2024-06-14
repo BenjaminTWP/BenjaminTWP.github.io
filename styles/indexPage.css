@@ -10,6 +10,7 @@ body {
 header {
     padding: 1em;
     text-align: center;
+    margin-top: -15px;
 }
 
 nav ul {
@@ -51,7 +52,7 @@ main {
 footer {
     text-align: center;
     padding: 1em;
-    width: 100%;
+    margin: 0;
 }
 
 .side-by-side {

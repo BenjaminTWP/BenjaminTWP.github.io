@@ -83,21 +83,6 @@ class GraphVisualizer {
                  .attr("x", d => (d.source.x + d.target.x) / 2)
                  .attr("y", d => (d.source.y + d.target.y) / 2);
          });
-
-
-
-         this.textToEdges(this.svg, this.edges);
-
-    }
-
-    disperseElements(simulation){
-        simulation.on("tick", null);
-        simulation.stop();
-
-        for (let i = 0; i < 300; i++) {
-            simulation.tick();
-        }
-
     }
 
      svgContainer() {
@@ -150,9 +135,6 @@ class GraphVisualizer {
             .attr("stroke", "#b2b2b2");
     }
 
-
-
-
     textToEdges(svg, edges) {
         const textElements = svg.selectAll(".link-label")
             .data(edges)
@@ -163,17 +145,6 @@ class GraphVisualizer {
             .text(d => d.length || "error: length missing");
 
         return textElements;
-    }
-     textToEdges2(svg, edges) {
-        svg.selectAll(".link-label")
-            .data(edges)
-            .enter().append("text")
-            .attr("class", "link-label")
-            .attr("x", d => (d.source.x + d.target.x) / 2)
-            .attr("y", d => (d.source.y + d.target.y) / 2)
-            .attr("text-anchor", "middle")
-            .attr("dominant-baseline", "middle")
-            .text(d => d.length || "error: length missing");
     }
 
     createNodes(nNodes){

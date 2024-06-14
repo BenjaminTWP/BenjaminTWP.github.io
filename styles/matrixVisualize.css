@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30vh;
+    height: 50vh;
     background-color: #f3e3d6;
     border-radius: 3px;
     margin-bottom: 5px;
@@ -15,6 +15,8 @@
     padding-right: 30px;
     align-content: center;
     position: relative;
+    max-width: 100%;
+
 }
 
 #matrix-visualizer::before,

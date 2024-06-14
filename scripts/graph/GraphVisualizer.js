@@ -159,8 +159,12 @@ class GraphVisualizer {
         const edges = [];
         for (let j = 0; j < nEdges; j++) {
             const source = Math.floor(Math.random() * nNodes);
-            const target = Math.floor(Math.random() * nNodes);
+            let target = Math.floor(Math.random() * nNodes);
             const length = Math.floor(Math.random() * 9) + 1;
+
+            while (source === target) {
+                target = Math.floor(Math.random() * nNodes);
+            }
 
             if (!this.duplicateEdges(edges, source, target)){
                 edges.push({
@@ -175,7 +179,7 @@ class GraphVisualizer {
 
      duplicateEdges(edges, source, target){
         for (let i = 0; i < edges.length; i++) {
-            if ((edges[i].source === source && edges[i].target === target ) || target === source || (edges[i].source === target && edges[i].target === source)) {
+            if ((edges[i].source === source && edges[i].target === target ) || (edges[i].source === target && edges[i].target === source)) {
                 return true;
             }
         }

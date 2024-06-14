@@ -19,10 +19,10 @@ class MatrixVisualizer{
         return MatrixVisualizer.instance;
     }
 
-    matrixAction(){
-        if(!this.ongoingMatrixAction){
+    async matrixAction() {
+        if (!this.ongoingMatrixAction) {
             this.ongoingMatrixAction = true;
-            floodFill(this.startPoint, this.matrix);
+            await floodFill(this.startPoint, this.matrix);
             this.ongoingMatrixAction = false;
         }
     }

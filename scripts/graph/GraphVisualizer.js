@@ -62,22 +62,41 @@ class GraphVisualizer {
 
          const edgeGraphicsElements = this.setUpEdgesToSVG(this.edges, this.svg);
          const nodeGraphicElements = this.setUpNodesToSVG(this.nodes, this.svg);
-
+         const edgeTextElements = this.textToEdges(this.svg, this.edges);
          highlightNode(this.startingNode, BLUE);
 
-         this.disperseElements(simulation);
 
-         edgeGraphicsElements
-             .attr("x1", d => d.source.x)
-             .attr("y1", d => d.source.y)
-             .attr("x2", d => d.target.x)
-             .attr("y2", d => d.target.y);
 
-          nodeGraphicElements
-             .attr("cx", d => d.x)
-             .attr("cy", d => d.y);
+
+         simulation.on("tick", ()=>{
+             edgeGraphicsElements
+                 .attr("x1", d => d.source.x)
+                 .attr("y1", d => d.source.y)
+                 .attr("x2", d => d.target.x)
+                 .attr("y2", d => d.target.y);
+
+             nodeGraphicElements
+                 .attr("cx", d => d.x)
+                 .attr("cy", d => d.y);
+
+             edgeTextElements
+                 .attr("x", d => (d.source.x + d.target.x) / 2)
+                 .attr("y", d => (d.source.y + d.target.y) / 2);
+         });
+
+
 
          this.textToEdges(this.svg, this.edges);
+
+    }
+
+    disperseElements(simulation){
+        simulation.on("tick", null);
+        simulation.stop();
+
+        for (let i = 0; i < 300; i++) {
+            simulation.tick();
+        }
 
     }
 
@@ -93,8 +112,8 @@ class GraphVisualizer {
         return d3.forceSimulation(nodes)
             .force("link", d3.forceLink(edges)
                 .id(d => d.id)
-                .distance(d => d.length * 22))
-            .force("charge", d3.forceManyBody().strength(-400))
+                .distance(d => d.length * 30))
+            .force("charge", d3.forceManyBody().strength(-1000))
             .force("center", d3.forceCenter(width / 2, height / 2));
     }
 
@@ -131,17 +150,21 @@ class GraphVisualizer {
             .attr("stroke", "#b2b2b2");
     }
 
-     disperseElements(simulation){
-        simulation.on("tick", null);
-        simulation.stop();
 
-        for (let i = 0; i < 300; i++) {
-            simulation.tick();
-        }
 
+
+    textToEdges(svg, edges) {
+        const textElements = svg.selectAll(".link-label")
+            .data(edges)
+            .enter().append("text")
+            .attr("class", "link-label")
+            .attr("text-anchor", "middle")
+            .attr("dominant-baseline", "middle")
+            .text(d => d.length || "error: length missing");
+
+        return textElements;
     }
-
-     textToEdges(svg, edges) {
+     textToEdges2(svg, edges) {
         svg.selectAll(".link-label")
             .data(edges)
             .enter().append("text")

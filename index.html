@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BenjaminTWP</title>
-    <link rel="stylesheet" href="/styles/styles.css" />
-    <link rel="stylesheet" href="/styles/modal_panel.css" />
-    <link rel="stylesheet" href="/styles/list_visualization.css" />
-    <link rel="stylesheet" href="/styles/graph_visualization.css"/>
-    <link rel="stylesheet" href="/styles/Matrix.css">
+    <link rel="stylesheet" href="/styles/indexPage.css" />
+    <link rel="stylesheet" href="/styles/modalPanel.css" />
+    <link rel="stylesheet" href="/styles/listVisualize.css" />
+    <link rel="stylesheet" href="/styles/graphVisualize.css"/>
+    <link rel="stylesheet" href="/styles/matrixVisualize.css">
 
     <script src="/global.js"></script>
     <script src="/scripts/list/sorting/selection.js"></script>
@@ -25,102 +25,104 @@
 
 </head>
 <body class="visual-framework">
-<header>
-    <h1>My Implementation of Algorithms</h1>
-    <nav><ul>
+<div class="wrapper">
+    <header>
+        <h1>My Implementation of Algorithms</h1>
+        <nav><ul>
             <li><a aria-disabled="true" href="javascript:void(0)" onmouseover="this.style.cursor='default';">Home</a></li>
             <li><a href="/pages/about_page.html"><u>About</u></a></li>
         </ul></nav>
-</header>
-<main style="height: 100%;">
-    <div class="modal-content">
-        <div class="tabs-container">
-            <button onclick="showContent('graph_window')" id="left-module-tab" class="module-tab">Graph</button>
-            <button onclick="showContent('list_window')" class="module-tab">List</button>
-            <button onclick="showContent('matrix_window')" id="right-module-tab" class="module-tab">Matrix</button>
-        </div>
-        <div class="content">
-            <div id="graph_window" class="content-section">
-                <div id="graph-visualizer" class="graph-visualization">
-                    <svg id="graph" ></svg>
-                </div>
-                <button onclick="newGraph()">Generate random graph</button>
-                <button onclick="shortestPath()">Dijkstra's</button>
-                <label for="graph_visualization_speed">Visualization Speed</label>
-                <select id="graph_visualization_speed" name="Visualization speed">
-                    <option style="text-align: center" value="0">No delay</option>
-                    <option style="text-align: center" value="4">Slow</option>
-                    <option style="text-align: center" value="2">Medium</option>
-                    <option style="text-align: center" value="1">Fast</option>
-                </select>
-                <script src="https://d3js.org/d3.v7.min.js"></script>
-                <script src="/scripts/graph/graphNetworkActions.js"></script>
-
+    </header>
+    <main>
+        <div class="modal-content">
+            <div class="tabs-container">
+                <button onclick="showContent('graph_window')" id="left-module-tab" class="module-tab">Graph</button>
+                <button onclick="showContent('list_window')" class="module-tab">List</button>
+                <button onclick="showContent('matrix_window')" id="right-module-tab" class="module-tab">Matrix</button>
             </div>
-            <div id="list_window" class="content-section hidden">
-                <section class="list-visualizer"></section>
-                <div class="row">
-                    <div class="column">
-                        <label class="titled-sections">Settings</label><br />
-                        <div class="input-group">
-                            <label for="sorting_algorithms">Sorting Algorithm</label>
-                            <select id="sorting_algorithms" class="select-customization">
-                                <option style="text-align: center" value="">Selection Sort</option>
-                                <option style="text-align: center" >QuickSort not implemented</option>
-                            </select>
+            <div class="content">
+                <div id="graph_window" class="content-section">
+                    <div id="graph-visualizer" class="graph-visualization">
+                        <svg id="graph" ></svg>
+                    </div>
+                    <button onclick="newGraph()">Generate random graph</button>
+                    <button onclick="shortestPath()">Dijkstra's</button>
+                    <label for="graph_visualization_speed">Visualization Speed</label>
+                    <select id="graph_visualization_speed" name="Visualization speed">
+                        <option style="text-align: center" value="0">No delay</option>
+                        <option style="text-align: center" value="4">Slow</option>
+                        <option style="text-align: center" value="2">Medium</option>
+                        <option style="text-align: center" value="1">Fast</option>
+                    </select>
+                    <script src="https://d3js.org/d3.v7.min.js"></script>
+                    <script src="/scripts/graph/graphNetworkActions.js"></script>
+
+                </div>
+                <div id="list_window" class="content-section hidden">
+                    <section class="list-visualizer"></section>
+                    <div class="row">
+                        <div class="column">
+                            <label class="titled-sections">Settings</label><br />
+                            <div class="input-group">
+                                <label for="sorting_algorithms">Sorting Algorithm</label>
+                                <select id="sorting_algorithms" class="select-customization">
+                                    <option style="text-align: center" value="">Selection Sort</option>
+                                    <option style="text-align: center" >QuickSort not implemented</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="list_visualization_speed">Visualization Speed</label>
+                                <select id="list_visualization_speed" name="Visualization speed" class="select-customization">
+                                    <option style="text-align: center" value="0">No delay</option>
+                                    <option style="text-align: center" value="1">Slow</option>
+                                    <option style="text-align: center" value="0.5">Medium</option>
+                                    <option style="text-align: center" value="0.25">Fast</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="search_algorithm">Search Algorithm</label>
+                                <select id="search_algorithm" class="select-customization">
+                                    <option value="" style="text-align: center">Linear Search</option>
+                                    <option style="text-align: center" >Binary Search not implemented </option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="search_value">Search for</label>
+                                <select id="search_value" class="select-customization"></select>
+                            </div>
                         </div>
-                        <div class="input-group">
-                            <label for="list_visualization_speed">Visualization Speed</label>
-                            <select id="list_visualization_speed" name="Visualization speed" class="select-customization">
-                                <option style="text-align: center" value="0">No delay</option>
-                                <option style="text-align: center" value="1">Slow</option>
-                                <option style="text-align: center" value="0.5">Medium</option>
-                                <option style="text-align: center" value="0.25">Fast</option>
-                            </select>
-                        </div>
-                        <div class="input-group">
-                            <label for="search_algorithm">Search Algorithm</label>
-                            <select id="search_algorithm" class="select-customization">
-                                <option value="" style="text-align: center">Linear Search</option>
-                                <option style="text-align: center" >Binary Search not implemented </option>
-                            </select>
-                        </div>
-                        <div class="input-group">
-                            <label for="search_value">Search for</label>
-                            <select id="search_value" class="select-customization"></select>
+                        <div class="column">
+                            <label class="titled-sections">Actions</label>
+                            <button class="action-button" onclick="new_random_bars()">Randomize</button>
+                            <button class="action-button" onclick="sort_bars()">Sort</button>
+                            <button class="action-button" onclick="search_bars()">Search</button>
                         </div>
                     </div>
-                    <div class="column">
-                        <label class="titled-sections">Actions</label>
-                        <button class="action-button" onclick="new_random_bars()">Randomize</button>
-                        <button class="action-button" onclick="sort_bars()">Sort</button>
-                        <button class="action-button" onclick="search_bars()">Search</button>
+                </div>
+                <div id="matrix_window" class="content-section hidden">
+                    <div id="matrix-holder">
+                        <section id="matrix-visualizer">
+                        </section>
                     </div>
-                </div>
-            </div>
-            <div id="matrix_window" class="content-section hidden">
-                <div id="matrix-holder">
-                    <section id="matrix-visualizer">
-                    </section>
-                </div>
 
-                <button onclick="newMatrix()">Matrix window</button>
-                <button onclick="flood()">flood</button>
-                <label for="matrix-visualization-speed">Visualization Speed</label>
-                <select id="matrix-visualization-speed" name="Visualization speed">
-                    <option style="text-align: center" value="0">No delay</option>
-                    <option style="text-align: center" value="2">Slow</option>
-                    <option style="text-align: center" value="1">Medium</option>
-                    <option style="text-align: center" value="0.5">Fast</option>
-                </select>
+                    <button onclick="newMatrix()">Matrix window</button>
+                    <button onclick="flood()">flood</button>
+                    <label for="matrix-visualization-speed">Visualization Speed</label>
+                    <select id="matrix-visualization-speed" name="Visualization speed">
+                        <option style="text-align: center" value="0">No delay</option>
+                        <option style="text-align: center" value="2">Slow</option>
+                        <option style="text-align: center" value="1">Medium</option>
+                        <option style="text-align: center" value="0.5">Fast</option>
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
-</main>
-<footer>
-    <p class="side-by-side" id="footer_last_updated"></p>
-    <p class="side-by-side"><a href="https://github.com/BenjaminTWP/BenjaminTWP.github.io/activity" rel="noopener" target="_blank">GitHub Activity</a></p>
-</footer>
+    </main>
+    <footer>
+        <p class="side-by-side" id="footer_last_updated"></p>
+        <p class="side-by-side"><a href="https://github.com/BenjaminTWP/BenjaminTWP.github.io/activity" rel="noopener" target="_blank">GitHub Activity</a></p>
+    </footer>
+</div>
 
 <script>
     document.getElementById("footer_last_updated").innerText = "Last updated " + LAST_UPDATE + ".";

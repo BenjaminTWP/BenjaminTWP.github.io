@@ -2,6 +2,9 @@ body {
     margin: 0;
     padding: 0;
     justify-content: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
@@ -26,10 +29,11 @@ nav ul li a {
 }
 
 main {
+    flex: 1;
     padding: 1em;
 }
 
-.visual-framework{
+.visual-framework {
     background-color: #f3e3d6;
     background-image: url("/styles/images/background_theme_small.jpg");
     background-size: cover;
@@ -47,13 +51,16 @@ main {
 footer {
     text-align: center;
     padding: 1em;
-    position: fixed;
     width: 100%;
-    bottom: 0;
 }
 
-.side-by-side{
+.side-by-side {
     display: inline-block;
     margin-right: 10px;
+}
 
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }

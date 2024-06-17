@@ -1,17 +1,21 @@
 class GraphVisualizer {
     static instance = null;
 
+    #nodes = null;
+    #edges = null;
+    #startingNode = 0;
+    #onGoingGraphAction = false;
+    #svg = null;
+    #simulation = null;
+    #edgeElements = null;
+    #nodeElements = null;
+    #edgeTextElements = null;
+    #nodeTextElements = null;
+
     constructor() {
         if (GraphVisualizer.instance) {
             throw new Error("GraphVisualizer follows singleton - you can only create one");
         }
-
-        this.nodes = [];
-        this.edges = [];
-        this.startingNode = 0;
-        this.onGoingGraphAction = false;
-        this.svg = null;
-
         GraphVisualizer.instance = this;
     }
 
@@ -22,81 +26,68 @@ class GraphVisualizer {
         return GraphVisualizer.instance;
     }
 
-    getContainerDimensions() {
+    #getContainerDimensions() {
         const section = document.getElementById("graph-visualizer");
         const width = section.clientWidth;
         const height = section.clientHeight;
         return [width, height];
     }
 
-    setStartingNode(startingNode){
-        this.startingNode = startingNode;
+    setStartingNode(startingNode) {
+        this.#startingNode = startingNode;
     }
 
-    async shortestPath(){
-        if(!this.onGoingGraphAction){
-            this.onGoingGraphAction = true;
-            this.resetNetworkColor()
-            await dijkstras(this.nodes, this.edges, this.startingNode); //will be dynamic in future
-            this.onGoingGraphAction = false;
+    async shortestPath() {
+        if (!this.#onGoingGraphAction) {
+            this.#onGoingGraphAction = true;
+            this.resetNetworkColor();
+            await dijkstras(this.#nodes, this.#edges, this.#startingNode);
+            this.#onGoingGraphAction = false;
         }
     }
 
-     newGraphNetwork(){
-        if(!this.onGoingGraphAction){
-            this.onGoingGraphAction = true;
-            this.createNetworkVisualization();
-            this.onGoingGraphAction = false;
+    newGraphNetwork() {
+        if (!this.#onGoingGraphAction) {
+            this.#onGoingGraphAction = true;
+            this.#createNetworkVisualization();
+            this.#onGoingGraphAction = false;
         }
     }
 
-    createNetworkVisualization() {
-        this.nodes = this.createNodes(5);
-        this.edges = this.createEdges(8,5);
+    #createNetworkVisualization() {
+        d3.select("#graph").selectAll("*").remove(); // Removes any previous graph
 
-        d3.select("#graph").selectAll("*").remove(); //Removes any previous graph
+        this.#nodes = this.#createNodes(5);
+        this.#edges = this.#createEdges(8, 5);
 
-         const simulation = this.setUpSimulation(this.nodes, this.edges);
+        this.#svg = this.#svgContainer();
+        this.#simulation = this.#setUpSimulation(this.#nodes, this.#edges);
 
-         this.svg = this.svgContainer();
+        this.#edgeElements = this.#createEdgeElements(this.#edges, this.#svg);
+        this.#nodeElements = this.#createNodeElements(this.#nodes, this.#svg);
+        this.#edgeTextElements = this.#createEdgeTextElements(this.#svg, this.#edges);
+        this.#nodeTextElements = this.#createNodeTextElements(this.#svg, this.#nodes);
+        highlightNode(this.#startingNode, COLOR_MARINE);
 
-         const edgeGraphicsElements = this.setUpEdgesToSVG(this.edges, this.svg);
-         const nodeGraphicElements = this.setUpNodesToSVG(this.nodes, this.svg);
-         const edgeTextElements = this.textToEdges(this.svg, this.edges);
-         const nodeTextElements = this.textToNodes(this.svg, this.nodes,);
-         highlightNode(this.startingNode, COLOR_MARINE);
-
-         simulation.on("tick", ()=>{
-             edgeGraphicsElements
-                 .attr("x1", d => d.source.x)
-                 .attr("y1", d => d.source.y)
-                 .attr("x2", d => d.target.x)
-                 .attr("y2", d => d.target.y);
-
-             edgeTextElements
-                 .attr("x", d => (d.source.x + d.target.x) / 2)
-                 .attr("y", d => (d.source.y + d.target.y) / 2);
-
-             nodeGraphicElements
-                 .attr("cx", d => d.x)
-                 .attr("cy", d => d.y);
-
-             nodeTextElements
-                 .attr("x", d => d.x)
-                 .attr("y", d => d.y);
-         });
-         simulation.offline;
+        this.#simulation.on("tick", () => {
+            this.#updateGraphElements(this.#edgeElements, this.#edgeTextElements, this.#nodeElements, this.#nodeTextElements);
+        });
     }
 
-     svgContainer() {
-        const [width, height] = this.getContainerDimensions();
-        return d3.select("#graph")
+    #svgContainer() {
+        const [width, height] = this.#getContainerDimensions();
+        const svg = d3.select("#graph")
             .attr("width", width)
             .attr("height", height);
+
+        // Add resize event listener
+        window.addEventListener("resize", () => this.#resizeElementsInSVG());
+
+        return svg;
     }
 
-     setUpSimulation(nodes, edges){
-        const [width, height] = this.getContainerDimensions();
+    #setUpSimulation(nodes, edges) {
+        const [width, height] = this.#getContainerDimensions();
         return d3.forceSimulation(nodes)
             .force("link", d3.forceLink(edges)
                 .id(d => d.id)
@@ -105,18 +96,21 @@ class GraphVisualizer {
             .force("center", d3.forceCenter(width / 2, height / 2));
     }
 
-    setUpEdgesToSVG(edges, svg){
-        const links_graphics = svg.append("g")
-        .selectAll("line")
-        .data(edges)
-        .enter().append("line")
-        .attr("stroke", COLOR_SLEEK_GREY)
-        .attr("stroke-width", 5);
+    #createEdgeElements(edges, svg) {
+        let edgeElements;
+        edgeElements = svg.append("g")
+            .selectAll("line")
+            .data(edges)
+            .enter().append("line")
+            .attr("stroke", COLOR_SLEEK_GREY)
+            .attr("stroke-width", 5);
 
-        return links_graphics;
+        return edgeElements;
     }
-     setUpNodesToSVG(nodes, svg) {
-        const nodes_graphics = svg.append("g")
+
+    #createNodeElements(nodes, svg) {
+        let nodeElements;
+        nodeElements = svg.append("g")
             .selectAll("circle")
             .data(nodes)
             .enter().append("circle")
@@ -125,21 +119,22 @@ class GraphVisualizer {
             .attr("stroke", "black")
             .attr("stroke-width", 1)
             .attr("cursor", "pointer")
-            .on("click", function (event,d){
+            .on("click", function (event, d) {
                 updateStartNode(this, d);
             });
-        return nodes_graphics;
+        return nodeElements;
     }
 
-     resetNetworkColor(){
+    resetNetworkColor() {
         d3.selectAll("circle")
             .attr("fill", "white");
         d3.selectAll("line")
             .attr("stroke", COLOR_SLEEK_GREY);
     }
 
-    textToEdges(svg, edges) {
-        const textElements = svg.selectAll(".link-label")
+    #createEdgeTextElements(svg, edges) {
+        let textElements;
+        textElements = svg.selectAll(".link-label")
             .data(edges)
             .enter().append("text")
             .attr("class", "graph-label")
@@ -150,13 +145,14 @@ class GraphVisualizer {
         return textElements;
     }
 
-    textToNodes(svg, nodes){
+    #createNodeTextElements(svg, nodes) {
         const nodesAlphabetically = [];
         nodes.forEach(node => {
             nodesAlphabetically.push(ALPHABET[node.id]);
         });
 
-        const textNodes = svg.selectAll(".node-label")
+        let textNodes;
+        textNodes = svg.selectAll(".node-label")
             .data(nodes)
             .enter().append("text")
             .attr("class", "graph-label")
@@ -167,15 +163,15 @@ class GraphVisualizer {
         return textNodes;
     }
 
-    createNodes(nNodes){
+    #createNodes(nNodes) {
         const nodes = [];
         for (let i = 0; i < nNodes; i++) {
-            nodes.push({id: i});
+            nodes.push({ id: i });
         }
         return nodes;
     }
 
-    createEdges(nEdges,nNodes){
+    #createEdges(nEdges, nNodes) {
         const edges = [];
         for (let j = 0; j < nEdges; j++) {
             const source = Math.floor(Math.random() * nNodes);
@@ -186,23 +182,56 @@ class GraphVisualizer {
                 target = Math.floor(Math.random() * nNodes);
             }
 
-            if (!this.duplicateEdges(edges, source, target)){
+            if (!this.#edgeAllowed(edges, source, target)) {
                 edges.push({
                     source: source,
                     target: target,
-                    length: length });
+                    length: length
+                });
+            } else {
+                j--;
             }
-            else {j--;}
         }
         return edges;
     }
 
-     duplicateEdges(edges, source, target){
+    #edgeAllowed(edges, source, target) {
         for (let i = 0; i < edges.length; i++) {
-            if ((edges[i].source === source && edges[i].target === target ) || (edges[i].source === target && edges[i].target === source)) {
+            if ((edges[i].source === source && edges[i].target === target) || (edges[i].source === target && edges[i].target === source)) {
                 return true;
             }
         }
         return false;
+    }
+
+    #resizeElementsInSVG() {
+        const [width, height] = this.#getContainerDimensions();
+        this.#svg.attr("width", width).attr("height", height);
+
+        this.#simulation.force("center", d3.forceCenter(width / 2, height / 2));
+        this.#simulation.force("charge", d3.forceManyBody().strength(-1000));
+        this.#simulation.alpha(1).restart();
+
+        this.#updateGraphElements(this.#edgeElements, this.#edgeTextElements, this.#nodeElements, this.#nodeTextElements);
+    }
+
+    #updateGraphElements(edgeGraphicsElements, edgeTextElements, nodeGraphicElements, nodeTextElements) {
+        edgeGraphicsElements
+            .attr("x1", d => d.source.x)
+            .attr("y1", d => d.source.y)
+            .attr("x2", d => d.target.x)
+            .attr("y2", d => d.target.y);
+
+        edgeTextElements
+            .attr("x", d => (d.source.x + d.target.x) / 2)
+            .attr("y", d => (d.source.y + d.target.y) / 2);
+
+        nodeGraphicElements
+            .attr("cx", d => d.x)
+            .attr("cy", d => d.y);
+
+        nodeTextElements
+            .attr("x", d => d.x)
+            .attr("y", d => d.y);
     }
 }

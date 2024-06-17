@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     populate_searchable_values();
 
     let graphVisualizer = new GraphVisualizer();
-    graphVisualizer.createNetworkVisualization();
+    graphVisualizer.newGraphNetwork();
     let matrixVisualizer = new MatrixVisualizer();
     matrixVisualizer.createNewMatrix();
 

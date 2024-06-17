@@ -51,5 +51,6 @@
     justify-content: center;
     border: 1px solid black;
     margin: 2px;
+    font-weight: bold;
     background-color: white;
 }

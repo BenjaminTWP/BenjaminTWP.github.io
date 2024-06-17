@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="/styles/graphVisualize.css"/>
     <link rel="stylesheet" href="/styles/matrixVisualize.css">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/fonts.css">
+
     <script src="/global.js"></script>
     <script src="/scripts/list/sorting/selection.js"></script>
     <script src="/scripts/list/search/linear.js"></script>
@@ -27,7 +32,7 @@
 
 
 </head>
-<body class="visual-framework" id="body">
+<body class="poppins-regular" id="body">
 <div class="wrapper">
     <header>
         <h1>My Implementation of Algorithms</h1>
@@ -68,14 +73,14 @@
                             <label class="titled-sections">Settings</label><br />
                             <div class="input-group">
                                 <label for="sorting_algorithms">Sorting Algorithm</label>
-                                <select id="sorting_algorithms" class="select-customization">
+                                <select id="sorting_algorithms" class="select-customization poppins-regular">
                                     <option style="text-align: center" value="">Selection Sort</option>
                                     <option style="text-align: center" >QuickSort not implemented</option>
                                 </select>
                             </div>
                             <div class="input-group">
                                 <label for="list_visualization_speed">Visualization Speed</label>
-                                <select id="list_visualization_speed" name="Visualization speed" class="select-customization">
+                                <select id="list_visualization_speed" name="Visualization speed" class="select-customization poppins-regular">
                                     <option style="text-align: center" value="0">No delay</option>
                                     <option style="text-align: center" value="1">Slow</option>
                                     <option style="text-align: center" value="0.5">Medium</option>
@@ -84,21 +89,21 @@
                             </div>
                             <div class="input-group">
                                 <label for="search_algorithm">Search Algorithm</label>
-                                <select id="search_algorithm" class="select-customization">
+                                <select id="search_algorithm" class="select-customization poppins-regular">
                                     <option value="" style="text-align: center">Linear Search</option>
                                     <option style="text-align: center" >Binary Search not implemented </option>
                                 </select>
                             </div>
                             <div class="input-group">
-                                <label for="search_value">Search for</label>
-                                <select id="search_value" class="select-customization"></select>
+                                <label for="search_value ">Search for</label>
+                                <select id="search_value" class="select-customization  poppins-regular"></select>
                             </div>
                         </div>
                         <div class="column">
                             <label class="titled-sections">Actions</label>
-                            <button class="action-button" onclick="new_random_bars()">Randomize</button>
-                            <button class="action-button" onclick="sort_bars()">Sort</button>
-                            <button class="action-button" onclick="search_bars()">Search</button>
+                            <button class="action-button poppins-regular" onclick="new_random_bars()">Randomize</button>
+                            <button class="action-button poppins-regular" onclick="sort_bars()">Sort</button>
+                            <button class="action-button poppins-regular" onclick="search_bars()">Search</button>
                         </div>
                     </div>
                 </div>

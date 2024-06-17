@@ -28,7 +28,6 @@ button{
     position: relative;
     width: 100%;
     text-align: center;
-    font-family: "Georgia", serif;
     font-weight: bold;
     font-size: 14px;
     top:-24px;
@@ -71,24 +70,24 @@ button{
     text-align-last: center;
     cursor:pointer;
     border-radius: 4px;
-    border-color: #b4b4b4;
+    border-color: #A5A5AF;
     text-align: center;
+    box-shadow: 0 0 3px #A5A5AF;
 
 }
 
 .action-button{
     border-radius: 4px;
     height: 20px;
-    margin-top: 10px;
+    margin-top: 14px;
     background-color: #ffffff;
     cursor: pointer;
     border: 1px solid #b4b4b4;
     width: 100%;
-
+    box-shadow: 0 0 3px #A5A5AF;
 }
 
 .titled-sections{
-    font-family: "Georgia", serif;
     font-weight: bold;
     font-size: 16px;
 }

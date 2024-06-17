@@ -1,5 +1,4 @@
 .modal-content {
-    font-family: "Georgia", serif;
     font-size: 16px;
     background-color: #faf9f6;
     margin: 0 auto;
@@ -30,8 +29,6 @@
     border: none;
     background-color: #77C9D4;
     cursor: pointer;
-    box-sizing: border-box;
-    font-family: "Georgia", serif;
     font-weight: bold;
     font-size: 16px;
     box-shadow: 0 0 5px #A5A5AF;

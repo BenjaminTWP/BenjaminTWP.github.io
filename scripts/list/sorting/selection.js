@@ -7,7 +7,6 @@ async  function selection_sort() {
     for (let i = 0; i < bars.length; i++) {
         let min_index = i;
         let min_value = parseInt(bars[i].getAttribute("data_value"));
-        bars[i].style.backgroundColor = RED;
 
         for (let j = i + 1; j < bars.length; j++) {
             let current_value = parseInt(bars[j].getAttribute("data_value"));
@@ -17,11 +16,11 @@ async  function selection_sort() {
             }
         }
 
-        bars[min_index].style.backgroundColor = BLUE;
+        bars[min_index].style.backgroundColor = COLOR_FEATHER;
 
         await wait_for(wait_factor)
 
-        bars[min_index].style.backgroundColor = GREEN;
+        bars[min_index].style.backgroundColor = COLOR_MARINE;
 
         if (min_index !== i) {
 

@@ -64,7 +64,7 @@ class GraphVisualizer {
          const nodeGraphicElements = this.setUpNodesToSVG(this.nodes, this.svg);
          const edgeTextElements = this.textToEdges(this.svg, this.edges);
          const nodeTextElements = this.textToNodes(this.svg, this.nodes,);
-         highlightNode(this.startingNode, BLUE);
+         highlightNode(this.startingNode, COLOR_MARINE);
 
          simulation.on("tick", ()=>{
              edgeGraphicsElements
@@ -110,7 +110,7 @@ class GraphVisualizer {
         .selectAll("line")
         .data(edges)
         .enter().append("line")
-        .attr("stroke", "#b2b2b2")
+        .attr("stroke", COLOR_SLEEK_GREY)
         .attr("stroke-width", 5);
 
         return links_graphics;
@@ -135,7 +135,7 @@ class GraphVisualizer {
         d3.selectAll("circle")
             .attr("fill", "white");
         d3.selectAll("line")
-            .attr("stroke", "#b2b2b2");
+            .attr("stroke", COLOR_SLEEK_GREY);
     }
 
     textToEdges(svg, edges) {

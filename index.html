@@ -24,7 +24,7 @@
     <script src="/scripts/matrix/algorithm/floodFill.js"></script>
 
 </head>
-<body class="visual-framework">
+<body class="visual-framework" id="body">
 <div class="wrapper">
     <header>
         <h1>My Implementation of Algorithms</h1>
@@ -133,6 +133,27 @@
         });
         document.getElementById(section).classList.remove("hidden");
     }
+</script>
+
+<script src="/styles/background/three.r134.min.js"></script>
+<script src="/styles/background/vanta.net.min.js"></script>
+<script>
+    VANTA.NET({
+        el: "body",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color: 0x015249,
+        backgroundColor: 0xfefefe,
+        showDots: true,
+        points: 8.00,
+        maxDistance: 18.00,
+        spacing: 20.00
+    })
 </script>
 <script src="scripts/main.js"></script>
 </body>

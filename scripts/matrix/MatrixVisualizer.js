@@ -83,7 +83,7 @@ class MatrixVisualizer{
     selectStartCell(cell){
         this.resetAllCellColors()
         this.startPoint = {row:parseInt(cell.getAttribute("row")),col:parseInt(cell.getAttribute("col"))};
-        cell.style.backgroundColor = BLUE;
+        cell.style.backgroundColor = COLOR_MARINE;
 
     }
 

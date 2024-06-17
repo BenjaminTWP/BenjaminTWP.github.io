@@ -3,7 +3,7 @@ async function floodFill(startPoint, matrix){
     const floodValue = matrix[startPoint.row][startPoint.col];
     const searchMatrix = await createSearchMatrix(matrix);
     searchMatrix[startPoint.row][startPoint.col] = true;
-    highLightCell(startPoint.row,startPoint.col, GREEN);
+    highLightCell(startPoint.row,startPoint.col, COLOR_MARINE);
 
     let toSearch = new Queue(100);
 
@@ -60,7 +60,7 @@ async function neighbor(matrix, searchMatrix, up, right, down, left, start, floo
 
 
     if(searched ){
-        highLightCell(row,col, BLUE);
+        highLightCell(row,col, COLOR_FEATHER);
         await wait_for(matrixWaitFactor());
         if(!sameValue){
 
@@ -74,7 +74,7 @@ async function neighbor(matrix, searchMatrix, up, right, down, left, start, floo
     let suitableNeighbor = bounds && sameValue  && searched;
 
     if(searched && sameValue){
-        highLightCell(row, col, GREEN);
+        highLightCell(row, col, COLOR_MARINE);
     }
     return suitableNeighbor;
 }

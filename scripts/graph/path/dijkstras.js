@@ -12,7 +12,7 @@ async function dijkstras(nodes, edges, startingNode){
     });
 
     distances[startingNode] = 0;
-    highlightNode(startingNode, GREEN);
+    highlightNode(startingNode, COLOR_MARINE);
 
     let priorityQueue = new PriorityQueue();
     priorityQueue.push([0,startingNode]); //Distance 0 to start node
@@ -44,8 +44,8 @@ async function dijkstras(nodes, edges, startingNode){
                     //highlightNode(neighbor, GREEN);
                     console.log("from " + ALPHABET[currentNode] + " to " + ALPHABET[neighbor]);
                     console.log(new_distance);
-                    highlightEdge(currentNode, neighbor, RED);
-                    highlightEdge(neighbor, currentNode, RED);
+                    highlightEdge(currentNode, neighbor, COLOR_MARINE);
+                    highlightEdge(neighbor, currentNode, COLOR_MARINE);
 
 
                     previousNode[neighbor] = currentNode;

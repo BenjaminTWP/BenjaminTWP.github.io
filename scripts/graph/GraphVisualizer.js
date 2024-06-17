@@ -63,10 +63,8 @@ class GraphVisualizer {
          const edgeGraphicsElements = this.setUpEdgesToSVG(this.edges, this.svg);
          const nodeGraphicElements = this.setUpNodesToSVG(this.nodes, this.svg);
          const edgeTextElements = this.textToEdges(this.svg, this.edges);
+         const nodeTextElements = this.textToNodes(this.svg, this.nodes,);
          highlightNode(this.startingNode, BLUE);
-
-
-
 
          simulation.on("tick", ()=>{
              edgeGraphicsElements
@@ -75,14 +73,19 @@ class GraphVisualizer {
                  .attr("x2", d => d.target.x)
                  .attr("y2", d => d.target.y);
 
+             edgeTextElements
+                 .attr("x", d => (d.source.x + d.target.x) / 2)
+                 .attr("y", d => (d.source.y + d.target.y) / 2);
+
              nodeGraphicElements
                  .attr("cx", d => d.x)
                  .attr("cy", d => d.y);
 
-             edgeTextElements
-                 .attr("x", d => (d.source.x + d.target.x) / 2)
-                 .attr("y", d => (d.source.y + d.target.y) / 2);
+             nodeTextElements
+                 .attr("x", d => d.x)
+                 .attr("y", d => d.y);
          });
+         simulation.offline;
     }
 
      svgContainer() {
@@ -139,12 +142,29 @@ class GraphVisualizer {
         const textElements = svg.selectAll(".link-label")
             .data(edges)
             .enter().append("text")
-            .attr("class", "link-label")
+            .attr("class", "graph-label")
             .attr("text-anchor", "middle")
             .attr("dominant-baseline", "middle")
             .text(d => d.length || "error: length missing");
 
         return textElements;
+    }
+
+    textToNodes(svg, nodes){
+        const nodesAlphabetically = [];
+        nodes.forEach(node => {
+            nodesAlphabetically.push(ALPHABET[node.id]);
+        });
+
+        const textNodes = svg.selectAll(".node-label")
+            .data(nodes)
+            .enter().append("text")
+            .attr("class", "graph-label")
+            .attr("text-anchor", "middle")
+            .attr("dominant-baseline", "middle")
+            .text((d, i) => nodesAlphabetically[i]);
+
+        return textNodes;
     }
 
     createNodes(nNodes){

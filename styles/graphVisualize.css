@@ -16,7 +16,8 @@
     border-radius: 3px;
 }
 
-.link-label {
+.graph-label {
+    pointer-events: none;
     font-size: 18px;
     fill: #000000;
 }

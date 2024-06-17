@@ -57,8 +57,8 @@ class GraphVisualizer {
     #createNetworkVisualization() {
         d3.select("#graph").selectAll("*").remove(); // Removes any previous graph
 
-        this.#nodes = this.#createNodes(7);
-        this.#edges = this.#createEdges(10, 7);
+        this.#nodes = this.#createNodes(5);
+        this.#edges = this.#createEdges(8, 5);
 
         this.#svg = this.#svgContainer();
         this.#simulation = this.#setUpSimulation(this.#nodes, this.#edges);

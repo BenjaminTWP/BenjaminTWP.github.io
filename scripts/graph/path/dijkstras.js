@@ -1,4 +1,5 @@
 async function dijkstras(nodes, edges, startingNode){
+    console.log("Welcome to djikstra's")
 
     const select = document.getElementById("graph_visualization_speed");
     const waitFactor = select.options[select.selectedIndex].value;
@@ -28,7 +29,7 @@ async function dijkstras(nodes, edges, startingNode){
                 let neighbor;
 
                 await wait_for(waitFactor);
-                highlightNode(currentNode, GREEN);
+                //highlightNode(currentNode, GREEN);
 
                 if (edge.source.id === currentNode ) {
                     neighbor = edge.target.id;
@@ -40,15 +41,19 @@ async function dijkstras(nodes, edges, startingNode){
                 if (new_distance < distances[neighbor]){
 
                     distances[neighbor] = new_distance;
-                    highlightNode(neighbor, GREEN);
-                    console.log("from " + currentNode + " to " + neighbor);
+                    //highlightNode(neighbor, GREEN);
+                    console.log("from " + ALPHABET[currentNode] + " to " + ALPHABET[neighbor]);
                     console.log(new_distance);
                     highlightEdge(currentNode, neighbor, RED);
                     highlightEdge(neighbor, currentNode, RED);
+
+
                     previousNode[neighbor] = currentNode;
                     priorityQueue.push([new_distance, neighbor]);
                 }
             }
         }
+
     }
+
 }

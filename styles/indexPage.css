@@ -5,6 +5,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background: rgb(119,201,212);
+    background: linear-gradient(45deg, rgba(119,201,212,1) 20%, rgba(87,188,144,1) 60%, rgba(1,82,73,1) 100%);
 }
 
 header {
@@ -35,8 +37,7 @@ main {
 }
 
 .visual-framework {
-    background-color: #f3e3d6;
-    background-image: url("/styles/images/background_theme_small.jpg");
+    background-color: #a5a5af;
     background-size: cover;
     background-attachment: fixed;
     font-family: "Georgia", serif;

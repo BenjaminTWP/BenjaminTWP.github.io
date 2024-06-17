@@ -22,6 +22,9 @@
     <script src="/scripts/matrix/matrixActions.js"></script>
     <script src="/scripts/matrix/MatrixVisualizer.js"></script>
     <script src="/scripts/matrix/algorithm/floodFill.js"></script>
+    <script src="/styles/background/three.r134.min.js"></script>
+    <script src="/styles/background/vanta.net.min.js"></script>
+
 
 </head>
 <body class="visual-framework" id="body">
@@ -124,7 +127,7 @@
     </footer>
 </div>
 
-<script>
+<script id="index-functionality">
     document.getElementById("footer_last_updated").innerText = "Last updated " + LAST_UPDATE + ".";
 
     function showContent(section) {
@@ -135,26 +138,9 @@
     }
 </script>
 
-<script src="/styles/background/three.r134.min.js"></script>
-<script src="/styles/background/vanta.net.min.js"></script>
-<script>
-    VANTA.NET({
-        el: "body",
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.00,
-        minWidth: 200.00,
-        scale: 1.00,
-        scaleMobile: 1.00,
-        color: 0x015249,
-        backgroundColor: 0xfefefe,
-        showDots: true,
-        points: 8.00,
-        maxDistance: 18.00,
-        spacing: 20.00
-    })
-</script>
+<script id="background"> VANTA.NET({ el: "body", mouseControls: true, touchControls: true, gyroControls: false, minHeight: 100,
+    minWidth: 50, scale: 1.00, scaleMobile: 1.00, color: 0x015249, backgroundColor: 0xfaf9f6,
+    showDots: true, points: 8.00, maxDistance: 18.00, spacing: 20.00 }) </script>
 <script src="scripts/main.js"></script>
 </body>
 </html>

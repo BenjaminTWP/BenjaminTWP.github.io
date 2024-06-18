@@ -19,14 +19,18 @@ class ListVisualizer {
         if (!this.#onGoingListAction) {
             this.restBarColors();
             this.#onGoingListAction = true;
+            this.#startLoadIcon();
             await selection_sort();
+            this.#stopLoadIcon();
             this.#onGoingListAction = false;
         }
     }
     async search(searchValue){
         if (!this.#onGoingListAction) {
             this.#onGoingListAction = true;
+            this.#startLoadIcon();
             await linear_search(searchValue);
+            this.#stopLoadIcon();
             this.#onGoingListAction = false;
         }
     }
@@ -67,6 +71,21 @@ class ListVisualizer {
             bar_holder_div.appendChild(barLabel);
             container.appendChild(bar_holder_div);
         }
+    }
+
+
+    #startLoadIcon(){
+        if(getListWaitFactor()>0){
+            const icon = document.getElementById("listLoadIcon");
+            icon.style.visibility = 'visible';
+            icon.classList.add('spin');
+        }
+
+    }
+    #stopLoadIcon(){
+        const icon = document.getElementById("listLoadIcon");
+        icon.style.visibility = 'hidden';
+        icon.classList.remove('spin');
     }
 
 }

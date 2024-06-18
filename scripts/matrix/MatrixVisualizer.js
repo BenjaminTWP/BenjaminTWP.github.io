@@ -20,8 +20,11 @@ class MatrixVisualizer {
 
     async matrixAction() {
         if (!this.#ongoingMatrixAction) {
+            this.#resetAllCellColors();
             this.#ongoingMatrixAction = true;
+            this.#startLoadIcon();
             await floodFill(this.#startPoint, this.#matrix);
+            this.#stopLoadIcon();
             this.#ongoingMatrixAction = false;
         }
     }
@@ -89,4 +92,19 @@ class MatrixVisualizer {
             cell.style.backgroundColor = "white";
         });
     }
+
+    #startLoadIcon(){
+        if(getMatrixWaitFactor() > 0){
+            const icon = document.getElementById("matrixLoadIcon");
+            icon.style.visibility = 'visible';
+            icon.classList.add('spin');
+        }
+
+    }
+    #stopLoadIcon(){
+        const icon = document.getElementById("matrixLoadIcon");
+        icon.style.visibility = 'hidden';
+        icon.classList.remove('spin');
+    }
+
 }

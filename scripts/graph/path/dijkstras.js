@@ -48,8 +48,7 @@ async function dijkstras(nodes, edges, startingNode) {
 }
 
 async function visualizePaths(paths, startingNode) {
-    const select = document.getElementById("graph_visualization_speed");
-    const waitFactor = select.options[select.selectedIndex].value;
+    const waitFactor = getGraphWaitFactor();
 
     for (let node in paths) {
 

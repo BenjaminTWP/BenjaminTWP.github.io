@@ -40,8 +40,10 @@ class GraphVisualizer {
     async shortestPath() {
         if (!this.#onGoingGraphAction) {
             this.#onGoingGraphAction = true;
+            this.#startLoadIcon();
             this.resetNetworkColor();
             await dijkstras(this.#nodes, this.#edges, this.#startingNode);
+            this.#stopLoadIcon();
             this.#onGoingGraphAction = false;
         }
     }
@@ -234,4 +236,20 @@ class GraphVisualizer {
             .attr("x", d => d.x)
             .attr("y", d => d.y);
     }
+
+    #startLoadIcon(){
+        if(getGraphWaitFactor()>0){
+            const icon = document.getElementById("graph-load-icon");
+            icon.style.visibility = 'visible';
+            icon.classList.add('spin');
+        }
+
+    }
+    #stopLoadIcon(){
+
+        const icon = document.getElementById("graph-load-icon");
+        icon.style.visibility = 'hidden';
+        icon.classList.remove('spin');
+    }
+
 }

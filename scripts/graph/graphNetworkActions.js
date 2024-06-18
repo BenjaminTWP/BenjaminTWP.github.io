@@ -23,3 +23,8 @@ function updateStartNode(clicked_circle, current_node){
     clicked_circle.setAttribute("fill", COLOR_MARINE);
     GraphVisualizer.getInstance().setStartingNode(current_node.id);
 }
+
+function getGraphWaitFactor(){
+    const select = document.getElementById("graph_visualization_speed");
+    return select.options[select.selectedIndex].value;
+}

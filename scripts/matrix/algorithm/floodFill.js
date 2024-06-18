@@ -25,7 +25,6 @@ async function floodFill(startPoint, matrix){
 
     }
 
-    console.log("completed... poop")
 
 
 }

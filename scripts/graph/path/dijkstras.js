@@ -1,6 +1,4 @@
 async function dijkstras(nodes, edges, startingNode) {
-    console.log("Welcome to Dijkstra's");
-
     let previousNode = {};
     let distances = {};
     let paths = {};

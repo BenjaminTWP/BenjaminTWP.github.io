@@ -16,22 +16,10 @@
     <link rel="stylesheet" href="/styles/fonts.css">
 
     <script src="/global.js"></script>
-    <script src="/scripts/list/sorting/selection.js"></script>
-    <script src="/scripts/list/search/linear.js"></script>
-    <script src="/scripts/list/listActions.js"></script>
-    <script src="/scripts/graph/path/dijkstras.js"></script>
-    <script src="/scripts/utils/PriorityQueue.js"></script>
     <script src="/scripts/utils/delay.js"></script>
-    <script src="/scripts/utils/Queue.js"></script>
-    <script src="/scripts/graph/GraphVisualizer.js"></script>
-    <script src="/scripts/matrix/matrixActions.js"></script>
-    <script src="/scripts/matrix/MatrixVisualizer.js"></script>
-    <script src="/scripts/matrix/algorithm/floodFill.js"></script>
+    <script src="/scripts/ScriptHandler.js"></script>
     <script src="/styles/background/three.r134.min.js"></script>
     <script src="/styles/background/vanta.net.min.js"></script>
-    <script src="/scripts/list/ListVisualizer.js"></script>
-
-
 </head>
 <body class="poppins-regular" id="body">
 <div class="wrapper">
@@ -137,18 +125,13 @@
         <p class="side-by-side"><a href="https://github.com/BenjaminTWP/BenjaminTWP.github.io/activity" rel="noopener" target="_blank">GitHub Activity</a></p>
     </footer>
 </div>
-
 <script id="index-functionality">
     document.getElementById("footerLastUpdated").innerText = "Last updated " + LAST_UPDATE + ".";
-
     function showContent(section) {
         document.querySelectorAll(".content-section").forEach(function (content) {
-            content.classList.add("hidden");
-        });
-        document.getElementById(section).classList.remove("hidden");
-    }
+            content.classList.add("hidden");});
+        document.getElementById(section).classList.remove("hidden");}
 </script>
-
 <script src="/styles/background/networkBackground.js"></script>
 <script src="scripts/main.js"></script>
 </body>

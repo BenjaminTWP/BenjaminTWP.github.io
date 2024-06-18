@@ -49,7 +49,7 @@ class MatrixVisualizer {
     }
 
     #visualizeMatrixElements() {
-        const matrixContainer = document.getElementById("matrix-visualizer");
+        const matrixContainer = document.getElementById("matrixContainer");
         matrixContainer.innerHTML = "";
 
         for (let i = 0; i < this.#matrix.length; i++) {

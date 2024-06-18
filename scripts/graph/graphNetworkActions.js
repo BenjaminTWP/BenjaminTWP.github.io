@@ -25,6 +25,6 @@ function updateStartNode(clicked_circle, current_node){
 }
 
 function getGraphWaitFactor(){
-    const select = document.getElementById("graph_visualization_speed");
+    const select = document.getElementById("graphVisualizationSpeed");
     return select.options[select.selectedIndex].value;
 }

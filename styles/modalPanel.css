@@ -13,10 +13,10 @@
     overflow: hidden; /* Makes the button not stick out over the window*/
 
 }
-#left-module-tab{
+#leftModuleTab{
     border-top-left-radius: 10px;
 }
-#right-module-tab{
+#rightModuleTab{
     border-top-right-radius: 10px;
 }
 .module-tab {

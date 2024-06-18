@@ -1,5 +1,5 @@
 function populateSearchableValues() {
-    let html_selector = document.getElementById("search_value");
+    let html_selector = document.getElementById("searchForValue");
     for (let index = 1; index <= 30; index++) {
         let option = document.createElement("option");
         option.value = index.toString();
@@ -20,7 +20,7 @@ async function sortBars() {
 }
 async function searchBars(){
     let listVisualizer = ListVisualizer.getInstance();
-    const searchValue = document.getElementById("search_value").value;
+    const searchValue = document.getElementById("searchForValue").value;
     listVisualizer.search(searchValue);
 }
 

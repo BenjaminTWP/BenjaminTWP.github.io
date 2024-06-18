@@ -27,7 +27,7 @@ class GraphVisualizer {
     }
 
     #getContainerDimensions() {
-        const section = document.getElementById("graph-visualizer");
+        const section = document.getElementById("graphContentDiv");
         const width = section.clientWidth;
         const height = section.clientHeight;
         return [width, height];
@@ -239,7 +239,7 @@ class GraphVisualizer {
 
     #startLoadIcon(){
         if(getGraphWaitFactor()>0){
-            const icon = document.getElementById("graph-load-icon");
+            const icon = document.getElementById("graphLoadIcon");
             icon.style.visibility = 'visible';
             icon.classList.add('spin');
         }
@@ -247,7 +247,7 @@ class GraphVisualizer {
     }
     #stopLoadIcon(){
 
-        const icon = document.getElementById("graph-load-icon");
+        const icon = document.getElementById("graphLoadIcon");
         icon.style.visibility = 'hidden';
         icon.classList.remove('spin');
     }

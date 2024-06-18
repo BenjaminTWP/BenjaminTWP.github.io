@@ -20,8 +20,8 @@ function flood(){
     MatrixVisualizer.getInstance().matrixAction();
 }
 
-function matrixWaitFactor() {
-    const select = document.getElementById("matrix-visualization-speed");
+function getMatrixWaitFactor() {
+    const select = document.getElementById("matrixVisualizationSpeed");
     const waitFactor = select.options[select.selectedIndex].value;
     return parseInt(waitFactor);
 }

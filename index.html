@@ -39,26 +39,26 @@
         <h1>My Implementation of Algorithms</h1>
         <nav><ul>
             <li><a aria-disabled="true" href="javascript:void(0)" onmouseover="this.style.cursor='default';">Home</a></li>
-            <li><a href="/pages/aboutMe.html"><u>About</u></a></li>
+            <li><a href="/pages/aboutMe.html"><u>About Me</u></a></li>
         </ul></nav>
     </header>
     <main>
         <div class="modal-content">
             <div class="tabs-container">
-                <button onclick="showContent('graph_window')" id="left-module-tab" class="module-tab">Graph</button>
-                <button onclick="showContent('list_window')" class="module-tab">List</button>
-                <button onclick="showContent('matrix_window')" id="right-module-tab" class="module-tab">Matrix</button>
+                <button onclick="showContent('graphWindow')" id="leftModuleTab" class="module-tab">Graph</button>
+                <button onclick="showContent('listWindow')" class="module-tab">List</button>
+                <button onclick="showContent('matrixWindow')" id="rightModuleTab" class="module-tab">Matrix</button>
             </div>
             <div class="content">
-                <div id="graph_window" class="content-section">
-                    <div id="graph-visualizer" class="graph-visualization">
+                <div id="graphWindow" class="content-section">
+                    <div id="graphContentDiv" class="graph-visualization">
                         <svg id="graph" ></svg>
-                        <img src="/styles/images/icon/path50x50.png" class="load-icon" alt="Spinning Icon" id="graph-load-icon">
+                        <img src="/styles/images/icon/path50x50.png" class="load-icon" alt="Spinning Icon" id="graphLoadIcon">
                     </div>
                     <button onclick="newGraph()">Generate random graph</button>
                     <button onclick="shortestPath()">Dijkstra's</button>
-                    <label for="graph_visualization_speed">Visualization Speed</label>
-                    <select id="graph_visualization_speed" name="Visualization speed">
+                    <label for="graphVisualizationSpeed">Visualization Speed</label>
+                    <select id="graphVisualizationSpeed" name="Visualization speed">
                         <option style="text-align: center" value="0">No delay</option>
                         <option style="text-align: center" value="4">Slow</option>
                         <option style="text-align: center" value="2">Medium</option>
@@ -68,14 +68,14 @@
                     <script src="/scripts/graph/graphNetworkActions.js"></script>
 
                 </div>
-                <div id="list_window" class="content-section hidden">
+                <div id="listWindow" class="content-section hidden">
                     <section class="list-visualizer"></section>
                     <div class="row">
                         <div class="column">
                             <label class="titled-sections">Settings</label><br />
                             <div class="input-group">
-                                <label for="sorting_algorithms">Sorting Algorithm</label>
-                                <select id="sorting_algorithms" class="select-customization poppins-regular">
+                                <label for="sortingAlgorithms">Sorting Algorithm</label>
+                                <select id="sortingAlgorithms" class="select-customization poppins-regular">
                                     <option style="text-align: center" value="">Selection Sort</option>
                                     <option style="text-align: center" >QuickSort not implemented</option>
                                 </select>
@@ -90,15 +90,15 @@
                                 </select>
                             </div>
                             <div class="input-group">
-                                <label for="search_algorithm">Search Algorithm</label>
-                                <select id="search_algorithm" class="select-customization poppins-regular">
+                                <label for="searchAlgorithm">Search Algorithm</label>
+                                <select id="searchAlgorithm" class="select-customization poppins-regular">
                                     <option value="" style="text-align: center">Linear Search</option>
                                     <option style="text-align: center" >Binary Search not implemented </option>
                                 </select>
                             </div>
                             <div class="input-group">
-                                <label for="search_value">Search for</label>
-                                <select id="search_value" class="select-customization  poppins-regular"></select>
+                                <label for="searchForValue">Search for</label>
+                                <select id="searchForValue" class="select-customization  poppins-regular"></select>
                             </div>
                         </div>
                         <div class="column">
@@ -109,16 +109,16 @@
                         </div>
                     </div>
                 </div>
-                <div id="matrix_window" class="content-section hidden">
-                    <div id="matrix-holder">
-                        <section id="matrix-visualizer">
+                <div id="matrixWindow" class="content-section hidden">
+                    <div id="matrixContentDiv">
+                        <section id="matrixContainer">
                         </section>
                     </div>
 
                     <button onclick="newMatrix()">Matrix window</button>
                     <button onclick="flood()">flood</button>
-                    <label for="matrix-visualization-speed">Visualization Speed</label>
-                    <select id="matrix-visualization-speed" name="Visualization speed">
+                    <label for="matrixVisualizationSpeed">Visualization Speed</label>
+                    <select id="matrixVisualizationSpeed" name="Visualization speed">
                         <option style="text-align: center" value="0">No delay</option>
                         <option style="text-align: center" value="2">Slow</option>
                         <option style="text-align: center" value="1">Medium</option>
@@ -129,13 +129,13 @@
         </div>
     </main>
     <footer>
-        <p class="side-by-side" id="footer_last_updated"></p>
+        <p class="side-by-side" id="footerLastUpdated"></p>
         <p class="side-by-side"><a href="https://github.com/BenjaminTWP/BenjaminTWP.github.io/activity" rel="noopener" target="_blank">GitHub Activity</a></p>
     </footer>
 </div>
 
 <script id="index-functionality">
-    document.getElementById("footer_last_updated").innerText = "Last updated " + LAST_UPDATE + ".";
+    document.getElementById("footerLastUpdated").innerText = "Last updated " + LAST_UPDATE + ".";
 
     function showContent(section) {
         document.querySelectorAll(".content-section").forEach(function (content) {

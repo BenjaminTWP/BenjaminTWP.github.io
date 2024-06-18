@@ -61,11 +61,11 @@ async function neighbor(matrix, searchMatrix, up, right, down, left, start, floo
 
     if(searched ){
         highLightCell(row,col, COLOR_FEATHER);
-        await wait_for(matrixWaitFactor());
+        await wait_for(getMatrixWaitFactor());
         if(!sameValue){
 
             highLightCell(row,col, "white");
-            await wait_for(matrixWaitFactor());
+            await wait_for(getMatrixWaitFactor());
         }
 
     }

@@ -24,3 +24,8 @@ async function searchBars(){
     listVisualizer.search(searchValue);
 }
 
+function getListWaitFactor(){
+    const select = document.getElementById("listVisualizationSpeed");
+    return select.options[select.selectedIndex].value;
+}
+

@@ -1,6 +1,4 @@
 async  function selection_sort() {
-    const select = document.getElementById("list_visualization_speed");
-    const wait_factor = select.options[select.selectedIndex].value;
     let container = document.querySelector(".list-visualizer");
     let bars = Array.from(container.children);
 
@@ -17,9 +15,7 @@ async  function selection_sort() {
         }
 
         bars[min_index].style.backgroundColor = COLOR_FEATHER;
-
-        await wait_for(wait_factor)
-
+        await wait_for(getListWaitFactor())
         bars[min_index].style.backgroundColor = COLOR_MARINE;
 
         if (min_index !== i) {
@@ -33,7 +29,7 @@ async  function selection_sort() {
             }
             bars = Array.from(container.children);
         }
-        await wait_for(wait_factor)
+        await wait_for(getListWaitFactor())
     }
 }
 

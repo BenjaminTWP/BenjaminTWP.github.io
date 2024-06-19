@@ -82,10 +82,31 @@ class GraphVisualizer {
             .attr("width", width)
             .attr("height", height);
 
-        // Add resize event listener
+        const g = svg.append("g");
+
         window.addEventListener("resize", () => this.#resizeElementsInSVG());
 
-        return svg;
+        let currentAngle = 0;
+        const drag = d3.drag()
+            .on("start", (event) => {
+                // Prevent default touch events
+                event.sourceEvent.preventDefault();
+            })
+            .on("drag", (event) => {
+                currentAngle += event.dx * 0.5;  // Adjust rotation sensitivity
+
+                // Get the bounding box of the group
+                const bbox = g.node().getBBox();
+                const cx = bbox.x + bbox.width / 2;
+                const cy = bbox.y + bbox.height / 2;
+
+                // Apply transformation to rotate around the center of the bounding box
+                g.attr("transform", `rotate(${currentAngle}, ${cx}, ${cy})`);
+            });
+
+        svg.call(drag);
+
+        return g;
     }
 
     #setUpSimulation(nodes, edges) {

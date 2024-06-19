@@ -59,8 +59,8 @@ class GraphVisualizer {
     #createNetworkVisualization() {
         d3.select("#graph").selectAll("*").remove(); // Removes any previous graph
 
-        this.#nodes = this.#createNodes(5);
-        this.#edges = this.#createEdges(8, 5);
+        this.#nodes = this.#createNodes(8);
+        this.#edges = this.#createEdges(12, 8);
 
         this.#svg = this.#svgContainer();
         this.#simulation = this.#setUpSimulation(this.#nodes, this.#edges);
@@ -93,7 +93,7 @@ class GraphVisualizer {
         return d3.forceSimulation(nodes)
             .force("link", d3.forceLink(edges)
                 .id(d => d.id)
-                .distance(d => d.length * 30))
+                .distance(d => d.length * 22))
             .force("charge", d3.forceManyBody().strength(-1000))
             .force("center", d3.forceCenter(width / 2, height / 2));
     }
@@ -105,7 +105,7 @@ class GraphVisualizer {
             .data(edges)
             .enter().append("line")
             .attr("stroke", COLOR_SLEEK_GREY)
-            .attr("stroke-width", 5);
+            .attr("stroke-width", 3);
 
         return edgeElements;
     }
@@ -116,7 +116,7 @@ class GraphVisualizer {
             .selectAll("circle")
             .data(nodes)
             .enter().append("circle")
-            .attr("r", 18)
+            .attr("r", 14)
             .attr("fill", "white")
             .attr("stroke", "black")
             .attr("stroke-width", 1)
@@ -178,7 +178,7 @@ class GraphVisualizer {
         for (let j = 0; j < nEdges; j++) {
             const source = Math.floor(Math.random() * nNodes);
             let target = Math.floor(Math.random() * nNodes);
-            const length = Math.floor(Math.random() * 9) + 1;
+            const length = Math.floor(Math.random() * 5) + 1;
 
             while (source === target) {
                 target = Math.floor(Math.random() * nNodes);

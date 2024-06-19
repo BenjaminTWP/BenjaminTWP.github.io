@@ -79,6 +79,7 @@ button{
 }
 
 .action-button {
+
     border-radius: 4px;
     height: 30px; /* should match input-group selects height*/
     margin-bottom: 10px;

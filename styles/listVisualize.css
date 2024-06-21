@@ -42,56 +42,70 @@ button{
 }
 .row {
     display: flex;
+
     margin-top: 20px;
     justify-content: center;
-    align-items: flex-start;
+    border-style: outset none none none;
+    border-top: #e0e0e0 1px solid;
+    flex-wrap: wrap; /* Allow wrapping */
+    width: 100%; /* Ensure the row takes full width */
 }
 
 .column {
     margin-top: 4px;
     margin-left: 20px;
-    margin-right: 20px;
-    width: 50%; /* since there are only two columns, they should share 50-50 */
+    flex: 1; /* Allow columns to take available space */
+    min-width: 200px; /* Set a minimum width for columns */
+    max-width: 100%; /* Ensure columns do not exceed container width */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align items */
 }
+
+
 
 .input-group {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
+    width: 100%; /* Ensure input groups take full width of the column */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    margin-bottom: 10px; /* Add bottom margin for spacing */
 }
 
 .input-group label {
-    flex: 1; /* Allow labels to take up the necessary space */
-    text-align: left;
-    margin-right: 50px; /* Add some space between the label and the select element */
+
+    margin-right: 20px; /* Add some space between the label and the select element */
 }
 
 .input-group select {
-    flex: 2; /* Allow select elements to take up more space */
     text-align: center;
-    width: 100%;
-    height: 30px; /* should match action button height*/
+    height: 30px; /* should match action button height */
     margin-bottom: 10px;
     margin-top: 10px;
     box-shadow: 0 0 3px #A5A5AF;
     background-color: #ffffff;
     border: 1px solid #b4b4b4;
+    width: 50%; /* Set a specific width */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
 }
 
 .action-button {
-
     border-radius: 4px;
-    height: 30px; /* should match input-group selects height*/
+    height: 30px; /* should match input-group selects height */
     margin-bottom: 10px;
     margin-top: 10px;
     background-color: #ffffff;
     cursor: pointer;
     border: 1px solid #b4b4b4;
-    width: 100%;
     box-shadow: 0 0 3px #A5A5AF;
     text-align: center;
-    line-height: 20px; /* Align text vertically */
+    line-height: 20px;
+    width: 50%; /* Set a specific width */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
 }
+
+
 
 .select-customization {
     text-align-last: center;
@@ -100,11 +114,38 @@ button{
     border-color: #A5A5AF;
     text-align: center;
     box-shadow: 0 0 3px #A5A5AF;
-    width: 100%; /* Ensure select elements take the full width */
+    min-width: 120px;
 }
 
 .titled-sections {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
 }
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+    .row {
+        flex-direction: column; /* Stack columns vertically */
+        align-items: center; /* Center align items */
+    }
 
+    .column {
+        width: 80%; /* Take full width */
+        max-width: 400px; /* Set a max-width for better appearance */
+        padding: 0 10px; /* Add padding to avoid touching edges */
+        box-sizing: border-box; /* Ensure padding and border are included in the width */
+    }
+
+    .input-group {
+        flex-direction: column; /* Stack label and select vertically */
+        align-items: flex-start; /* Align items to start */
+    }
+
+    .input-group label {
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 5px; /* Add bottom margin */
+    }
+
+    .input-group select, .action-button {
+        width: 100%; /* Take full width */
+    }
+}

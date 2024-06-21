@@ -20,7 +20,7 @@ function highlightNode(node, color) {
 
 function updateStartNode(clicked_circle, current_node){
     GraphVisualizer.getInstance().resetNetworkColor();
-    clicked_circle.setAttribute("fill", COLOR_MARINE);
+    d3.select(clicked_circle).attr("fill", COLOR_MARINE);
     GraphVisualizer.getInstance().setStartingNode(current_node.id);
 }
 

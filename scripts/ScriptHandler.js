@@ -1,5 +1,5 @@
 class ScriptHandler {
-    #graphScripts = ["/scripts/utils/PriorityQueue.js", "/scripts/graph/path/dijkstras.js",
+    #graphScripts = ["/scripts/utils/PriorityQueue.js", "/scripts/graph/PathAlgorithms.js",
         "/scripts/utils/Queue.js", "/scripts/graph/GraphVisualizer.js", "https://d3js.org/d3.v7.min.js",
         "/scripts/graph/graphNetworkActions.js"];
     #listScripts = ["/scripts/list/sorting/selection.js", "/scripts/list/search/linear.js",

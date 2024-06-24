@@ -11,6 +11,7 @@ class GraphVisualizer {
     #nodeElements = null;
     #edgeTextElements = null;
     #nodeTextElements = null;
+    #pathAlgorithm = new PathAlgorithm();
 
     constructor() {
         if (GraphVisualizer.instance) {
@@ -42,7 +43,8 @@ class GraphVisualizer {
             this.#onGoingGraphAction = true;
             this.#startLoadIcon();
             this.resetNetworkColor();
-            await dijkstras(this.#nodes, this.#edges, this.#startingNode);
+            this.#pathAlgorithm = new Dijkstras(this.#nodes, this.#edges);
+            await this.#pathAlgorithm.shortestPath(this.#startingNode);
             this.#stopLoadIcon();
             this.#onGoingGraphAction = false;
         }

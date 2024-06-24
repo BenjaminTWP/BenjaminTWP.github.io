@@ -17,6 +17,7 @@ class GraphVisualizer {
         if (GraphVisualizer.instance) {
             throw new Error("GraphVisualizer follows singleton - you can only create one");
         }
+        window.addEventListener("resize", () => this.#resizeElementsInSVG());
         GraphVisualizer.instance = this;
     }
 
@@ -61,11 +62,13 @@ class GraphVisualizer {
     #createNetworkVisualization() {
         d3.select("#graph").selectAll("*").remove(); // Removes any previous graph
 
+
         this.#nodes = this.#createNodes(8);
         this.#edges = this.#createEdges(12, 8);
 
-        this.#svg = this.#svgContainer();
+
         this.#simulation = this.#setUpSimulation(this.#nodes, this.#edges);
+        this.#svg = this.#svgContainer();
 
         this.#edgeElements = this.#createEdgeElements(this.#edges, this.#svg);
         this.#nodeElements = this.#createNodeElements(this.#nodes, this.#svg);
@@ -85,31 +88,43 @@ class GraphVisualizer {
             .attr("height", height);
 
         const g = svg.append("g");
-
-        window.addEventListener("resize", () => this.#resizeElementsInSVG());
-
-        let currentAngle = 0;
-        const drag = d3.drag()
-            .on("start", (event) => {
-                // Prevent default touch events
-                event.sourceEvent.preventDefault();
-            })
-            .on("drag", (event) => {
-                currentAngle += event.dx * 0.5;  // Adjust rotation sensitivity
-
-                // Get the bounding box of the group
-                const bbox = g.node().getBBox();
-                const cx = bbox.x + bbox.width / 2;
-                const cy = bbox.y + bbox.height / 2;
-
-                // Apply transformation to rotate around the center of the bounding box
-                g.attr("transform", `rotate(${currentAngle}, ${cx}, ${cy})`);
-            });
-
-        svg.call(drag);
+        this.#addDragAndDrop(svg, g);
 
         return g;
     }
+
+    #addDragAndDrop(svg, g){
+        let startX, startY;
+        let currentTransform = { x: 0, y: 0 };
+
+        const drag = d3.drag()
+            .on("start", (event) => {
+                startX = event.x;
+                startY = event.y;
+                console.log("Drag started at:", startX, startY);
+            })
+            .on("drag", (event) => {
+                const dx = event.x - startX;
+                const dy = event.y - startY;
+
+                currentTransform.x += dx;
+                currentTransform.y += dy;
+
+                g.attr("transform", `translate(${currentTransform.x},${currentTransform.y})`);
+
+                startX = event.x;
+                startY = event.y;});
+
+        svg.style("touch-action", "none");
+        svg.call(drag);
+
+        svg.node().addEventListener('touchstart', () => {}, { passive: true });
+        svg.node().addEventListener('touchmove', () => {}, { passive: true });
+        svg.node().addEventListener('touchend', () => {}, { passive: true });
+
+    }
+
+
 
     #setUpSimulation(nodes, edges) {
         const [width, height] = this.#getContainerDimensions();

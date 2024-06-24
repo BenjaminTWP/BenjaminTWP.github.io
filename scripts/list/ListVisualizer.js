@@ -1,6 +1,7 @@
 class ListVisualizer {
     static #instance = null;
     #onGoingListAction = false;
+    #searchAlgorithm;
     constructor() {
 
         if (ListVisualizer.#instance) {
@@ -29,7 +30,8 @@ class ListVisualizer {
         if (!this.#onGoingListAction) {
             this.#onGoingListAction = true;
             this.#startLoadIcon();
-            await linear_search(searchValue);
+            this.#searchAlgorithm = new LinearSearch();
+            await this.#searchAlgorithm.search(searchValue);
             this.#stopLoadIcon();
             this.#onGoingListAction = false;
         }

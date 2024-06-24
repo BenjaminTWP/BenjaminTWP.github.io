@@ -2,6 +2,7 @@ class ListVisualizer {
     static #instance = null;
     #onGoingListAction = false;
     #searchAlgorithm;
+    #sortAlgorithm;
     constructor() {
 
         if (ListVisualizer.#instance) {
@@ -21,7 +22,8 @@ class ListVisualizer {
             this.restBarColors();
             this.#onGoingListAction = true;
             this.#startLoadIcon();
-            await selection_sort();
+            this.#sortAlgorithm = new SelectionSort();
+            await this.#sortAlgorithm.sort();
             this.#stopLoadIcon();
             this.#onGoingListAction = false;
         }

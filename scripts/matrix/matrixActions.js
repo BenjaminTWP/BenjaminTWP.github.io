@@ -23,5 +23,5 @@ function flood(){
 function getMatrixWaitFactor() {
     const select = document.getElementById("matrixVisualizationSpeed");
     const waitFactor = select.options[select.selectedIndex].value;
-    return parseInt(waitFactor);
+    return parseFloat(waitFactor);
 }

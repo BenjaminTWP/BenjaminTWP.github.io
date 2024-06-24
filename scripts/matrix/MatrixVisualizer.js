@@ -3,6 +3,7 @@ class MatrixVisualizer {
     #ongoingMatrixAction = false;
     #startPoint = {row: 0, col: 0};
     #matrix = this.#randomizeNewMatrix(5, 6);
+    #algorithm;
 
     constructor() {
         if (MatrixVisualizer.#instance) {
@@ -23,7 +24,8 @@ class MatrixVisualizer {
             this.#resetAllCellColors();
             this.#ongoingMatrixAction = true;
             this.#startLoadIcon();
-            await floodFill(this.#startPoint, this.#matrix);
+            this.#algorithm = new FloodFill(this.#matrix);
+            await this.#algorithm.fill(this.#startPoint);
             this.#stopLoadIcon();
             this.#ongoingMatrixAction = false;
         }

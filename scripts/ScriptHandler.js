@@ -4,7 +4,7 @@ class ScriptHandler {
         "/scripts/graph/graphNetworkActions.js"];
     #listScripts = ["/scripts/list/sorting/SortingAlgorithm.js", "/scripts/list/search/SearchAlgorithm.js",
         "/scripts/list/listActions.js","/scripts/list/ListVisualizer.js"];
-    #matrixScripts = ["/scripts/matrix/algorithm/floodFill.js", "/scripts/matrix/MatrixVisualizer.js",
+    #matrixScripts = ["/scripts/matrix/algorithm/MatrixAlgorithm.js", "/scripts/matrix/MatrixVisualizer.js",
         "/scripts/matrix/matrixActions.js"];
 
     async loadScriptsForViews() {

@@ -63,17 +63,17 @@ class ListVisualizer {
 
             const value = Math.floor(Math.random() * 30) + 1;
 
-            const bar_holder_div = document.createElement("div");
-            bar_holder_div.classList.add("bar");
-            bar_holder_div.style.height = `${value * 5}px`;
-            bar_holder_div.setAttribute("data_value", parseInt(value))
+            const barDiv = document.createElement("div");
+            barDiv.classList.add("bar");
+            barDiv.style.height = `${value * 5}px`;
+            barDiv.setAttribute("data_value", parseInt(value))
 
             const barLabel = document.createElement("label");
-            barLabel.classList.add("bar_id");
+            barLabel.classList.add("bar-id");
             barLabel.innerHTML = value.toString();
 
-            bar_holder_div.appendChild(barLabel);
-            container.appendChild(bar_holder_div);
+            barDiv.appendChild(barLabel);
+            container.appendChild(barDiv);
         }
     }
 

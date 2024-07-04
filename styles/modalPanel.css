@@ -75,3 +75,43 @@
     border-style:  none none outset none;
     border-bottom: #e0e0e0 1px solid;
 }
+.plus-minus-div {
+    left: 5px;
+    bottom: 5px;
+    z-index: 2;
+    position: absolute;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.plus-minus-button {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: none;
+    background-color: #015249;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.plus-minus-button:hover {
+    background-color: #57bc90;
+}
+
+.plus-minus-button:active {
+    transform: scale(0.95); /* the buttons become slightly smaller when clicked */
+}
+
+.flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    width: 130px; /* Adjust this width as needed to fit your layout */
+}
+.plus-minus-label {
+}
+

@@ -81,12 +81,12 @@
                     <div id="listGraphicsContainer">
                         <div class="plus-minus-div">
                             <div class="flex-container">
-                                <button class="plus-minus-button">-</button>
+                                <button onclick="removeBar()" class="plus-minus-button">-</button>
                                 <label class="plus-minus-label">Bars</label>
-                                <button class="plus-minus-button">+</button>
+                                <button onclick="addBar()" class="plus-minus-button">+</button>
                             </div>
                         </div>
-                        <section class="list-visualizer"></section>
+                        <section id="listVisualizer"></section>
                         <img src="/styles/images/icon/sort50x50Marine.png" class="load-icon" alt="Spinning Icon" id="listLoadIcon">
                     </div>
                     <div class="row">

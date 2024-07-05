@@ -1,6 +1,6 @@
 function populateSearchableValues() {
     let html_selector = document.getElementById("searchForValue");
-    for (let index = 1; index <= 30; index++) {
+    for (let index = 1; index <= 20; index++) {
         let option = document.createElement("option");
         option.value = index.toString();
         option.textContent = index.toString();
@@ -27,5 +27,15 @@ async function searchBars(){
 function getListWaitFactor(){
     const select = document.getElementById("listVisualizationSpeed");
     return select.options[select.selectedIndex].value;
+}
+
+function addBar(){
+    const visualizer = ListVisualizer.getInstance();
+    visualizer.addBar();
+}
+
+function removeBar(){
+    const visualizer = ListVisualizer.getInstance();
+    visualizer.removeBar();
 }
 

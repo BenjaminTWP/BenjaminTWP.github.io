@@ -13,7 +13,7 @@ class LinearSearch extends SearchAlgorithm{
     #barValues;
     constructor() {
         super();
-        const listContainer = document.querySelector(".list-visualizer");
+        const listContainer = document.getElementById("listVisualizer");
         this.#barValues = Array.from(listContainer.children);
     }
 
@@ -21,7 +21,7 @@ class LinearSearch extends SearchAlgorithm{
         let foundValue = false;
 
         for (let i = 0; i < this.#barValues.length; i++) {
-            const barValue = parseInt(this.#barValues[i].getAttribute("data_value"));
+            const barValue = parseInt(this.#barValues[i].getAttribute("integerValue"));
 
             this.#barValues[i].style.backgroundColor = this.highLightColor;
             await wait_for(getListWaitFactor());

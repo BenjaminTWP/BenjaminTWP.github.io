@@ -1,15 +1,19 @@
 class ListVisualizer {
+
     static #instance = null;
+    #container =  document.getElementById("listVisualizer");
     #onGoingListAction = false;
+    #totalBars = 15;
     #searchAlgorithm;
     #sortAlgorithm;
-    constructor() {
 
+    constructor() {
         if (ListVisualizer.#instance) {
             throw new Error("ListVisualizer follows singleton pattern - you can only create one instance!");
         }
         ListVisualizer.#instance = this;
     }
+
     static getInstance() {
         if (!ListVisualizer.#instance) {
             ListVisualizer.#instance = new ListVisualizer();
@@ -19,8 +23,8 @@ class ListVisualizer {
 
     async  sort() {
         if (!this.#onGoingListAction) {
-            this.restBarColors();
             this.#onGoingListAction = true;
+            this.restBarColors(this.#container);
             this.#startLoadIcon();
             this.#sortAlgorithm = new SelectionSort();
             await this.#sortAlgorithm.sort();
@@ -28,6 +32,7 @@ class ListVisualizer {
             this.#onGoingListAction = false;
         }
     }
+
     async search(searchValue){
         if (!this.#onGoingListAction) {
             this.#onGoingListAction = true;
@@ -41,13 +46,11 @@ class ListVisualizer {
 
      newBars() {
         if (!this.#onGoingListAction) {
-            this.#newBars();
+            this.#newSet(this.#container);
         }
     }
 
-
-     restBarColors(){
-        const container = document.querySelector(".list-visualizer");
+     restBarColors(container){
         const bars = Array.from(container.children);
 
         for (let i = 0; i < bars.length; i++){
@@ -55,28 +58,28 @@ class ListVisualizer {
         }
     }
 
-    #newBars(){
-        let container = document.querySelector(".list-visualizer");
+    #newSet(container){
         container.innerHTML = '';
 
-        for (let i = 0; i< 15; i++){
-
-            const value = Math.floor(Math.random() * 30) + 1;
-
-            const barDiv = document.createElement("div");
-            barDiv.classList.add("bar");
-            barDiv.style.height = `${value * 5}px`;
-            barDiv.setAttribute("data_value", parseInt(value))
-
-            const barLabel = document.createElement("label");
-            barLabel.classList.add("bar-id");
-            barLabel.innerHTML = value.toString();
-
-            barDiv.appendChild(barLabel);
-            container.appendChild(barDiv);
+        for (let i = 0; i< this.#totalBars; i++){
+            this.#newBar(container);
         }
     }
 
+    #createBarDiv(integerValue){
+        const barDiv = document.createElement("div");
+        barDiv.classList.add("bar");
+        barDiv.style.height = `${integerValue * 5}px`;
+        barDiv.setAttribute("integerValue", integerValue.toString());
+        return barDiv;
+    }
+
+    #createBarLabel(integerValue){
+        const barLabel = document.createElement("label");
+        barLabel.classList.add("bar-id");
+        barLabel.innerHTML = integerValue.toString();
+        return barLabel;
+    }
 
     #startLoadIcon(){
         if(getListWaitFactor()>0){
@@ -86,10 +89,36 @@ class ListVisualizer {
         }
 
     }
+
     #stopLoadIcon(){
         const icon = document.getElementById("listLoadIcon");
         icon.style.visibility = 'hidden';
         icon.classList.remove('spin');
     }
 
+    addBar(){
+        if(!this.#onGoingListAction){
+            if(this.#totalBars < 30){
+                this.#newBar(this.#container);
+                this.#totalBars++;
+            }
+        }
+    }
+
+    #newBar(container){
+        const integerValue = Math.floor(Math.random() * 30) + 1;
+        const barDiv = this.#createBarDiv(integerValue);
+        const barLabel = this.#createBarLabel(integerValue);
+        barDiv.appendChild(barLabel);
+        container.appendChild(barDiv);
+    }
+
+    removeBar(){
+        if(!this.#onGoingListAction){
+            if(this.#totalBars > 1){
+                this.#container.lastChild.remove();
+                this.#totalBars--;
+            }
+        }
+    }
 }

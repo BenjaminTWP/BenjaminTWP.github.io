@@ -28,3 +28,24 @@ function getGraphWaitFactor(){
     const select = document.getElementById("graphVisualizationSpeed");
     return select.options[select.selectedIndex].value;
 }
+
+function addNode(){
+    let graphVisualizer = GraphVisualizer.getInstance();
+    graphVisualizer.addNode();
+}
+
+function removeNode(){
+    let graphVisualizer = GraphVisualizer.getInstance();
+    graphVisualizer.removeNode();
+}
+
+function addEdge(){
+    let graphVisualizer = GraphVisualizer.getInstance();
+    graphVisualizer.addEdge();
+}
+
+function removeEdge(){
+    let graphVisualizer = GraphVisualizer.getInstance();
+    graphVisualizer.removeEdge();
+}
+

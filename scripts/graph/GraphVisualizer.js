@@ -1,8 +1,8 @@
 class GraphVisualizer {
     static instance = null;
 
-    #nodes = null;
-    #edges = null;
+    #nodes = this.#createNodes(5);
+    #edges = this.#createEdges(8, 5);
     #startingNode = 0;
     #onGoingGraphAction = false;
     #svg = null;
@@ -54,18 +54,16 @@ class GraphVisualizer {
     newGraphNetwork() {
         if (!this.#onGoingGraphAction) {
             this.#onGoingGraphAction = true;
-            this.#createNetworkVisualization();
+            this.#createNetworkVisualization(this.#nodes.length, this.#edges.length);
             this.#onGoingGraphAction = false;
         }
     }
 
-    #createNetworkVisualization() {
-        d3.select("#graph").selectAll("*").remove(); // Removes any previous graph
+    #createNetworkVisualization(nNodes, nEdges) {
+        d3.select("#graph").selectAll("*").remove(); // removes any previous graph
 
-
-        this.#nodes = this.#createNodes(8);
-        this.#edges = this.#createEdges(12, 8);
-
+        this.#nodes = this.#createNodes(nNodes);
+        this.#edges = this.#createEdges(nEdges, nNodes);
 
         this.#simulation = this.#setUpSimulation(this.#nodes, this.#edges);
         this.#svg = this.#svgContainer();
@@ -290,4 +288,74 @@ class GraphVisualizer {
         icon.classList.remove('spin');
     }
 
+
+    addNode() {
+        const newId = this.#nodes.length;
+        const newNode = { id: newId };
+        this.#nodes.push(newNode);
+
+        if (this.#nodes.length > 2) {
+            // Add two edges to random nodes
+            for (let i = 0; i < 2; i++) {
+                const randomNodeIndex = Math.floor(Math.random() * (this.#nodes.length - 1));
+                const randomNode = this.#nodes[randomNodeIndex];
+                const length = Math.floor(Math.random() * 5) + 1;
+                this.#edges.push({ source: newNode, target: randomNode, length: length });
+            }
+        } else if (this.#nodes.length === 2) {
+            // If there are only two nodes, connect them
+            const length = Math.floor(Math.random() * 5) + 1;
+            this.#edges.push({ source: newNode, target: this.#nodes[0], length: length });
+        }
+
+        this.#updateGraph();
+    }
+
+
+    removeNode() {
+        if (this.#nodes.length > 0) {
+            const removedNodeId = this.#nodes.pop().id;
+            this.#edges = this.#edges.filter(edge => edge.source.id !== removedNodeId && edge.target.id !== removedNodeId);
+            this.#updateGraph();
+        }
+    }
+
+    addEdge() {
+        if (this.#nodes.length > 1) {
+            const source = Math.floor(Math.random() * this.#nodes.length);
+            let target = Math.floor(Math.random() * this.#nodes.length);
+            const length = Math.floor(Math.random() * 5) + 1;
+
+            while (source === target) {
+                target = Math.floor(Math.random() * this.#nodes.length);
+            }
+
+            this.#edges.push({ source: source, target: target, length: length });
+
+            this.#updateGraph();
+        }
+    }
+
+    removeEdge() {
+        if (this.#edges.length > 0) {
+            this.#edges.pop();
+            this.#updateGraph();
+        }
+    }
+
+    #updateGraph() {
+        d3.select("#graph").selectAll("*").remove();
+
+        this.#simulation = this.#setUpSimulation(this.#nodes, this.#edges);
+        this.#svg = this.#svgContainer();
+
+        this.#edgeElements = this.#createEdgeElements(this.#edges, this.#svg);
+        this.#nodeElements = this.#createNodeElements(this.#nodes, this.#svg);
+        this.#edgeTextElements = this.#createEdgeTextElements(this.#svg, this.#edges);
+        this.#nodeTextElements = this.#createNodeTextElements(this.#svg, this.#nodes);
+
+        this.#simulation.on("tick", () => {
+            this.#updateGraphElements(this.#edgeElements, this.#edgeTextElements, this.#nodeElements, this.#nodeTextElements);
+        });
+    }
 }

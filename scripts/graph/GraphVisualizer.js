@@ -221,7 +221,7 @@ class GraphVisualizer {
                 target = Math.floor(Math.random() * nNodes);
             }
 
-            if (!this.#edgeAllowed(edges, source, target)) {
+            if (this.#edgeAllowed(edges, source, target)) {
                 edges.push({
                     source: source,
                     target: target,
@@ -234,14 +234,7 @@ class GraphVisualizer {
         return edges;
     }
 
-    #edgeAllowed(edges, source, target) {
-        for (let i = 0; i < edges.length; i++) {
-            if ((edges[i].source === source && edges[i].target === target) || (edges[i].source === target && edges[i].target === source)) {
-                return true;
-            }
-        }
-        return false;
-    }
+
 
     #resizeElementsInSVG() {
         const [width, height] = this.#getContainerDimensions();
@@ -312,6 +305,8 @@ class GraphVisualizer {
         }
     }
 
+
+
     removeNode() {
         if (this.#nodes.length > 2) {
             const removedNodeId = this.#nodes.pop().id;
@@ -320,17 +315,35 @@ class GraphVisualizer {
         }
     }
 
-    addEdge() {
-        if (this.#nodes.length > 1 && this.#edges.length < 25)  {
-            const sourceIndex = Math.floor(Math.random() * this.#nodes.length);
-            let targetIndex = Math.floor(Math.random() * this.#nodes.length);
-            const length = Math.floor(Math.random() * 5) + 1;
 
-            while (sourceIndex === targetIndex) {
-                targetIndex = Math.floor(Math.random() * this.#nodes.length);
+    #edgeAllowed(edges, source, target) {
+        for (let i = 0; i < edges.length; i++) {
+            if ((edges[i].source === source && edges[i].target === target) || (edges[i].source === target && edges[i].target === source)) {
+                return false;
             }
-            this.#edges.push({ source: this.#nodes[sourceIndex], target: this.#nodes[targetIndex], length: length });
-            this.#updateGraph();
+        }
+        return true;
+    }
+
+
+    #allowedEdgesCompleteGraph(nNodes){
+        return (nNodes * (nNodes - 1) ) / 2;
+    }
+
+    addEdge() {
+        if (this.#nodes.length > 2 && this.#edges.length < 25 && this.#edges.length < this.#allowedEdgesCompleteGraph(this.#nodes.length)) {
+            let sourceIndex, targetIndex;
+
+            do {
+                sourceIndex = Math.floor(Math.random() * this.#nodes.length);
+                targetIndex = Math.floor(Math.random() * this.#nodes.length);
+            } while ((sourceIndex === targetIndex || !this.#edgeAllowed(this.#edges, this.#nodes[sourceIndex], this.#nodes[targetIndex])));
+
+            if (sourceIndex !== targetIndex && this.#edgeAllowed(this.#edges, sourceIndex, targetIndex)) {
+                const length = Math.floor(Math.random() * 5) + 1;
+                this.#edges.push({ source: this.#nodes[sourceIndex], target: this.#nodes[targetIndex], length: length });
+                this.#updateGraph();
+            }
         }
     }
 

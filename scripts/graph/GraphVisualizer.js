@@ -1,6 +1,7 @@
 class GraphVisualizer {
     static instance = null;
 
+    //TODO: Reduce the number of variables. I.e. refactor this class
     #nodes = this.#createNodes(5);
     #edges = this.#createEdges(8, 5);
     #startingNode = 0;
@@ -290,30 +291,29 @@ class GraphVisualizer {
 
 
     addNode() {
-        const newId = this.#nodes.length;
-        const newNode = { id: newId };
-        this.#nodes.push(newNode);
+        if (this.#nodes.length < 15) {
+            const newId = this.#nodes.length;
+            const newNode = {id: newId};
+            this.#nodes.push(newNode);
 
-        if (this.#nodes.length > 2) {
-            // Add two edges to random nodes
-            for (let i = 0; i < 2; i++) {
-                const randomNodeIndex = Math.floor(Math.random() * (this.#nodes.length - 1));
-                const randomNode = this.#nodes[randomNodeIndex];
+            if (this.#nodes.length > 2) { // the new node needs to be connected to some other node, otherwise it will just go away
+                for (let i = 0; i < 2; i++) {
+                    const randomNodeIndex = Math.floor(Math.random() * (this.#nodes.length - 1));
+                    const randomNode = this.#nodes[randomNodeIndex];
+                    const length = Math.floor(Math.random() * 5) + 1;
+                    this.#edges.push({source: newNode, target: randomNode, length: length});
+                }
+            } else if (this.#nodes.length === 2) { // when there are two nodes, we can only connect them
                 const length = Math.floor(Math.random() * 5) + 1;
-                this.#edges.push({ source: newNode, target: randomNode, length: length });
+                this.#edges.push({source: newNode, target: this.#nodes[0], length: length});
             }
-        } else if (this.#nodes.length === 2) {
-            // If there are only two nodes, connect them
-            const length = Math.floor(Math.random() * 5) + 1;
-            this.#edges.push({ source: newNode, target: this.#nodes[0], length: length });
-        }
 
-        this.#updateGraph();
+            this.#updateGraph();
+        }
     }
 
-
     removeNode() {
-        if (this.#nodes.length > 0) {
+        if (this.#nodes.length > 2) {
             const removedNodeId = this.#nodes.pop().id;
             this.#edges = this.#edges.filter(edge => edge.source.id !== removedNodeId && edge.target.id !== removedNodeId);
             this.#updateGraph();
@@ -321,38 +321,40 @@ class GraphVisualizer {
     }
 
     addEdge() {
-        if (this.#nodes.length > 1) {
-            const source = Math.floor(Math.random() * this.#nodes.length);
-            let target = Math.floor(Math.random() * this.#nodes.length);
+        if (this.#nodes.length > 1 && this.#edges.length < 25)  {
+            const sourceIndex = Math.floor(Math.random() * this.#nodes.length);
+            let targetIndex = Math.floor(Math.random() * this.#nodes.length);
             const length = Math.floor(Math.random() * 5) + 1;
 
-            while (source === target) {
-                target = Math.floor(Math.random() * this.#nodes.length);
+            while (sourceIndex === targetIndex) {
+                targetIndex = Math.floor(Math.random() * this.#nodes.length);
             }
-
-            this.#edges.push({ source: source, target: target, length: length });
-
+            this.#edges.push({ source: this.#nodes[sourceIndex], target: this.#nodes[targetIndex], length: length });
             this.#updateGraph();
         }
     }
 
     removeEdge() {
-        if (this.#edges.length > 0) {
+        if (this.#edges.length > 1) {
             this.#edges.pop();
             this.#updateGraph();
         }
     }
 
+    /* TODO: Not sure about this method, it should probably be refactored to be used  in #createNetworkVisualization */
     #updateGraph() {
         d3.select("#graph").selectAll("*").remove();
 
-        this.#simulation = this.#setUpSimulation(this.#nodes, this.#edges);
-        this.#svg = this.#svgContainer();
+        this.#simulation.nodes(this.#nodes);
+        this.#simulation.force("link").links(this.#edges);
 
+        this.#svg = this.#svgContainer();
         this.#edgeElements = this.#createEdgeElements(this.#edges, this.#svg);
         this.#nodeElements = this.#createNodeElements(this.#nodes, this.#svg);
         this.#edgeTextElements = this.#createEdgeTextElements(this.#svg, this.#edges);
         this.#nodeTextElements = this.#createNodeTextElements(this.#svg, this.#nodes);
+
+        this.#simulation.alpha(1).restart();
 
         this.#simulation.on("tick", () => {
             this.#updateGraphElements(this.#edgeElements, this.#edgeTextElements, this.#nodeElements, this.#nodeTextElements);

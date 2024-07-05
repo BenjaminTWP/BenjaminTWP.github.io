@@ -1,8 +1,9 @@
 class MatrixVisualizer {
     static #instance = null;
+
     #ongoingMatrixAction = false;
     #startPoint = {row: 0, col: 0};
-    #matrix = this.#randomizeNewMatrix(5, 6);
+    #matrix = this.#randomizeNewMatrix(6 , 7);
     #algorithm;
 
     constructor() {
@@ -34,7 +35,7 @@ class MatrixVisualizer {
     createNewMatrix() {
         if (!this.#ongoingMatrixAction) {
             this.#ongoingMatrixAction = true;
-            this.#matrix = this.#randomizeNewMatrix(8, 8);
+            this.#matrix = this.#randomizeNewMatrix(this.#matrix.length , this.#matrix[0].length);
             this.#visualizeMatrixElements();
             this.#ongoingMatrixAction = false;
         }
@@ -103,10 +104,52 @@ class MatrixVisualizer {
         }
 
     }
+
     #stopLoadIcon(){
         const icon = document.getElementById("matrixLoadIcon");
         icon.style.visibility = 'hidden';
         icon.classList.remove('spin');
     }
 
+    addRow(){
+        if (this.#matrix.length < 8) {
+            let row = [];
+            for (let i = 0; i < this.#matrix[0].length; i++) {
+                row.push(Math.floor(Math.random() * 2));}
+            this.#matrix.push(row);
+            this.#visualizeMatrixElements();
+        }
+    }
+
+    removeRow(){
+        if (this.#matrix.length > 1){
+            this.#matrix.pop();
+            this.#visualizeMatrixElements();
+            this.#startingPointsWithinMatrixBounds();
+        }
+    }
+
+    addColumn(){
+        if (this.#matrix[0].length < 20){
+            for (let j = 0; j < this.#matrix.length; j++) {
+                this.#matrix[j].push(Math.floor(Math.random() * 2));}
+        this.#visualizeMatrixElements();
+        }
+    }
+
+    removeColumn() {
+        if (this.#matrix[0].length > 1){
+            for (let j = 0; j < this.#matrix.length; j++) {
+                this.#matrix[j].pop();
+            }
+            this.#visualizeMatrixElements();
+            this.#startingPointsWithinMatrixBounds();
+        }
+    }
+
+    #startingPointsWithinMatrixBounds(){
+        if((this.#startPoint.row + 1) > this.#matrix.length || (this.#startPoint.col + 1) > this.#matrix[0].length){
+            this.#startPoint = {row: 0, col: 0};
+        }
+    }
 }

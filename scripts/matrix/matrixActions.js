@@ -25,3 +25,22 @@ function getMatrixWaitFactor() {
     const waitFactor = select.options[select.selectedIndex].value;
     return parseFloat(waitFactor);
 }
+
+function addRow(){
+    const matrixVisualizer = MatrixVisualizer.getInstance();
+    matrixVisualizer.addRow();
+}
+
+function removeRow(){
+    const matrixVisualizer = MatrixVisualizer.getInstance();
+    matrixVisualizer.removeRow();
+}
+
+function addColumn(){
+    const matrixVisualizer = MatrixVisualizer.getInstance();
+    matrixVisualizer.addColumn();
+}
+function removeColumn(){
+    const matrixVisualizer = MatrixVisualizer.getInstance();
+    matrixVisualizer.removeColumn();
+}

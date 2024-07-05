@@ -136,14 +136,14 @@
                     <div id="matrixContentDiv">
                         <div class="plus-minus-div">
                             <div class="flex-container">
-                                <button class="plus-minus-button">-</button>
+                                <button onclick="removeRow()" class="plus-minus-button">-</button>
                                 <label class="plus-minus-label">Rows</label>
-                                <button class="plus-minus-button">+</button>
+                                <button onclick="addRow()" class="plus-minus-button">+</button>
                             </div>
                             <div class="flex-container">
-                                <button class="plus-minus-button">-</button>
+                                <button onclick="removeColumn()" class="plus-minus-button">-</button>
                                 <label class="plus-minus-label">Columns</label>
-                                <button class="plus-minus-button">+</button>
+                                <button onclick="addColumn()" class="plus-minus-button">+</button>
                             </div>
                         </div>
                         <section id="matrixContainer"></section>

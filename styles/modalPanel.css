@@ -66,6 +66,21 @@
     animation: spin 4s linear infinite;
 }
 
+.info-icon{
+    z-index: 1;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    height: 30px;
+    width: 30px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.info-icon:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
 .info-text{
     font-size: 14px;
     margin: 0 auto;

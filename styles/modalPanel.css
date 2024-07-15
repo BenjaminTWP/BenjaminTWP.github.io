@@ -67,7 +67,7 @@
 }
 
 .info-icon{
-    z-index: 1;
+    z-index: 2;
     position: absolute;
     left: 10px;
     top: 10px;
@@ -78,7 +78,18 @@
 
 .info-icon:hover{
     transform: scale(1.1);
-    cursor: pointer;
+}
+
+.info-window {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
 }
 
 .info-text{

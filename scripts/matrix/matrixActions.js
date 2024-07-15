@@ -1,7 +1,5 @@
 function newMatrix(){
     MatrixVisualizer.getInstance().createNewMatrix();
-
-
 }
 
 //Really slow and efficient search
@@ -44,3 +42,14 @@ function removeColumn(){
     const matrixVisualizer = MatrixVisualizer.getInstance();
     matrixVisualizer.removeColumn();
 }
+
+
+const matrixInfoIcon = document.getElementById('matrixInfoIcon');
+const infoWindow = document.getElementById('matrixInfoWindow');
+
+matrixInfoIcon.addEventListener('mouseenter', function() {
+    infoWindow.classList.remove('hidden');
+});
+matrixInfoIcon.addEventListener('mouseleave', function() {
+    infoWindow.classList.add('hidden');
+});

@@ -39,3 +39,12 @@ function removeBar(){
     visualizer.removeBar();
 }
 
+const listInfoIcon = document.getElementById('listInfoIcon');
+const listInfoWindow = document.getElementById('listInfoWindow');
+
+listInfoIcon.addEventListener('mouseenter', function() {
+    listInfoWindow.classList.remove('hidden');
+});
+listInfoIcon.addEventListener('mouseleave', function() {
+    listInfoWindow.classList.add('hidden');
+});

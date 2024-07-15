@@ -49,3 +49,12 @@ function removeEdge(){
     graphVisualizer.removeEdge();
 }
 
+const graphInfoIcon = document.getElementById('graphInfoIcon');
+const graphInfoWindow = document.getElementById('graphInfoWindow');
+
+graphInfoIcon.addEventListener('mouseenter', function() {
+    graphInfoWindow.classList.remove('hidden');
+});
+graphInfoIcon.addEventListener('mouseleave', function() {
+    graphInfoWindow.classList.add('hidden');
+});

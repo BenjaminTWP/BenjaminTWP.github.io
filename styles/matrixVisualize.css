@@ -3,11 +3,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30vh;
+    height: 50vh;
     background-color: #faf9f6;
     border-radius: 3px;
     margin-bottom: 5px;
     position: relative;
+    overflow: hidden;
 }
 
 #matrixContainer {

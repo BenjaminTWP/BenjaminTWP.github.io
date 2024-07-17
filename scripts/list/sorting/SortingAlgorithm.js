@@ -26,14 +26,14 @@ class SelectionSort extends SortAlgorithm{
             }
 
             await this.#highlightBar(minIndex, COLOR_FEATHER);
-            await wait_for(this.#getListWaitFactor());
+            await wait(this.#getListWaitFactor());
             await this.#highlightBar(minIndex, COLOR_MARINE);
 
             if (minIndex !== i) {
                 this.#swapBars(i, minIndex);
                 this.#bars = Array.from(this.#listContainer.children);
             }
-            await wait_for(this.#getListWaitFactor());
+            await wait(this.#getListWaitFactor());
         }
     }
 

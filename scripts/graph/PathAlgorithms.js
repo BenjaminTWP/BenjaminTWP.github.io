@@ -72,9 +72,9 @@ class Dijkstras extends PathAlgorithm{
                 const path = this.#pathToNode[node];
                 path.push(nodeInt); // Pushing the end node for easier coding
 
-                await wait_for(waitFactor);
+                await wait(waitFactor);
                 highlightNode(nodeInt, COLOR_MARINE);
-                await wait_for(waitFactor);
+                await wait(waitFactor);
 
                 for (let i = 0; i < path.length - 1; i++) {
                     const current = path[i];
@@ -89,7 +89,7 @@ class Dijkstras extends PathAlgorithm{
     async #highlightPathSegment(start, end, waitFactor) {
         highlightEdge(start, end, COLOR_FEATHER);
         highlightEdge(end, start, COLOR_FEATHER);
-        await wait_for(waitFactor);
+        await wait(waitFactor);
         highlightEdge(start, end, COLOR_MARINE);
         highlightEdge(end, start, COLOR_MARINE);
     }

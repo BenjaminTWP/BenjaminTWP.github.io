@@ -46,13 +46,13 @@ class FloodFill {
         if (this.#withinBounds(row, col) && !this.#searchedValue(row, col)) {
             if (this.#correctFloodValue(row, col)) {
                 this.#highlightCell(row, col, COLOR_FEATHER);
-                await wait_for(this.getMatrixWaitFactor()).then(() => {
+                await wait(this.getMatrixWaitFactor()).then(() => {
                     this.#highlightCell(row, col, COLOR_MARINE);
                 });
                 return true;
             } else {
                 this.#highlightCell(row, col, "white");
-                await wait_for(this.getMatrixWaitFactor());
+                await wait(this.getMatrixWaitFactor());
             }
         }
         return false;

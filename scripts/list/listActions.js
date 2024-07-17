@@ -1,6 +1,6 @@
 function populateSearchableValues() {
     let html_selector = document.getElementById("searchForValue");
-    for (let index = 1; index <= 20; index++) {
+    for (let index = 1; index <= 30; index++) {
         let option = document.createElement("option");
         option.value = index.toString();
         option.textContent = index.toString();
@@ -38,6 +38,20 @@ function removeBar(){
     const visualizer = ListVisualizer.getInstance();
     visualizer.removeBar();
 }
+
+function setSearchAlgorithm() {
+    const algorithms = {
+        LinearSearch: new LinearSearch,
+        BinarySearch: new BinarySearch};
+
+    const selectElement = document.getElementById('searchAlgorithm');
+    const selectedValue = selectElement.value;
+
+    try {const listVisualizer = ListVisualizer.getInstance();
+        listVisualizer.setSearchAlgorithm(algorithms[selectedValue]);
+    } catch(error) {throw error;}
+}
+
 
 const listInfoIcon = document.getElementById('listInfoIcon');
 const listInfoWindow = document.getElementById('listInfoWindow');

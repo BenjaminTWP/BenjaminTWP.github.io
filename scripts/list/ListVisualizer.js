@@ -4,7 +4,7 @@ class ListVisualizer {
     #container =  document.getElementById("listVisualizer");
     #onGoingListAction = false;
     #totalBars = 15;
-    #searchAlgorithm;
+    #searchAlgorithm = new LinearSearch;
     #sortAlgorithm;
 
     constructor() {
@@ -36,12 +36,15 @@ class ListVisualizer {
     async search(searchValue){
         if (!this.#onGoingListAction) {
             this.#onGoingListAction = true;
-            this.#startLoadIcon();
-            this.#searchAlgorithm = new LinearSearch();
+            this.#startLoadIcon()
             await this.#searchAlgorithm.search(searchValue);
             this.#stopLoadIcon();
             this.#onGoingListAction = false;
         }
+    }
+
+     setSearchAlgorithm(algorithm) {
+        this.#searchAlgorithm = algorithm;
     }
 
      newBars() {

@@ -24,7 +24,7 @@ class ListVisualizer {
     async  sort() {
         if (!this.#onGoingListAction) {
             this.#onGoingListAction = true;
-            this.restBarColors(this.#container);
+            this.resetBarColors(this.#container);
             this.#startLoadIcon();
             this.#sortAlgorithm = new SelectionSort();
             await this.#sortAlgorithm.sort();
@@ -53,7 +53,7 @@ class ListVisualizer {
         }
     }
 
-     restBarColors(container){
+     resetBarColors(container){
         const bars = Array.from(container.children);
 
         for (let i = 0; i < bars.length; i++){

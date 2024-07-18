@@ -17,26 +17,41 @@ class SearchAlgorithm {
         const listVisualizer = ListVisualizer.getInstance();
         listVisualizer.resetBarColors(listContainer);
     }
+
+    _searchValueInArray(bars, searchValue){
+        const low = parseInt(bars[0].getAttribute("integerValue"));
+        const high = parseInt(bars[bars.length - 1].getAttribute("integerValue"));
+        return searchValue >= low && searchValue <= high;
+    }
 }
 
 class LinearSearch extends SearchAlgorithm{
 
     async search(searchValue) {
         this._prepareBarVisualization();
-        for (let i = 0; i < this._barValues.length; i++) {
-            const barValue = parseInt(this._barValues[i].getAttribute("integerValue"));
+        if(this._searchValueInArray(this._barValues, searchValue)){
+            await this.#linear(this._barValues, searchValue);
+        }
+    }
 
-            this._barValues[i].style.backgroundColor = this._highLightColor;
+    async #linear(bars, searchValue){
+        for (let i = 0; i < bars.length; i++) {
+            const barValue = parseInt(bars[i].getAttribute("integerValue"));
+
+            bars[i].style.backgroundColor = this._highLightColor;
             await wait(this._waitFactor());
 
             if (barValue === parseInt(searchValue)) {
-                this._barValues[i].style.backgroundColor = this._foundColor;
-            } else {
-                this._barValues[i].style.backgroundColor = this._defaultColor;
+                bars[i].style.backgroundColor = this._foundColor;
+
+            } else if (barValue !== parseInt(searchValue)){
+                bars[i].style.backgroundColor = this._defaultColor;
             }
+
             await wait(this._waitFactor());
         }
     }
+
 }
 
 

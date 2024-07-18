@@ -34,22 +34,50 @@ class LinearSearch extends SearchAlgorithm{
         }
     }
 
-    async #linear(bars, searchValue){
-        for (let i = 0; i < bars.length; i++) {
-            const barValue = parseInt(bars[i].getAttribute("integerValue"));
+    async #linear(bars, searchValue) {
+        let i = 0;
+        let found = false;
 
-            bars[i].style.backgroundColor = this._highLightColor;
-            await wait(this._waitFactor());
+        while (i < bars.length && !found) {
+            let barValue = parseInt(bars[i].getAttribute("integerValue"));
 
             if (barValue === parseInt(searchValue)) {
                 bars[i].style.backgroundColor = this._foundColor;
-
-            } else if (barValue !== parseInt(searchValue)){
+                found = true; // Set found flag to true to stop further iterations
+                await this.#searchRight(bars, searchValue, i, i + 1);
+            } else {
+                bars[i].style.backgroundColor = this._highLightColor;
+                await wait(this._waitFactor());
                 bars[i].style.backgroundColor = this._defaultColor;
+                await wait(this._waitFactor());
             }
 
-            await wait(this._waitFactor());
+            i++;
         }
+
+        // Continue with other operations after finding the value, if needed
+        // Example: Perform some actions or return some result after search
+        console.log("Search complete or continued operations after finding value");
+    }
+
+    async #searchRight(bars, searchValue, mid, right) {
+        while (mid <= right) {
+            const midValue = this.#getIntegerValue(bars[mid]);
+            if (midValue === parseInt(searchValue)) {
+                await this.#markFoundBar(bars[mid]);
+                mid++;
+            } else {
+                break;
+            }
+        }
+    }
+
+    async #markFoundBar(bar) {
+        bar.style.backgroundColor = this._foundColor;
+        await wait(this._waitFactor());
+    }
+    #getIntegerValue(bar) {
+        return parseInt(bar.getAttribute("integerValue"));
     }
 
 }

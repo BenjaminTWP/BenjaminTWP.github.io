@@ -6,6 +6,7 @@ class ListVisualizer {
     #totalBars = 15;
     #searchAlgorithm = new LinearSearch;
     #sortAlgorithm;
+    #sorted = false;
 
     constructor() {
         if (ListVisualizer.#instance) {
@@ -28,13 +29,14 @@ class ListVisualizer {
             this.#startLoadIcon();
             this.#sortAlgorithm = new SelectionSort();
             await this.#sortAlgorithm.sort();
+            this.#sorted = true;
             this.#stopLoadIcon();
             this.#onGoingListAction = false;
         }
     }
 
     async search(searchValue){
-        if (!this.#onGoingListAction) {
+        if (!this.#onGoingListAction && this.#sorted) {
             this.#onGoingListAction = true;
             this.#startLoadIcon()
             await this.#searchAlgorithm.search(searchValue);
@@ -50,6 +52,7 @@ class ListVisualizer {
      newBars() {
         if (!this.#onGoingListAction) {
             this.#newSet(this.#container);
+            this.#sorted = false;
         }
     }
 

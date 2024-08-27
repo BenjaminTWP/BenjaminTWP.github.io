@@ -1,0 +1,51 @@
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Ensure the container stays within the parent */
+    max-width: 100%; /* Prevents the container from exceeding its parent's width */
+    padding: 20px;
+    box-sizing: border-box; /* Include padding and border in the element's total width/height */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+.project-item {
+    display: flex;
+    width: 50%; /* Adjust width to stay within the container, reduce if needed */
+    margin: 20px 0;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 80px 20px 80px 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    box-sizing: border-box; /* Include padding/border in width calculations */
+}
+
+.project-item.left {
+    justify-content: flex-start;
+    margin-right: auto; /* Moves the left-aligned project to the far left */
+    transform: translateX(+5%); /* Shift further to the left */
+}
+
+.project-item.right {
+    justify-content: flex-end;
+    margin-left: auto; /* Moves the right-aligned project to the far right */
+    transform: translateX(-5%); /* Shift further to the right */
+}
+
+.project-content {
+    max-width: 60%; /* Adjust the width of the content inside the rectangle */
+}
+
+h2, p {
+    font-family: 'Poppins', sans-serif;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 10px;
+}

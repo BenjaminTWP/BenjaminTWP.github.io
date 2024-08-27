@@ -7,37 +7,38 @@
     <link rel="stylesheet" href="/styles/pageTheme.css">
     <link rel="stylesheet" href="/styles/fonts.css">
 
+
     <script src="/global.js"></script>
     <script src="/styles/background/three.r134.min.js"></script>
     <script src="/styles/background/vanta.net.min.js"></script>
 </head>
-<body class="poppins-regular">
-
-<header>
-    <h1>About Me</h1>
-    <nav>
-        <ul>
-            <li><a href="/index.html"><u>Home</u></a></li>
-            <li><a onmouseover="this.style.cursor='default';" href="javascript:void(0)" class="nav-link">About Me</a></li>
-            <li><a href="/pages/projects.html"><u>Projects</u></a></li>
-        </ul>
-    </nav>
-</header>
-
-
-<main>
-    <h2 class="about-text">Benjamin Thomas Wilhelm Pettersson - BenjaminTWP</h2><br>
-    <p class="about-text">Civil Engineering Student</p><br>
-    <p class="about-text">B.Sc. In Computer Science & Engineering</p><br>
-    <p class="about-text">M.Sc. In Data Science & AI (ongoing)</p>
-</main>
+<body class="poppins-regular" id="body">
+<div class="wrapper">
+    <header>
+        <h1>About Me</h1>
+        <nav>
+            <ul>
+                <li><a href="/index.html"><u>Home</u></a></li>
+                <li><a onmouseover="this.style.cursor='default';" href="javascript:void(0)" class="nav-link">About Me</a></li>
+                <li><a href="/pages/projects.html"><u>Projects</u></a></li>
+            </ul>
+        </nav>
+    </header>
 
 
-<footer>
-    <p class="side-by-side" id="footerLastUpdated"></p><p class="side-by-side"><a href="https://github.com/BenjaminTWP/BenjaminTWP.github.io/activity" rel="noopener"  target="_blank">GitHub Activity</a>
-</footer>
+    <main>
+        <h2 class="about-text">Benjamin Thomas Wilhelm Pettersson - BenjaminTWP</h2><br>
+        <p class="about-text">Civil Engineering Student</p><br>
+        <p class="about-text">B.Sc. In Computer Science & Engineering</p><br>
+        <p class="about-text">M.Sc. In Data Science & AI (ongoing)</p>
+    </main>
 
 
+    <footer>
+        <p class="side-by-side" id="footerLastUpdated"></p><p class="side-by-side"><a href="https://github.com/BenjaminTWP/BenjaminTWP.github.io/activity" rel="noopener"  target="_blank">GitHub Activity</a>
+    </footer>
+
+</div>
 <script>
     document.getElementById('footerLastUpdated').innerText = "Last updated " + LAST_UPDATE + ".";
 </script>

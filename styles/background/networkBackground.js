@@ -5,7 +5,7 @@ VANTA.NET({
     touchControls: true,
     yroControls: false,
     minHeight: 100,
-    minWidth: 50,
+    minWidth: 100,
     scale: 1.00,
     scaleMobile: 1.00,
     color: 0x015249,

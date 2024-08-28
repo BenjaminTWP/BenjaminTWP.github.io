@@ -1,32 +1,29 @@
 [
   {
-    "title": "Project 1",
-    "description": "Description of Project 1.",
+    "title": "Bachelor's Thesis",
+    "description": "A Comparison of Approaches to Image Classification using Convolutional Neural Networks",
     "link": "#",
-    "alignment": "left"
+    "image": "/data/images/bachelor.png",
+    "date": "2024-06"
   },
   {
     "title": "Project 2",
     "description": "Description of Project 2.",
-    "link": "#",
-    "alignment": "right"
+    "link": "#"
   },
   {
     "title": "Project 3",
     "description": "Description of Project 3.",
-    "link": "#",
-    "alignment": "left"
+    "link": "#"
   },
   {
     "title": "Project 4",
     "description": "Description of Project 4.",
-    "link": "#",
-    "alignment": "right"
+    "link": "#"
   },
   {
     "title": "Project 5",
     "description": "Description of Project 5.",
-    "link": "#",
-    "alignment": "left"
+    "link": "#"
   }
 ]

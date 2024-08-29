@@ -1,29 +1,40 @@
 [
   {
+    "title": "My Website",
+    "description": "A website I created by myself in order to show of what projects and work I have done throughout the years.",
+    "informationLink": "#https://benjamintwp.github.io/",
+    "date": "2024-06",
+    "individual": true,
+    "tags": {
+      "language": ["JavaScript", "HTML", "CSS"],
+      "type": ["Web Development"]
+    },
+    "codeLink": {
+      "available": true,
+      "link": "https://github.com/BenjaminTWP/BenjaminTWP.github.io"
+    },
+    "media": {
+      "type": "image",
+      "link": "/data/images/bachelor.png"
+    }
+  },
+  {
     "title": "Bachelor's Thesis",
     "description": "A Comparison of Approaches to Image Classification using Convolutional Neural Networks",
-    "link": "#",
-    "image": "/data/images/bachelor.png",
-    "date": "2024-06"
-  },
-  {
-    "title": "Project 2",
-    "description": "Description of Project 2.",
-    "link": "#"
-  },
-  {
-    "title": "Project 3",
-    "description": "Description of Project 3.",
-    "link": "#"
-  },
-  {
-    "title": "Project 4",
-    "description": "Description of Project 4.",
-    "link": "#"
-  },
-  {
-    "title": "Project 5",
-    "description": "Description of Project 5.",
-    "link": "#"
+    "informationLink": "#https://www.ibm.com/topics/convolutional-neural-networks",
+    "date": "2024-05",
+    "individual": false,
+    "tags": {
+      "language": ["Python"],
+      "type": ["Thesis", "AI"]
+    },
+    "codeLink": {
+      "available": false,
+      "link": null
+    },
+    "media": {
+      "type": "video",
+      "link": "/data/videos/test.mp4"
+    }
   }
 ]

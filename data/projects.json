@@ -1,8 +1,8 @@
 [
   {
     "title": "My Website",
-    "description": "A website I created by myself in order to show of what projects and work I have done throughout the years.",
-    "informationLink": "#https://benjamintwp.github.io/",
+    "description": "A website I independently developed to showcase the projects and work I have completed over the years, including the implementation and visualization of various algorithms. Additionally, the site provides links and information about myself.",
+    "informationLink": "https://benjamintwp.github.io/pages/aboutMe.html",
     "date": "2024-06",
     "individual": true,
     "tags": {
@@ -15,13 +15,13 @@
     },
     "media": {
       "type": "image",
-      "link": "/data/images/bachelor.png"
+      "link": "/data/images/myWebSite.png"
     }
   },
   {
-    "title": "Bachelor's Thesis",
+    "title": "Bachelor's Thesis In Computer Science & Engineering",
     "description": "A Comparison of Approaches to Image Classification using Convolutional Neural Networks",
-    "informationLink": "#https://www.ibm.com/topics/convolutional-neural-networks",
+    "informationLink": "https://drive.google.com/file/d/1djYyMbmjejGzxdxMte8M3tSwcqPxlx5g/view?usp=sharing",
     "date": "2024-05",
     "individual": false,
     "tags": {
@@ -33,8 +33,27 @@
       "link": null
     },
     "media": {
-      "type": "video",
-      "link": "/data/videos/test.mp4"
+      "type": "image",
+      "link": "/data/images/bachelor.png"
+    }
+  },
+  {
+    "title": "Calculator in Python",
+    "description": "I developed a simple calculator utilizing Reverse Polish Notation (RPN) for efficient arithmetic operations. This calculator demonstrates an alternative computational method by eliminating the need for parentheses in mathematical expressions.",
+    "informationLink": "https://en.wikipedia.org/wiki/Reverse_Polish_notation",
+    "date": "2021-10",
+    "individual": false,
+    "tags": {
+      "language": ["Python"],
+      "type": []
+    },
+    "codeLink": {
+      "available": true,
+      "link": "https://github.com/BenjaminTWP/Projects/tree/main/School/Fundamental%20Courses/Calculator_In_Python"
+    },
+    "media": {
+      "type": "image",
+      "link": "/data/images/extremelySimple.png"
     }
   }
 ]

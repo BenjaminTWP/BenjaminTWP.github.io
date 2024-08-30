@@ -108,5 +108,27 @@
       "type": "image",
       "link": "/data/images/javaDesign.png"
     }
+  },
+  {
+    "title": "Machine Oriented Programming & Assemblers",
+    "description": "MD407 is a single-chip computer used in machine-oriented programming course at Chalmers, where both assembler and C languages are employed to develop low-level, hardware-focused applications.",
+    "date": "2022-03",
+    "individual": false,
+    "tags": {
+      "language": ["C"],
+      "type": ["Assembles"]
+    },
+    "information": {
+      "available": true,
+      "link": "https://www.cse.chalmers.se/edu/resources/mop/documents/MD407_beskrivning.pdf"
+    },
+    "code": {
+      "available": true,
+      "link": "https://github.com/BenjaminTWP/Projects/tree/main/School/Fundamental%20Courses/Machine_Oriented"
+    },
+    "media": {
+      "type": "image",
+      "link": "/data/images/md407.png"
+    }
   }
 ]

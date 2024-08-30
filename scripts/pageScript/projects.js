@@ -7,17 +7,18 @@ fetch('/data/projects.json')
             const projectItem = document.createElement('div');
             projectItem.classList.add('project-item', 'poppins-regular');
 
-            // Handle the code link
-            const codeLinkHTML = project.codeLink.available
-                ? `<a class="view-code-link" href="${project.codeLink.link}" target="_blank">View Code</a>`
+            const informationLink = project.information.available
+                ? `<a class="learn-more-link" href="${project.information.link}" target="_blank">Learn More</a>`
                 : '';
 
-            // Handle individual or team project display
-            const individualHTML = project.individual
-                ? '<p class="project-type">Individual Project</p>'
-                : '<p class="project-type">Team Project</p>';
+            const codeLinkHTML = project.code.available
+                ? `<a class="view-code-link" href="${project.code.link}" target="_blank">View Code</a>`
+                : '';
 
-            // Handle media (either video or image)
+            const individualHTML = project.individual
+                ? `<p class="project-type">Individual Project ${project.date}</p>`
+                : `<p class="project-type">Group Project ${project.date}</p>`;
+
             let mediaHTML = '';
             if (project.media.type === 'video') {
                 mediaHTML = `
@@ -40,7 +41,7 @@ fetch('/data/projects.json')
                         <h2 class="project-title">${project.title}</h2>
                         <p class="project-description">${project.description}</p>
                         ${codeLinkHTML} <!-- Only show code link if available -->
-                        <a class="learn-more-link" href="${project.informationLink}" target="_blank">Learn More</a>
+                        ${informationLink} <!-- Only show information link if available -->
                         
                         <b>${individualHTML} <!-- Show if individual or team project --></b>
                     </div>

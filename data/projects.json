@@ -2,14 +2,17 @@
   {
     "title": "My Website",
     "description": "A website I independently developed to showcase the projects and work I have completed over the years, including the implementation and visualization of various algorithms. Additionally, the site provides links and information about myself.",
-    "informationLink": "https://benjamintwp.github.io/pages/aboutMe.html",
     "date": "2024-06",
     "individual": true,
     "tags": {
       "language": ["JavaScript", "HTML", "CSS"],
       "type": ["Web Development"]
     },
-    "codeLink": {
+    "information": {
+      "available": true,
+      "link": "https://benjamintwp.github.io/pages/aboutMe.html"
+    },
+    "code": {
       "available": true,
       "link": "https://github.com/BenjaminTWP/BenjaminTWP.github.io"
     },
@@ -21,14 +24,17 @@
   {
     "title": "Bachelor's Thesis In Computer Science & Engineering",
     "description": "A Comparison of Approaches to Image Classification using Convolutional Neural Networks",
-    "informationLink": "https://drive.google.com/file/d/1djYyMbmjejGzxdxMte8M3tSwcqPxlx5g/view?usp=sharing",
     "date": "2024-05",
     "individual": false,
     "tags": {
       "language": ["Python"],
       "type": ["Thesis", "AI"]
     },
-    "codeLink": {
+    "information": {
+       "available": true,
+       "link": "https://drive.google.com/file/d/1djYyMbmjejGzxdxMte8M3tSwcqPxlx5g/view?usp=sharing"
+    },
+    "code": {
       "available": false,
       "link": null
     },
@@ -38,22 +44,69 @@
     }
   },
   {
-    "title": "Calculator in Python",
+    "title": "Object Oriented Programming In Java",
+    "description": "In a fundamental Java Object-Oriented Programming course, my group completed a group project that applied key OOP concepts. The project involved designing and implementing a software solution using Java, focusing on principles such as encapsulation, inheritance, polymorphism, and abstraction.",
+    "date": "2021-12",
+    "individual": false,
+    "tags": {
+      "language": ["Java"],
+      "type": ["OOP", "JavaFX"]
+    },
+    "information": {
+      "available": false,
+      "link": null
+    },
+    "code": {
+      "available": true,
+      "link": "https://github.com/BenjaminTWP/Projects/tree/main/School/Fundamental%20Courses/OOP_Project_Java/src/main"
+    },
+    "media": {
+      "type": "image",
+      "link": "/data/images/umlDiagramCars.png"
+    }
+  },
+  {
+    "title": "Calculator In Python",
     "description": "I developed a simple calculator utilizing Reverse Polish Notation (RPN) for efficient arithmetic operations. This calculator demonstrates an alternative computational method by eliminating the need for parentheses in mathematical expressions.",
-    "informationLink": "https://en.wikipedia.org/wiki/Reverse_Polish_notation",
     "date": "2021-10",
     "individual": false,
     "tags": {
       "language": ["Python"],
       "type": []
     },
-    "codeLink": {
+    "information": {
+      "available": true,
+      "link": "https://en.wikipedia.org/wiki/Reverse_Polish_notation"
+    },
+    "code": {
       "available": true,
       "link": "https://github.com/BenjaminTWP/Projects/tree/main/School/Fundamental%20Courses/Calculator_In_Python"
     },
     "media": {
       "type": "image",
-      "link": "/data/images/extremelySimple.png"
+      "link": "/data/images/calculator.png"
+    }
+  },
+  {
+    "title": "User Interface In Java(FX)",
+    "description": "In my first year of school, I developed a graphical user interface (GUI) for a course on Java graphical interfaces, utilizing design patterns to ensure an effective and maintainable implementation.",
+    "date": "2022-05",
+    "individual": true,
+    "tags": {
+      "language": ["Java"],
+      "type": ["JavaFX", "GUI"]
+    },
+    "information": {
+      "available": false,
+      "link": null
+    },
+    "code": {
+      "available": true,
+      "link": "https://github.com/BenjaminTWP/Projects/tree/main/School/Fundamental%20Courses/Design_In_Java/recipesearch"
+    },
+    "media": {
+      "type": "image",
+      "link": "/data/images/javaDesign.png"
     }
   }
 ]

@@ -16,7 +16,7 @@
     margin: 30px 0;
     padding: 20px;
     border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgb(243, 243, 243);
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
     align-items: center; /* Vertically center the elements */
@@ -26,10 +26,21 @@
     flex: 1;
 }
 
+.project-video {
+    max-width: 50%;
+    margin-left: 20px;
+    object-fit: contain;
+}
+
 .project-image {
     max-width: 50%;
     margin-left: 20px;
     object-fit: contain;
+}
+
+img, video {
+    aspect-ratio: 16 / 9;
+
 }
 
 .project-title {
@@ -39,7 +50,13 @@
 }
 
 .project-description {
+    margin-top: 10px;
     text-align: left;
+}
+
+.view-code-link{
+    margin-top: 10px;
+    display: block;
 }
 
 .learn-more-link {

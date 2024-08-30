@@ -5,11 +5,11 @@ fetch('/data/projects.json')
 
         data.forEach((project) => {
             const projectItem = document.createElement('div');
-            projectItem.classList.add('project-item');
+            projectItem.classList.add('project-item', 'poppins-regular');
 
             // Handle the code link
             const codeLinkHTML = project.codeLink.available
-                ? `<a class="code-link" href="${project.codeLink.link}" target="_blank">View Code</a>`
+                ? `<a class="view-code-link" href="${project.codeLink.link}" target="_blank">View Code</a>`
                 : '';
 
             // Handle individual or team project display
@@ -39,9 +39,10 @@ fetch('/data/projects.json')
                     <div class="project-content">
                         <h2 class="project-title">${project.title}</h2>
                         <p class="project-description">${project.description}</p>
-                        <a class="learn-more-link" href="${project.informationLink}" target="_blank">Learn More</a>
                         ${codeLinkHTML} <!-- Only show code link if available -->
-                        ${individualHTML} <!-- Show if individual or team project -->
+                        <a class="learn-more-link" href="${project.informationLink}" target="_blank">Learn More</a>
+                        
+                        <b>${individualHTML} <!-- Show if individual or team project --></b>
                     </div>
                     ${mediaHTML} <!-- Render either video or image -->
                 `;

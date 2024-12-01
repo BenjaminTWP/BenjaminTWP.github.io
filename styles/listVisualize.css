@@ -121,7 +121,7 @@ button{
     font-weight: bold;
     font-size: 18px;
 }
-/* Media query for smaller screens */
+
 @media (max-width: 600px) {
     .row {
         flex-direction: column-reverse; /* Stack columns vertically */

@@ -1,0 +1,148 @@
+
+.about-me-page {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+.section {
+    padding: 4rem 10%;
+}
+
+
+.hero-photo {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.hero-teaser {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.hero-scroll {
+    background-color: #57BC90;
+    color: white;
+
+    text-decoration: none;
+    border-radius: 50px;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Use percentage-based width */
+    overflow-x: hidden; /* Keep to prevent scrollbars */
+}
+
+.chapter {
+    width: 100%; /* Fix overflow issue caused by vw */
+    margin: 0 auto;
+    padding: 3rem;
+    box-sizing: border-box;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #77C9D4, #015249);
+    color: white;
+    text-align: center;
+    overflow-x: hidden; /* Ensure no horizontal scrollbars */
+}
+
+.container {
+    width: 100%; /* Ensure content container is 100% wide */
+    margin: 0;
+}
+
+
+.chapter:nth-child(odd) {
+    background: #f9f9f9;
+}
+
+
+.chapter-image {
+    width: 100%;
+    max-width: 400px;
+    margin: 2rem auto 0;
+    display: block;
+}
+
+/* Education Timeline */
+.education-timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.timeline-year {
+    font-weight: bold;
+    color: #57BC90;
+    font-size: 1.5rem;
+}
+
+/* Contact Section */
+.contact-section {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.contact-button {
+    background: #57BC90;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.contact-button:hover {
+    background: #015249;
+}
+
+.cv-section {
+    text-align: center;
+}
+
+.pdf-viewer iframe {
+    border: none;
+    margin-top: 1rem;
+}
+
+.download-button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 10px 20px;
+    background: #57BC90;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.download-button:hover {
+    background: #015249;
+}
+

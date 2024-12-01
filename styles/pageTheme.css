@@ -1,7 +1,6 @@
 body {
     margin: 0;
     padding: 0;
-    justify-content: center;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -11,7 +10,7 @@ body {
 }
 
 header {
-    padding: 1em;
+
     text-align: center;
     margin-top: -15px;
 }
@@ -46,7 +45,7 @@ main {
 
 footer {
     text-align: center;
-    padding: 1em;
+
     margin: 0;
 }
 
@@ -59,6 +58,7 @@ footer {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden; /* Ensure no horizontal overflow at this level */
 }
 
 .about-text{

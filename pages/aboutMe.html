@@ -6,6 +6,7 @@
     <title>About</title>
     <link rel="stylesheet" href="/styles/pageTheme.css">
     <link rel="stylesheet" href="/styles/fonts.css">
+    <link rel="stylesheet" href="/styles/aboutMe.css">
 
 
     <script src="/global.js"></script>
@@ -26,12 +27,72 @@
     </header>
 
 
-    <main>
-        <h2 class="about-text">Benjamin Thomas Wilhelm Pettersson - BenjaminTWP</h2><br>
-        <p class="about-text">Civil Engineering Student</p><br>
-        <p class="about-text">B.Sc. In Computer Science & Engineering</p><br>
-        <p class="about-text">M.Sc. In Data Science & AI (ongoing)</p>
+    <main class="about-me-page">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <img src="/images/profile.jpg" alt="Photo" class="hero-photo">
+                <h1>Hi, I'm Benjamin</h1>
+                <p class="hero-teaser">From civil engineering to data science, here's my journey.</p>
+                <a href="#chapter1" class="hero-scroll">Scroll to Learn More</a>
+            </div>
+        </section>
+
+        <!-- Chapter 1: Who I Am -->
+        <section id="chapter1" class="chapter">
+            <h2>Who I Am</h2>
+            <p>
+                I’m a civil engineering student with a computer science background, currently diving into the world of Data Science and AI at Chalmers University.
+                My passion lies in solving complex problems with innovative technologies.
+            </p>
+            <img src="/images/interests.jpg" alt="Illustration of interests" class="chapter-image">
+        </section>
+
+        <!-- Chapter 2: Education -->
+        <section id="chapter2" class="chapter">
+            <h2>Education</h2>
+            <div class="education-timeline">
+                <div class="timeline-item">
+                    <span class="timeline-year">2024</span>
+                    <p>Started M.Sc. in Data Science and AI at Chalmers University.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">2021</span>
+                    <p>Graduated B.Sc. in Computer Science and Engineering.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 3: Projects and Achievements -->
+        <section id="chapter3" class="chapter cv-section">
+            <h2>My CV</h2>
+            <p>Explore my professional journey in detail:</p>
+            <div class="pdf-viewer">
+                <iframe src="/data/files/CV_English.pdf#zoom=100" width="100%" height="1150px"></iframe>
+            </div>
+            <a href="/data/files/CV_English.pdf" download class="download-button">Download My CV</a>
+        </section>
+
+        <!-- Chapter 4: Future Goals -->
+        <section id="chapter4" class="chapter goals">
+            <h2>Future Goals</h2>
+            <p>
+                I aim to bridge the gap between data science and civil engineering by leveraging AI to optimize structural designs, smart cities, and IT solutions.
+            </p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <h2>Let’s Connect</h2>
+            <p>Feel free to reach out through any of the channels below:</p>
+            <div class="contact-links">
+                <a id="emailButton" href="javascript:void(0)" class="contact-button email-button">Email Me</a>
+                <a href="https://www.linkedin.com/in/benjamin-pettersson-570114230/" target="_blank" class="contact-button">LinkedIn</a>
+                <a href="https://github.com/BenjaminTWP" target="_blank" class="contact-button">GitHub</a>
+            </div>
+        </section>
     </main>
+
 
 
     <footer>
@@ -40,6 +101,22 @@
 
 </div>
 <script>
+    let emailRevealed = false;
+
+    function revealEmail() {
+        const button = document.getElementById('emailButton');
+        const email = "benjaminTWpettersson@gmail.com";
+
+        if (!emailRevealed) {
+            button.innerText = email;
+            button.href = `mailto:${email}`;
+            emailRevealed = true;
+        } else {
+            button.click();
+        }
+    }
+    document.getElementById('emailButton').addEventListener('click', revealEmail);
+
     document.getElementById('footerLastUpdated').innerText = "Last updated " + LAST_UPDATE + ".";
 </script>
 

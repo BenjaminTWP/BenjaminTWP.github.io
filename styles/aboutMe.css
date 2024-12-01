@@ -11,9 +11,9 @@
 
 
 .hero-photo {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    border-radius: 4px;
+    width: 200px;
+    height: 336px;
     object-fit: cover;
     margin-bottom: 1rem;
 }
@@ -24,25 +24,21 @@
 }
 
 .hero-scroll {
-    background-color: #57BC90;
-    color: white;
+    background-color: #77C9D4;
 
+    color: #000000;
     text-decoration: none;
     border-radius: 50px;
 }
 
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%; /* Use percentage-based width */
-    overflow-x: hidden; /* Keep to prevent scrollbars */
-}
+
 
 .chapter {
-    width: 100%; /* Fix overflow issue caused by vw */
+    width: 100%;
     margin: 0 auto;
     padding: 3rem;
     box-sizing: border-box;
+
 }
 
 .hero {
@@ -51,8 +47,7 @@ body, html {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(to bottom right, #77C9D4, #015249);
-    color: white;
+
     text-align: center;
     overflow-x: hidden; /* Ensure no horizontal scrollbars */
 }
@@ -62,10 +57,6 @@ body, html {
     margin: 0;
 }
 
-
-.chapter:nth-child(odd) {
-    background: #f9f9f9;
-}
 
 
 .chapter-image {
@@ -88,14 +79,21 @@ body, html {
     gap: 1rem;
     align-items: center;
 }
+#iframe-cv{
 
+    width: 70%;
+    height: 700px;
+    border-radius: 8px;
+    box-shadow:  3px 3px 3px #000000;
+    margin-bottom: 40px;
+
+
+}
 .timeline-year {
     font-weight: bold;
-    color: #57BC90;
-    font-size: 1.5rem;
+    color: #000000;
 }
 
-/* Contact Section */
 .contact-section {
     background: #333;
     color: white;
@@ -112,7 +110,7 @@ body, html {
 .contact-button {
     background: #57BC90;
     color: white;
-    padding: 10px 20px;
+    padding: 15px 20px;
     border-radius: 5px;
     text-decoration: none;
     transition: background 0.3s ease;
@@ -128,21 +126,54 @@ body, html {
 
 .pdf-viewer iframe {
     border: none;
-    margin-top: 1rem;
+
 }
 
 .download-button {
     display: inline-block;
-    margin-top: 1.5rem;
-    padding: 10px 20px;
+
+    padding: 20px 20px;
     background: #57BC90;
+    transition: background 0.3s ease;
+    font-size: 20px;
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    transition: background 0.3s ease;
+
 }
 
 .download-button:hover {
     background: #015249;
+}
+
+.chapter-image {
+    width: 100%;
+    height: auto;
+}
+
+.image-gallery {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.small-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.small-image:hover {
+    transform: scale(1.1);
+}
+
+.year{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
 }
 

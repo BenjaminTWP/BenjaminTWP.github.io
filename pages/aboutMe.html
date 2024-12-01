@@ -10,12 +10,11 @@
 
 
     <script src="/global.js"></script>
-    <script src="/styles/background/three.r134.min.js"></script>
-    <script src="/styles/background/vanta.net.min.js"></script>
+
 </head>
 <body class="poppins-regular" id="body">
 <div class="wrapper">
-    <header>
+    <header  >
         <h1>About Me</h1>
         <nav>
             <ul>
@@ -27,25 +26,33 @@
     </header>
 
 
-    <main class="about-me-page">
+    <main class="about-me-page" style="margin-top: 15px">
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-content">
-                <img src="/images/profile.jpg" alt="Photo" class="hero-photo">
                 <h1>Hi, I'm Benjamin</h1>
+                <!-- <img src="/data/images/profile.png" alt="Photo" class="hero-photo">-->
+
                 <p class="hero-teaser">From civil engineering to data science, here's my journey.</p>
-                <a href="#chapter1" class="hero-scroll">Scroll to Learn More</a>
+                <a href="#chapter1" class="hero-scroll" style="font-size: 20px; padding: 10px;"> Scroll to Learn More</a>
             </div>
         </section>
 
         <!-- Chapter 1: Who I Am -->
         <section id="chapter1" class="chapter">
             <h2>Who I Am</h2>
-            <p>
+            <p style="text-align: center;">
                 I’m a civil engineering student with a computer science background, currently diving into the world of Data Science and AI at Chalmers University.
                 My passion lies in solving complex problems with innovative technologies.
             </p>
-            <img src="/images/interests.jpg" alt="Illustration of interests" class="chapter-image">
+            <div class="image-gallery">
+                <img src="/data/images/interestImages/running.png" alt="Running" class="small-image">
+                <img src="/data/images/interestImages/book.png" alt="Reading" class="small-image">
+                <img src="/data/images/interestImages/code.png" alt="Coding" class="small-image">
+                <img src="/data/images/interestImages/food.png" alt="Food" class="small-image">
+                <img src="/data/images/interestImages/math.png" alt="Math" class="small-image">
+
+            </div>
         </section>
 
         <!-- Chapter 2: Education -->
@@ -53,13 +60,18 @@
             <h2>Education</h2>
             <div class="education-timeline">
                 <div class="timeline-item">
-                    <span class="timeline-year">2024</span>
-                    <p>Started M.Sc. in Data Science and AI at Chalmers University.</p>
+                    <span class="timeline-year year">2020-2021</span>
+                    <p>Begun and Completed Technical Foundational Year at Chalmers University.</p>
                 </div>
                 <div class="timeline-item">
-                    <span class="timeline-year">2021</span>
-                    <p>Graduated B.Sc. in Computer Science and Engineering.</p>
+                    <span class="timeline-year year">2021-2024</span>
+                    <p>Begun and Completed  B.Sc. in Computer Science and Engineering at Chalmers University.</p>
                 </div>
+                <div class="timeline-item">
+                    <span class="timeline-year year">2024</span>
+                    <p>Started M.Sc. in Data Science and AI at Chalmers University.</p>
+                </div>
+
             </div>
         </section>
 
@@ -68,7 +80,7 @@
             <h2>My CV</h2>
             <p>Explore my professional journey in detail:</p>
             <div class="pdf-viewer">
-                <iframe src="/data/files/CV_English.pdf#zoom=100" width="100%" height="1150px"></iframe>
+                <iframe src="/data/files/CV_English.pdf#zoom=100" id="iframe-cv" ></iframe>
             </div>
             <a href="/data/files/CV_English.pdf" download class="download-button">Download My CV</a>
         </section>
@@ -76,7 +88,7 @@
         <!-- Chapter 4: Future Goals -->
         <section id="chapter4" class="chapter goals">
             <h2>Future Goals</h2>
-            <p>
+            <p style="text-align: center;">
                 I aim to bridge the gap between data science and civil engineering by leveraging AI to optimize structural designs, smart cities, and IT solutions.
             </p>
         </section>
@@ -86,7 +98,7 @@
             <h2>Let’s Connect</h2>
             <p>Feel free to reach out through any of the channels below:</p>
             <div class="contact-links">
-                <a id="emailButton" href="javascript:void(0)" class="contact-button email-button">Email Me</a>
+                <a id="emailButton" href="javascript:void(0)" class="contact-button email-button">Email</a>
                 <a href="https://www.linkedin.com/in/benjamin-pettersson-570114230/" target="_blank" class="contact-button">LinkedIn</a>
                 <a href="https://github.com/BenjaminTWP" target="_blank" class="contact-button">GitHub</a>
             </div>

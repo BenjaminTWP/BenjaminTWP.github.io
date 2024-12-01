@@ -5,7 +5,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     background: rgb(119,201,212);
-    background: linear-gradient(45deg, rgba(119,201,212,1) 20%, rgba(87,188,144,1) 60%, rgba(1,82,73,1) 100%);
+    background: linear-gradient(45deg, rgba(119,201,212,1) 10%, rgba(87,188,144,1) 80%, rgba(1,82,73,1) 100%);
     overflow-x: hidden;
 }
 
@@ -31,10 +31,7 @@ nav ul li a {
     text-decoration: none;
 }
 
-main {
-    flex: 1;
-    padding: 1em;
-}
+
 
 .nav-link.disabled {
     color: #999;

@@ -43,12 +43,11 @@ fetch('/data/projects.json')
                         ${codeLinkHTML} <!-- Only show code link if available -->
                         ${informationLink} <!-- Only show information link if available -->
                         
-                        <b>${individualHTML} <!-- Show if individual or team project --></b>
+                        <b>${individualHTML} <!-- show if individual or team project --></b>
                     </div>
-                    ${mediaHTML} <!-- Render either video or image -->
+                    ${mediaHTML} 
                 `;
 
-            // Append the project to the container
             projectsContainer.appendChild(projectItem);
         });
     })

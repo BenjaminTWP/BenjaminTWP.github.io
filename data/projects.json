@@ -1,5 +1,71 @@
 [
   {
+    "title": "Ant Colony Optimization Algorithm",
+    "description": "As a part of a course in Stochastic Optimization Algorithms (FFR105), I implemented an Ant Colony Optimization Algorithm to solve the Traveling Salesman Problem (TSP).",
+    "date": "2024-10",
+    "individual": true,
+    "tags": {
+      "language": ["Matlab"],
+      "type": ["Stochastic", "Algorithm", "Optimization"]
+    },
+    "information": {
+      "available": true,
+      "link": "https://en.wikipedia.org/wiki/Ant_colony_optimization_algorithms"
+    },
+    "code": {
+      "available": true,
+      "link": "https://github.com/BenjaminTWP/Projects/tree/main/School/Masters%20Courses/Stochastic%20Optimization%20Algorithms/ACO"
+    },
+    "media": {
+      "type": "video",
+      "link": "/data/videos/ACO.mp4"
+    }
+  },
+  {
+    "title": "Particle Swarm Optimization Algorithm",
+    "description": "As a part of a course in Stochastic Optimization Algorithms (FFR105), I implemented a Particle Swarm Optimization Algorithm that finds the smallest or largest value of a function.",
+    "date": "2024-10",
+    "individual": true,
+    "tags": {
+      "language": ["Matlab"],
+      "type": ["Stochastic", "Algorithm", "Optimization"]
+    },
+    "information": {
+      "available": true,
+      "link": "https://en.wikipedia.org/wiki/Particle_swarm_optimization"
+    },
+    "code": {
+      "available": true,
+      "link": "https://github.com/BenjaminTWP/Projects/tree/main/School/Masters%20Courses/Stochastic%20Optimization%20Algorithms/Particle%20Swarm"
+    },
+    "media": {
+      "type": "video",
+      "link": "/data/videos/PSO.mp4"
+    }
+  },
+  {
+    "title": "Genetic Optimization Algorithm",
+    "description": "As a part of a course in Stochastic Optimization Algorithms (FFR105), I implemented a Genetic Algorithm that finds the smallest or largest value of a function.",
+    "date": "2024-09",
+    "individual": true,
+    "tags": {
+      "language": ["Matlab"],
+      "type": ["Stochastic", "Algorithm", "Optimization"]
+    },
+    "information": {
+      "available": true,
+      "link": "https://en.wikipedia.org/wiki/Genetic_algorithm"
+    },
+    "code": {
+      "available": true,
+      "link": "https://github.com/BenjaminTWP/Projects/tree/main/School/Masters%20Courses/Stochastic%20Optimization%20Algorithms/Genetic%20Algorithm"
+    },
+    "media": {
+      "type": "video",
+      "link": "/data/videos/GA.mp4"
+    }
+  },
+  {
     "title": "My Website",
     "description": "A website I independently developed to showcase the projects and work I have completed over the years, including the implementation and visualization of various algorithms. Additionally, the site provides links and information about myself.",
     "date": "2024-06",

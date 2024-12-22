@@ -22,18 +22,19 @@ fetch('/data/projects.json')
             let mediaHTML = '';
             if (project.media.type === 'video') {
                 mediaHTML = `
-                        <div class="project-video">
-                            <video controls style="max-width: 100%; border-radius: 10px;">
-                                <source src="${project.media.link}" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>`;
+        <div class="project-media">
+            <video controls>
+                <source src="${project.media.link}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>`;
             } else if (project.media.type === 'image') {
                 mediaHTML = `
-                        <div class="project-image">
-                            <img src="${project.media.link}" alt="${project.title}" style="max-width: 100%; border-radius: 10px;">
-                        </div>`;
+        <div class="project-media">
+            <img src="${project.media.link}" alt="${project.title}">
+        </div>`;
             }
+
 
             // Generate the project HTML
             projectItem.innerHTML = `

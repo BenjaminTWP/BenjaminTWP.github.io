@@ -81,3 +81,11 @@ img, video {
     margin-top: 10px;
     display: block;
 }
+.settings-menu{
+    margin: 50px auto 0 auto;
+    background-color: #ffcccc;
+    height: 40px;
+    width: 20%;
+    border-radius: 5px;
+
+}

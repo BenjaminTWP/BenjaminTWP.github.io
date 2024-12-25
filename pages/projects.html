@@ -11,6 +11,7 @@
 
     <script src="/global.js"></script>
     <script src="/data/projects.json"></script>
+    <script src="/scripts/pageScript/projects.js"></script>
 </head>
 <body class="poppins-regular" id="body">
         <header>
@@ -42,6 +43,6 @@
 
 
 <script> document.getElementById('footerLastUpdated').innerText = "Last updated " + LAST_UPDATE + ".";  </script>
-        <script src="/scripts/pageScript/projects.js"></script>
+<script> loadProjects('projectsContainer', '/data/projects.json'); </script>
 </body>
 </html>

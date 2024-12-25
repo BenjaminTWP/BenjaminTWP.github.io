@@ -3,7 +3,8 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding: 20px;
+    padding: 0;
+    margin: 0 auto;
     box-sizing: border-box;
     overflow-x: hidden;
     overflow-y: auto;
@@ -81,13 +82,15 @@ img, video {
     margin-top: 10px;
     display: block;
 }
-.settings-menu{
-    margin: 50px auto 0 auto;
+.settings-menu {
+    top: 50px;
+    padding: 0;
+    margin: 0 auto;
     display: flex;
-    width: 57%;
-    border-radius: 5px;
     flex-direction: row;
     justify-content: flex-end;
+    width: 60%;
+    box-sizing: border-box;
 }
 
 .language-select{
@@ -99,6 +102,7 @@ img, video {
     text-wrap: pretty;
 
 }
+
 .filter-menu{
     display: flex;
     flex-direction: row;
@@ -127,7 +131,14 @@ img, video {
 }
 
 .filter-buttons.active {
-    background-color: #015249; /* Darker color for active state */
-    color: white; /* Optional: Change text color */
-    border-color: #013d36; /* Optional: Slightly darker border for active button */
+    background-color: #77C9D4;
+    color: white;
+    border-color: #015249;
+}
+
+.page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }

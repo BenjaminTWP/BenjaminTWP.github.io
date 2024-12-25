@@ -25,11 +25,23 @@
         </header>
 
         <div class="settings-menu">
-            <select id="languageFilter"></select>
-            <button id="sortDateAsc">Sort by Date (Asc)</button>
-            <button id="sortDateDesc">Sort by Date (Desc)</button>
-            <button id="filterIndividual">Show Individual Projects</button>
-            <button id="filterGroup">Show Group Projects</button>
+            <div class="filter-menu">
+                <div>
+                    <button id="sortDateDesc" class="filter-buttons" style="border-top-left-radius: 5px">
+                        <img src="\styles\images\icon\sortDesc.png" alt="Date Descending" /></button>
+                    <button id="sortDateAsc" class="filter-buttons" style="border-bottom-left-radius: 5px">
+                        <img src="\styles\images\icon\sortAsc.png" alt="Date Ascending"/></button>
+                </div>
+                <div>
+                    <button id="filterIndividual" class="filter-buttons">
+                        <img src="\styles\images\icon\individualIcon.png" alt="Individual"/></button>
+                    <button id="filterGroup" class="filter-buttons">
+                        <img src="\styles\images\icon\groupIcon.png" alt="Group"/></button>
+                </div>
+            </div>
+
+            <div> <select id="languageFilter" class="language-select" style="border-top-right-radius: 5px; border-bottom-right-radius: 5px;"></select>
+            </div>
         </div>
 
 

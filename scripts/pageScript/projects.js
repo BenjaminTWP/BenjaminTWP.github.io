@@ -35,7 +35,7 @@ function populateLanguageFilter(projects) {
         });
     });
 
-    languageFilter.innerHTML = `<option value="all">All Languages</option>`;
+    languageFilter.innerHTML = `<option value="all">All  Languages</option>`;
     languages.forEach(language => {
         const option = document.createElement('option');
         option.value = language;

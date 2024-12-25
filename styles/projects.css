@@ -83,9 +83,46 @@ img, video {
 }
 .settings-menu{
     margin: 50px auto 0 auto;
-    background-color: #ffcccc;
-    height: 40px;
-    width: 20%;
+    display: flex;
+    width: 57%;
     border-radius: 5px;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.language-select{
+    height: 100%;
+    width: 12vh;
+    background-color: rgb(243, 243, 243);
+    border-color: #015249;
+    border-width: 1px;
+    text-wrap: pretty;
 
 }
+.filter-menu{
+    display: flex;
+    flex-direction: row;
+}
+.filter-buttons {
+    background-color: rgb(243, 243, 243);
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    cursor: pointer;
+    border-color: #015249;
+    border-width: 1px;
+}
+
+.filter-buttons img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.filter-buttons:hover {
+    background-color: #939393;
+}
+

@@ -10,8 +10,6 @@
     <link rel="icon" type="image/png" href="/data/images/interestImages/webicon.png"/>
 
     <script src="/global.js"></script>
-    <script src="/data/projects.json"></script>
-    <script src="/scripts/pageScript/projects.js"></script>
 </head>
 <body class="poppins-regular" id="body">
         <header>
@@ -27,14 +25,16 @@
         </header>
 
         <div class="settings-menu">
-            <select>    </select>
-            <button> Date </button>
-            <button> individual</button>
+            <select id="languageFilter"></select>
+            <button id="sortDateAsc">Sort by Date (Asc)</button>
+            <button id="sortDateDesc">Sort by Date (Desc)</button>
+            <button id="filterIndividual">Show Individual Projects</button>
+            <button id="filterGroup">Show Group Projects</button>
         </div>
 
 
         <main class="projects-container" id="projectsContainer">
-            <!-- Projects dynamically injected here -->
+            <!-- Projects injected here -->
         </main>
 
         <footer>
@@ -43,6 +43,7 @@
 
 
 <script> document.getElementById('footerLastUpdated').innerText = "Last updated " + LAST_UPDATE + ".";  </script>
+        <script src="/scripts/pageScript/projects.js"></script>
 <script> loadProjects('projectsContainer', '/data/projects.json'); </script>
 </body>
 </html>

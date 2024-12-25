@@ -119,27 +119,64 @@ function renderProjects(projects, containerId) {
     });
 }
 
+function setMutuallyExclusiveButtons(activeButtonId, otherButtonId) {
+    const activeButton = document.getElementById(activeButtonId);
+    const otherButton = document.getElementById(otherButtonId);
+
+    if (activeButton) {
+        activeButton.classList.add('active');
+    }
+
+    if (otherButton) {
+        otherButton.classList.remove('active');
+    }
+}
+
 document.getElementById('languageFilter').addEventListener('change', (event) => {
     filterState.language = event.target.value;
     renderFilteredAndSortedProjects('projectsContainer');
 });
 
 document.getElementById('sortDateAsc').addEventListener('click', () => {
-    filterState.sort = 'dateAsc';
+    if (filterState.sort === 'dateAsc') {
+        filterState.sort = 'none';
+        document.getElementById('sortDateAsc').classList.remove('active');
+    } else {
+        filterState.sort = 'dateAsc';
+        setMutuallyExclusiveButtons('sortDateAsc', 'sortDateDesc');
+    }
     renderFilteredAndSortedProjects('projectsContainer');
 });
 
 document.getElementById('sortDateDesc').addEventListener('click', () => {
-    filterState.sort = 'dateDesc';
+    if (filterState.sort === 'dateDesc') {
+        filterState.sort = 'none';
+        document.getElementById('sortDateDesc').classList.remove('active');
+    } else {
+        filterState.sort = 'dateDesc';
+        setMutuallyExclusiveButtons('sortDateDesc', 'sortDateAsc');
+    }
     renderFilteredAndSortedProjects('projectsContainer');
 });
 
 document.getElementById('filterIndividual').addEventListener('click', () => {
-    filterState.type = filterState.type === 'individual' ? 'all' : 'individual'; // Toggle filter
+    if (filterState.type === 'individual') {
+        filterState.type = 'all';
+        document.getElementById('filterIndividual').classList.remove('active');
+    } else {
+        filterState.type = 'individual';
+        setMutuallyExclusiveButtons('filterIndividual', 'filterGroup');
+    }
     renderFilteredAndSortedProjects('projectsContainer');
 });
 
 document.getElementById('filterGroup').addEventListener('click', () => {
-    filterState.type = filterState.type === 'group' ? 'all' : 'group'; // Toggle filter
+    if (filterState.type === 'group') {
+        filterState.type = 'all';
+        document.getElementById('filterGroup').classList.remove('active');
+    } else {
+        filterState.type = 'group';
+        setMutuallyExclusiveButtons('filterGroup', 'filterIndividual');
+    }
     renderFilteredAndSortedProjects('projectsContainer');
 });

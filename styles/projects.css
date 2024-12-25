@@ -126,3 +126,8 @@ img, video {
     background-color: #939393;
 }
 
+.filter-buttons.active {
+    background-color: #015249; /* Darker color for active state */
+    color: white; /* Optional: Change text color */
+    border-color: #013d36; /* Optional: Slightly darker border for active button */
+}

@@ -4,9 +4,10 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: rgb(119,201,212);
-    background: linear-gradient(45deg, rgba(119,201,212,1) 10%, rgba(87,188,144,1) 80%, rgba(1,82,73,1) 100%);
+    background: url("/styles/images/background.jpg") no-repeat center center fixed;
+    background-size: cover;
     overflow-x: hidden;
+    color: black;
 }
 
 header {

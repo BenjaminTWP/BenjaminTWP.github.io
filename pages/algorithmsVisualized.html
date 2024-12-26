@@ -3,24 +3,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BenjaminTWP</title>
+    <title>Algorithms Visualized</title>
     <link rel="stylesheet" href="/styles/pageTheme.css" />
     <link rel="stylesheet" href="/styles/modalPanel.css" />
     <link rel="stylesheet" href="/styles/listVisualize.css" />
     <link rel="stylesheet" href="/styles/graphVisualize.css"/>
     <link rel="stylesheet" href="/styles/matrixVisualize.css">
-    <link rel="icon" type="image/png" href="/data/images/interestImages/webicon.png"/>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles/fonts.css">
+    <link rel="icon" type="image/png" href="/data/images/interestImages/webIcon.png"/>
 
     <script src="/global.js"></script>
     <script src="/scripts/utils/delay.js"></script>
     <script src="/scripts/ScriptHandler.js"></script>
-    <script src="/styles/background/three.r134.min.js"></script>
-    <script src="/styles/background/vanta.net.min.js"></script>
 </head>
 <body class="poppins-regular" id="body">
 <div class="wrapper">
@@ -43,7 +37,6 @@
                 <div id="graphWindow" class="content-section hidden">
                     <p class="info-text">Graph algorithms are techniques used to solve problems such as finding the shortest path, detecting cycles, and traversing or searching through a graph.</p>
                     <div id="graphContentDiv" class="graph-visualization">
-
                         <svg id="graph" ></svg>
                         <div class="plus-minus-div">
                             <div class="flex-container">
@@ -178,9 +171,6 @@
                             <button class="action-button poppins-medium" onclick="flood()">Flood Fill</button>
                         </div>
                     </div>
-
-
-
                 </div>
             </div>
         </div>
@@ -197,7 +187,6 @@
             content.classList.add("hidden");});
         document.getElementById(section).classList.remove("hidden");}
 </script>
-
 <script src="../scripts/main.js"></script>
 </body>
 </html>

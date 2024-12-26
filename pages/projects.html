@@ -24,7 +24,10 @@
         </header>
         <div class="page-content" style="padding-top: 25px">
             <div class="settings-menu">
+                <a><img class="filter-thingy" id="filterButton" src="\styles\images\icon\filter.png" alt="Filter"></a></div>
+            <div class="settings-menu" id="settingsMenu" style="display: none">
                 <div class="filter-menu">
+
                     <div>
                         <button id="sortDateDesc" class="filter-buttons" style="border-top-left-radius: 5px">
                             <img src="\styles\images\icon\sortDesc.png" alt="Date Descending" /></button>
@@ -37,10 +40,12 @@
                         <button id="filterGroup" class="filter-buttons">
                             <img src="\styles\images\icon\groupIcon.png" alt="Group"/></button>
                     </div>
+
                 </div>
 
                 <div> <select id="languageFilter" class="language-select" style="border-top-right-radius: 5px; border-bottom-right-radius: 5px;">Languages</select>
                 </div>
+                <a id= "close" style="padding: 2px; cursor: pointer;">X</a>
             </div>
 
             <main class="projects-container" id="projectsContainer">
@@ -53,7 +58,21 @@
             <p class="side-by-side" id="footerLastUpdated"></p><p class="side-by-side"><a href="https://github.com/BenjaminTWP/BenjaminTWP.github.io/activity" rel="noopener"  target="_blank">GitHub Activity</a>
         </footer>
 
+<script>
+    const filterButton = document.getElementById('filterButton');
+    const settingsMenu = document.getElementById('settingsMenu');
+    const closeX = document.getElementById('close');
 
+    filterButton.addEventListener("click", function (e) {
+        filterButton.style.display = "none"
+        settingsMenu.style.display = "flex"
+    });
+
+    closeX.addEventListener("click", function (e) {
+        filterButton.style.display = "flex"
+        settingsMenu.style.display = "none"
+    });
+</script>
 <script> document.getElementById('footerLastUpdated').innerText = "Last updated " + LAST_UPDATE + ".";  </script>
         <script src="/scripts/pageScript/projects.js"></script>
 <script> loadProjects('projectsContainer', '/data/projects.json'); </script>

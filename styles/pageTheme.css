@@ -11,7 +11,9 @@ body {
 
 header {
     text-align: center;
-    margin-top: -15px;
+}
+h1 {
+    font-weight: inherit;
 }
 
 nav ul {
@@ -28,9 +30,8 @@ nav ul li {
 nav ul li a {
     color: #000000;
     text-decoration: none;
+    font-size: 20px;
 }
-
-
 
 .nav-link.disabled {
     color: #999;

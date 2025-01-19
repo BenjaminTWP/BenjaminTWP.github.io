@@ -110,6 +110,28 @@
     }
   },
   {
+    "title": "Wildfire Tracking Website",
+    "description": "In this group project, I was responsible for extracting wildfire data from NASA, making an information view for , and the functionality of sorting wildfires given sorting criteria such as year, country, etc...",
+    "date": "2023-05",
+    "individual": false,
+    "tags": {
+      "language": ["JavaScript", "HTML", "CSS"],
+      "type": ["Web Development", "Agile"]
+    },
+    "information": {
+      "available": false,
+      "link": ""
+    },
+    "code": {
+      "available": false,
+      "link": ""
+    },
+    "media": {
+      "type": "video",
+      "link": "/data/videos/FIREWATCHER.mp4"
+    }
+  },
+  {
     "title": "Object Oriented Programming In Java",
     "description": "In a fundamental Java Object-Oriented Programming course, my group completed a project that applied key OOP concepts. The project involved designing and implementing a software solution using Java, focusing on principles such as encapsulation, inheritance, polymorphism, and abstraction.",
     "date": "2021-12",

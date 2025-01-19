@@ -36,8 +36,13 @@
     box-sizing: border-box;
     text-align: center;
     font-size: larger;
-    font-weight: bold;
 }
+
+.contrast-enhancer{
+    text-shadow: 1px 1px ghostwhite, -1px 1px ghostwhite, 1px -1px ghostwhite, -1px -1px ghostwhite;
+}
+
+
 
 .hero {
     display: flex;

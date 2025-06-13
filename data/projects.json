@@ -1,5 +1,27 @@
 [
   {
+    "title": "NoSQL With a Focus on Graph Databases",
+    "description": "Refactored a relational database into a graph database within the context of a course about advanced Databases. Consisted of improving an existing relational schema, creating ontologies, and then implementing a graph database in GraphDB and Neo4j.",
+    "date": "2025-05",
+    "individual": true,
+    "tags": {
+      "language": ["Python"],
+      "type": ["NoSQL", "Project"]
+    },
+    "information": {
+      "available": true,
+      "link": "https://en.wikipedia.org/wiki/NoSQL"
+    },
+    "code": {
+      "available": true,
+      "link": "https://github.com/BenjaminTWP/Projects/tree/main/School/Masters%20Courses/Advanced_Databases"
+    },
+    "media": {
+      "type": "image",
+      "link": "/data/images/graphDatabase.png"
+    }
+  },
+  {
     "title": "Computational Techniques for Large Scale Data Projects",
     "description": "A collection of projects that aims to explore different programming paradigms for big-data computation. The projects explore multiprocessing, frameworks such as Mapreduce and SPARK, algorithms such as HyperLogLog and Locality-Sensitive Hashing, but also breach the surface of GPU programming using CuPy.",
     "date": "2025-05",

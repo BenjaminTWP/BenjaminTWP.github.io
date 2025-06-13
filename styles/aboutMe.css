@@ -97,6 +97,7 @@
     color: white;
     text-align: center;
     padding: 2rem 0;
+    padding-top: 1px; /*Something necessary here, otherwise no padding*/
 }
 
 .contact-links {
@@ -116,6 +117,7 @@
 
 .contact-button:hover {
     background: #015249;
+    cursor: pointer;
 }
 
 .cv-section {
@@ -171,7 +173,7 @@
 }
 
 .year{
-    color: #57BC90;
+    color: #015249;
     font-size: 20px;
     font-weight: bold;
 }

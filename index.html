@@ -107,19 +107,16 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="contact-section">
+        <div id="contact" class="contact-section">
             <h2>Let’s Connect</h2>
             <p>Feel free to reach out through any of the channels below:</p>
             <div class="contact-links">
-                <a id="emailButton" href="javascript:void(0)" class="contact-button email-button">Email</a>
+                <a id="emailButton" class="contact-button">Email</a>
                 <a href="https://www.linkedin.com/in/benjamin-pettersson-570114230/" target="_blank" class="contact-button">LinkedIn</a>
                 <a href="https://github.com/BenjaminTWP" target="_blank" class="contact-button">GitHub</a>
             </div>
-        </section>
+        </div>
     </main>
-
-
-
     <footer>
         <p class="side-by-side" id="footerLastUpdated"></p><p class="side-by-side"><a href="https://github.com/BenjaminTWP/BenjaminTWP.github.io/activity" rel="noopener"  target="_blank">GitHub Activity</a>
     </footer>
@@ -127,20 +124,19 @@
 </div>
 <script>
     let emailRevealed = false;
+    const button = document.getElementById('emailButton');
 
     function revealEmail() {
-        const button = document.getElementById('emailButton');
         const email = "benjaminTWpettersson@gmail.com";
-
-        if (!emailRevealed) {
-            button.innerText = email;
+        button.innerText = email;
+        if (emailRevealed){
             button.href = `mailto:${email}`;
-            emailRevealed = true;
-        } else {
-            button.click();
         }
+        emailRevealed = true;
+        button.title = "Click again to automatically open your email-application"
     }
-    document.getElementById('emailButton').addEventListener('click', revealEmail);
+
+    button.addEventListener('click', revealEmail);
 
     document.getElementById('footerLastUpdated').innerText = "Last updated " + LAST_UPDATE + ".";
 </script>

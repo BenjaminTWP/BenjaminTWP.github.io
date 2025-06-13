@@ -11,7 +11,6 @@
     width: 80vw;
     position: relative;
     overflow: hidden; /* Makes the button not stick out over the window*/
-
 }
 #leftModuleTab{
     border-top-left-radius: 10px;

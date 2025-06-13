@@ -1,5 +1,49 @@
 [
   {
+    "title": "Computational Techniques for Large Scale Data Projects",
+    "description": "A collection of projects that aims to explore different programming paradigms for big-data computation. The projects explore multiprocessing, frameworks such as Mapreduce and SPARK, algorithms such as HyperLogLog and Locality-Sensitive Hashing, but also breach the surface of GPU programming using CuPy.",
+    "date": "2025-05",
+    "individual": true,
+    "tags": {
+      "language": ["Python"],
+      "type": ["Algorithm", "Project"]
+    },
+    "information": {
+      "available": true,
+      "link": "https://en.wikipedia.org/wiki/Big_data"
+    },
+    "code": {
+      "available": true,
+      "link": "https://github.com/BenjaminTWP/Projects/tree/main/School/Masters%20Courses/Computational_Techniques_Big_Data"
+    },
+    "media": {
+      "type": "image",
+      "link": "/data/images/compTechAmdahls.png"
+    }
+  },
+  {
+    "title": "Design of AI Systems",
+    "description": "A collection of mini-projects that explores how well-known AI-systems work. The projects include: AI Problem Solving, Recommendation Systems, AI Tools, Diagnostic Systems, Semantic Segmentation, and more!",
+    "date": "2025-03",
+    "individual": true,
+    "tags": {
+      "language": ["Python"],
+      "type": ["AI", "Project"]
+    },
+    "information": {
+      "available": false,
+      "link": ""
+    },
+    "code": {
+      "available": true,
+      "link": "https://github.com/BenjaminTWP/DAT410_2025"
+    },
+    "media": {
+      "type": "image",
+      "link": "/data/images/designOfAiSystems.png"
+    }
+  },
+  {
   "title": "Design and Implementation of a Clinical Decision Support System (CDSS) for Fall Detection",
   "description": "The CDSS fall detection system were implemented in a course about applied digital health. During an 8 week period, I got to work as part of a team in order to program a single chip computer to send live time-series data to a local server. The data would then be processed and fed into a rule-based classifier which would classify if a person had fallen or not.",
   "date": "2025-03",

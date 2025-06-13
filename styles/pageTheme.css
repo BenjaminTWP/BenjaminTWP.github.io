@@ -42,10 +42,14 @@ nav ul li a {
 }
 
 footer {
+    position: relative;
     text-align: center;
-
-    margin: 0;
+    width: 100%;
+    padding-top: 2vh;
+    margin-top: auto;
+    clear: both;
 }
+
 
 .side-by-side {
     display: inline-block;

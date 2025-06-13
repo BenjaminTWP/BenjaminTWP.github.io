@@ -5,21 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/pageTheme.css">
     <link rel="stylesheet" href="/styles/fonts.css">
+    <link rel="stylesheet" href="/styles/modalPanel.css">
     <link rel="icon" type="image/png" href="/data/images/interestImages/webIcon.png"/>
     <script src="/global.js"></script>
     <title>RunMap</title>
 </head>
 <body>
-    <div class="wrapper">
-        <header>
-            <h1>RunMap</h1>
-            <nav><ul>
-                <li><a href="/pages/algorithmsVisualized.html"><u>Algorithms</u></a></li>
-                <li><a href="/index.html"><u>Home</u></a></li>
-                <li><a href="/pages/projects.html"><u>Projects</u></a></li>
-                <li><a aria-disabled="true" href="javascript:void(0)" onmouseover="this.style.cursor='default';">RunMap</a></li>
-            </ul></nav>
-        </header>
-    </div>
+    <header>
+        <h1>RunMap</h1>
+        <nav><ul>
+            <li><a href="/pages/algorithmsVisualized.html"><u>Algorithms</u></a></li>
+            <li><a href="/index.html"><u>Home</u></a></li>
+            <li><a href="/pages/projects.html"><u>Projects</u></a></li>
+            <li><a aria-disabled="true" href="javascript:void(0)" onmouseover="this.style.cursor='default';">RunMap</a></li>
+        </ul></nav>
+    </header>
+    <main style="margin-top: 8vh">
+        <div class="modal-content" style="height: 80%;">
+        </div>
+    </main>
+    <footer>
+        <p class="side-by-side" id="footerLastUpdated"></p>
+        <p class="side-by-side"><a href="https://github.com/BenjaminTWP/BenjaminTWP.github.io/activity" rel="noopener" target="_blank">GitHub Activity</a></p>
+    </footer>
+    <script id="index-functionality">
+        document.getElementById("footerLastUpdated").innerText = "Last updated " + LAST_UPDATE + ".";
+    </script>
 </body>
 </html>

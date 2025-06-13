@@ -1,5 +1,27 @@
 [
   {
+  "title": "Design and Implementation of a Clinical Decision Support System (CDSS) for Fall Detection",
+  "description": "The CDSS fall detection system were implemented in a course about applied digital health. During an 8 week period, I got to work as part of a team in order to program a single chip computer to send live time-series data to a local server. The data would then be processed and fed into a rule-based classifier which would classify if a person had fallen or not.",
+  "date": "2025-03",
+  "individual": false,
+  "tags": {
+    "language": ["Python", "C++", "JavaScript", "HTML", "CSS"],
+    "type": ["Project", "AI"]
+  },
+  "information": {
+    "available": true,
+    "link": "https://drive.google.com/file/d/1iIP6QdDEgj3mYHh7u0oc70HcArUD-HwP/view?usp=sharing"
+  },
+  "code": {
+    "available": true,
+    "link": "https://github.com/BenjaminTWP/EEN210_Project"
+  },
+  "media": {
+    "type": "image",
+    "link": "/data/images/een210Project.png"
+  }
+},
+  {
     "title": "Ant Colony Optimization Algorithm",
     "description": "As a part of a course in Stochastic Optimization Algorithms (FFR105), I implemented an Ant Colony Optimization Algorithm to solve the Traveling Salesman Problem (TSP).",
     "date": "2024-10",

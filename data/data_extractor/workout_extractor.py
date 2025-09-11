@@ -52,10 +52,44 @@ def workout_extractor():
                     workout["distance"].append(float(dist.text))
                     workout["heart_rate"].append(int(hr.text))
 
+            append_metadata_json(workout)
+
             out_name = os.path.join(output_dir, activity_id.replace(":", "-") + ".json")
             with open(out_name, "w", encoding="utf-8") as f:
                 json.dump(workout, f, indent=2)
 
             os.remove(filename)
+
+
+def append_metadata_json(workout):
+    meta_file = os.path.join(output_dir, "workout_metadata.json")
+
+    if os.path.exists(meta_file):
+        with open(meta_file, "r", encoding="utf-8") as f:
+            try:
+                meta = json.load(f)
+            except json.JSONDecodeError:
+                meta = []
+    else:
+        meta = []
+
+    if not workout["coordinates"] or not workout["heart_rate"]:
+        return
+
+    avg_hr = sum(workout["heart_rate"]) / len(workout["heart_rate"])
+
+    meta_entry = {
+        "date": workout["date"],
+        "type": workout["type"],
+        "average_heart_rate": round(avg_hr),
+        "start_coordinates": workout["coordinates"][0],
+        "end_coordinates": workout["coordinates"][-1]
+    }
+
+    meta.append(meta_entry)
+
+    with open(meta_file, "w", encoding="utf-8") as f:
+        json.dump(meta, f, indent=2)
+
 
 workout_extractor()

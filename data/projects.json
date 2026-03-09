@@ -1,4 +1,91 @@
-[
+[{
+    "title": "Collecting and Analyzing Exercise Data",
+    "description": "As a person who regularly exercise but also enjoy data science, I collect data and analyze my workouts for fun. The project is ongoing and have focused on applying a regression model for my running pace but also plotting my swimming pace. Take a look at the notebooks!",
+    "date": "2026-01",
+    "individual": true,
+    "tags": {
+      "language": ["Python"],
+      "type": ["Notebook", "Project"]
+    },
+    "information": {
+      "available": false,
+      "link": ""
+    },
+    "code": {
+      "available": true,
+      "link": "https://github.com/BenjaminTWP/My_Analysis/blob/main/exercise.ipynb"
+    },
+    "media": {
+      "type": "image",
+      "link": "/data/images/exercise_per_year.png"
+    }
+  },
+  {
+    "title": "Neural and Retrieval-Based NLP",
+    "description": "A collection of NLP projects covering both classical and modern approaches. The tasks include training RNN and transformer language models, topic modelling with Latent Dirichlet Allocation (LDA), building a retrieval-augmented generation (RAG) system, and applying LoRA for parameter-efficient post-training.",
+    "date": "2025-11",
+    "individual": false,
+    "tags": {
+      "language": ["Python"],
+      "type": ["Langchain", "Project"]
+    },
+    "information": {
+      "available": false,
+      "link": ""
+    },
+    "code": {
+      "available": true,
+      "link": "https://github.com/BenjaminTWP/dat450"
+    },
+    "media": {
+      "type": "image",
+      "link": "/data/images/natural_language_processing.png"
+    }
+  },
+  {
+    "title": "Probabilistic Methods for Machine Learning",
+    "description": "Projects exploring probabilistic approaches to machine learning. The work includes sampling methods such as Gibbs sampling, probabilistic classification with discriminant analysis, clustering methods, rating systems such as TrueSkill, and generative models including autoencoders and variational autoencoders.",
+    "date": "2025-10",
+    "individual": false,
+    "tags": {
+      "language": ["Python"],
+      "type": ["PyTorch", "Project", "Notebook"]
+    },
+    "information": {
+      "available": false,
+      "link": ""
+    },
+    "code": {
+      "available": true,
+      "link": "https://github.com/BenjaminTWP/Projects/tree/main/School/Masters%20Courses/Probabilistic_Machine_Learning"
+    },
+    "media": {
+      "type": "image",
+      "link": "/data/images/prob_ML.png"
+    }
+  },
+{
+    "title": "A Focus on Reinforcement Learning",
+    "description": "During my master’s studies I explored several core ideas in reinforcement learning. The projects ranged from fundamental concepts such as multi-armed bandits, to tabular reinforcement learning methods, and further into how deep learning architectures can be integrated with RL.",
+    "date": "2025-09",
+    "individual": false,
+    "tags": {
+      "language": ["Python"],
+      "type": ["Project"]
+    },
+    "information": {
+      "available": true,
+      "link": "https://en.wikipedia.org/wiki/Reinforcement_learning"
+    },
+    "code": {
+      "available": true,
+      "link": "https://github.com/BenjaminTWP/Projects/tree/main/School/Masters%20Courses/Reinforcement_Learning"
+    },
+    "media": {
+      "type": "image",
+      "link": "/data/images/reinforcement_learning.png"
+    }
+  },
   {
     "title": "NoSQL With a Focus on Graph Databases",
     "description": "Refactored a relational database into a graph database within the context of a course about advanced Databases. Consisted of improving an existing relational schema, creating ontologies, and then implementing a graph database in GraphDB and Neo4j.",

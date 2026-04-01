@@ -1,0 +1,404 @@
+/* ===========================
+   Exercise Map - Styles
+   =========================== */
+
+#map {
+    min-height: 70vh;
+    border-radius: 6px;
+}
+
+/* Info panel is added as a Leaflet control (see JS) */
+
+/* --- Mode Toggle --- */
+
+#mode-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 1rem;
+}
+
+.toggle-btn {
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    border: 2px solid #77C9D4;
+    background: transparent;
+    color: #77C9D4;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.toggle-btn:first-child {
+    border-radius: 6px 0 0 6px;
+}
+
+.toggle-btn:last-child {
+    border-radius: 0 6px 6px 0;
+    border-left: none;
+}
+
+.toggle-btn.active {
+    background: #77C9D4;
+    color: #1a1a2e;
+}
+
+.toggle-btn:hover:not(.active) {
+    background: rgba(119, 201, 212, 0.15);
+}
+
+/* --- Bike Marker Pin --- */
+
+.bike-marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #57A773;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    font-size: 16px;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.15s;
+}
+
+.bike-marker:hover {
+    transform: scale(1.2);
+}
+
+/* --- Route Start/End Labels --- */
+
+.route-label {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-align: center;
+    white-space: nowrap;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.start-label {
+    background: #57A773;
+    color: #fff;
+}
+
+.end-label {
+    background: #d94040;
+    color: #fff;
+}
+
+/* --- Marker Cluster Overrides --- */
+
+.marker-cluster-small {
+    background-color: rgba(87, 167, 115, 0.4);
+}
+.marker-cluster-small div {
+    background-color: rgba(87, 167, 115, 0.7);
+}
+
+.marker-cluster-medium {
+    background-color: rgba(87, 167, 115, 0.5);
+}
+.marker-cluster-medium div {
+    background-color: rgba(87, 167, 115, 0.8);
+}
+
+.marker-cluster-large {
+    background-color: rgba(87, 167, 115, 0.6);
+}
+.marker-cluster-large div {
+    background-color: rgba(87, 167, 115, 0.9);
+}
+
+.marker-cluster div {
+    color: #fff;
+    font-weight: 700;
+}
+
+/* --- Info Panel (bottom-right overlay) --- */
+
+.info-panel {
+    min-width: 220px;
+    max-width: 260px;
+    background: rgba(20, 20, 35, 0.92);
+    border: 1px solid rgba(119, 201, 212, 0.3);
+    border-radius: 8px;
+    padding: 1rem;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    transition: opacity 0.25s, transform 0.25s;
+}
+
+.info-panel.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+}
+
+.info-panel h3 {
+    margin: 0 0 0.6rem 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #77C9D4;
+    border-bottom: 1px solid rgba(119, 201, 212, 0.25);
+    padding-bottom: 0.4rem;
+}
+
+.info-panel .stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2rem 0;
+    font-size: 0.85rem;
+}
+
+.info-panel .stat-label {
+    color: #999;
+}
+
+.info-panel .stat-value {
+    font-weight: 600;
+    color: #e0e0e0;
+}
+
+.info-panel .close-btn {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 2px 6px;
+    line-height: 1;
+}
+
+.info-panel .close-btn:hover {
+    color: #fff;
+}
+
+/* --- Settings Control (top-right of map) --- */
+
+.settings-control {
+    position: relative;
+}
+
+.settings-gear {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    border: 1px solid rgba(119, 201, 212, 0.3);
+    background: rgba(20, 20, 35, 0.92);
+    color: #77C9D4;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.settings-gear:hover {
+    background: rgba(30, 30, 50, 0.95);
+}
+
+.settings-panel {
+    display: none;
+    position: absolute;
+    top: 42px;
+    right: 0;
+    min-width: 200px;
+    max-height: 60vh;
+    overflow-y: auto;
+    background: rgba(20, 20, 35, 0.95);
+    border: 1px solid rgba(119, 201, 212, 0.3);
+    border-radius: 8px;
+    padding: 0.75rem;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.settings-control.open .settings-panel {
+    display: block;
+}
+
+.settings-section {
+    margin-top: 0.7rem;
+    padding-top: 0.7rem;
+    border-top: 1px solid rgba(119, 201, 212, 0.15);
+}
+
+#heatmap-style-section {
+    display: none;
+}
+
+.settings-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
+}
+
+/* Horizontal button group (Pins / Heatmap) */
+.settings-toggle-group {
+    display: flex;
+    gap: 0;
+}
+
+/* Vertical button group (heatmap styles) */
+.settings-toggle-group.vertical {
+    flex-direction: column;
+}
+
+.setting-btn {
+    flex: 1;
+    padding: 0.35rem 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid rgba(119, 201, 212, 0.4);
+    background: transparent;
+    color: #77C9D4;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+/* Horizontal group: round left/right edges */
+.settings-toggle-group:not(.vertical) .setting-btn:first-child {
+    border-radius: 4px 0 0 4px;
+}
+
+.settings-toggle-group:not(.vertical) .setting-btn:last-child {
+    border-radius: 0 4px 4px 0;
+    border-left: none;
+}
+
+/* Vertical group: round top/bottom edges */
+.settings-toggle-group.vertical .setting-btn:first-child {
+    border-radius: 4px 4px 0 0;
+}
+
+.settings-toggle-group.vertical .setting-btn:last-child {
+    border-radius: 0 0 4px 4px;
+}
+
+.settings-toggle-group.vertical .setting-btn + .setting-btn {
+    border-top: none;
+}
+
+.setting-btn.active {
+    background: #77C9D4;
+    color: #1a1a2e;
+}
+
+.setting-btn:hover:not(.active) {
+    background: rgba(119, 201, 212, 0.15);
+}
+
+/* --- Filter Sliders (dual-range) --- */
+
+.filter-row {
+    margin-top: 0.5rem;
+}
+
+.filter-row + .filter-row {
+    margin-top: 0.6rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(119, 201, 212, 0.1);
+}
+
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.35rem;
+}
+
+.filter-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #ccc;
+}
+
+.filter-range-display {
+    font-size: 0.7rem;
+    color: #77C9D4;
+    font-weight: 600;
+}
+
+/* Wrapper that stacks two range inputs on one track */
+.dual-range-wrap {
+    position: relative;
+    height: 20px;
+}
+
+/* Background track */
+.dual-range-track {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    margin-top: -2px;
+    background: rgba(119, 201, 212, 0.15);
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+/* Colored fill between the two thumbs */
+.dual-range-fill {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: #77C9D4;
+    border-radius: 2px;
+}
+
+/* Both range inputs sit on top of each other */
+.dual-range-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    pointer-events: none;    /* let clicks pass through to the track */
+    outline: none;
+}
+
+/* Only the thumb is clickable */
+.dual-range-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #77C9D4;
+    border: 2px solid #1a1a2e;
+    cursor: pointer;
+    pointer-events: auto;    /* re-enable clicks on the thumb itself */
+    position: relative;
+    z-index: 2;
+}
+
+.dual-range-input::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #77C9D4;
+    border: 2px solid #1a1a2e;
+    cursor: pointer;
+    pointer-events: auto;
+}

@@ -1,0 +1,9 @@
+# This folder should not be on github now
+.idea/
+# Default ignored files
+/shelf/
+/.idea/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# tcx files
+*.tcx*

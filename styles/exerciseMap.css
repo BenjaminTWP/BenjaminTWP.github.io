@@ -23,9 +23,9 @@
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: 0.03em;
-    border: 2px solid #77C9D4;
+    border: 2px solid #A5A5AF;
     background: transparent;
-    color: #77C9D4;
+    color: #000000;
     cursor: pointer;
     transition: background 0.2s, color 0.2s;
 }
@@ -40,7 +40,7 @@
 }
 
 .toggle-btn.active {
-    background: #77C9D4;
+    background: #57BC90;
     color: #1a1a2e;
 }
 
